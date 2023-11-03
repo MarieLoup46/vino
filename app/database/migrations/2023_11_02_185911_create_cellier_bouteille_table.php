@@ -17,10 +17,11 @@ class CreateCellierBouteilleTable extends Migration
             $table->id();
             $table->unsignedBigInteger('cellier_id');
             $table->unsignedBigInteger('bouteille_id');
+            $table->integer('quantite');
+            $table->timestamps();
 
             $table->foreign('cellier_id')->references('id')->on('celliers');
             $table->foreign('bouteille_id')->references('id')->on('bouteilles');
-            $table->timestamps();
         });
     }
 

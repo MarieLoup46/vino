@@ -104,13 +104,11 @@ class BouteilleController extends Controller
         $produits->each(function(Crawler $produit) {
             echo $produit->html();
         });
-        echo "<ul>";
-        echo "<li><a href='". route("listeProduits", 1) . "'>1</a></li>";
-        echo "<li><a href='". route("listeProduits", 2) . "'>2</a></li>";
-        echo "<li><a href='". route("listeProduits", 3) . "'>3</a></li>";
-        echo "<li><a href='". route("listeProduits", 4) . "'>4</a></li>";
-        echo "<li><a href='". route("listeProduits", 5) . "'>5</a></li>";
-        echo "</ul>";
+
+        for ($i = 1; $i <= 30; $i++) {
+            echo "<li><a href='". route("listeProduits", $i) . "'>$i</a></li>";
+        }
+
     }
     
 }

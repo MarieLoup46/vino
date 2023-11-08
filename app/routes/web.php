@@ -19,4 +19,8 @@ Route::get('/', function () {
 });
 
 
-Route::get('liste-produits/{page}', [BouteilleController::class, 'getProduits'])->name('listeProduits');
+Route::get('get-bouteilles', [BouteilleController::class, 'getBouteilles'])->name('getBouteilles');
+
+
+
+

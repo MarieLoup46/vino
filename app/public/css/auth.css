@@ -1,0 +1,137 @@
+@import url('global.css');
+
+.auth__container{
+    background-image: url('/img/vin.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.auth__header {
+    display: flex;
+    justify-content: center;
+    align-item: center;
+    margin-top: 80px;
+}
+
+.auth__header-title {
+    font-family: var(--font-vino);
+    font-size: var(--big-font-size);
+    font-weight: var(--weight-700);
+    color: white;
+}
+
+.auth__row {
+    display: flex;
+    justify-content: center;
+}
+
+.auth__col {
+    flex: 0.5;
+    padding: 35px;
+}
+
+.auth__form-container {
+    margin-bottom: 180px;
+}
+
+.auth__form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth__form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.auth__form-group > label {
+    color: white;
+    font-family: var(--font-vino);
+    font-size: var(--tiny-font-size);
+}
+
+.auth__form-group > input {
+    background: var(--form-field);
+    color: white;
+    border-radius: 8px;
+    border: none;
+    padding: 20px;
+}
+
+.auth__form-pwdforgot {
+    display: flex;
+    align-item: center;
+    justify-content: center;
+}
+
+.auth__form-pwdforgot > a {
+    color: white;
+    font-family: var(--font-vino);
+    font-size: var(--tiny-font-size);
+}
+
+.auth__footer-message {
+    display: flex;
+    align-item: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.auth__footer-message > small {
+    color: white;
+    font-family: var(--font-vino);
+    font-size: var(--tiny-font-size);
+}
+
+.auth__footer-message > a {
+    color: white;
+    font-family: var(--font-vino);
+    font-size: var(--tiny-font-size);
+}
+
+.auth__btn-login{
+    background: var(--color-button);
+    color: white;
+    border-radius: 8px;
+    border: none;
+    height: 54px;
+    width: 100%;
+    margin-top: 10px;
+    font-family: var(--font-vino);
+    font-size: var(--small-font-size);
+    font-weight: var(--weight-500);
+}
+
+.auth__btn-login:hover {
+    background: white;
+    color: var(--color-button);
+    border: 2px solid var(--color-button);
+}
+
+@media (max-width: 767px) {
+    .auth__col {
+        flex: 1;
+    }
+
+    .auth__form-container {
+        margin-bottom: 60px;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .auth__col {
+        flex: 0.6;
+    }
+
+    .auth__form-container {
+        margin-bottom: 150px;
+    }
+}

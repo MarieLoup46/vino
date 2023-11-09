@@ -20,3 +20,5 @@ Route::get('/', function () {
 
 
 Route::get('liste-produits/{page}', [BouteilleController::class, 'getProduits'])->name('listeProduits');
+
+Route::get('/user-list', [UserController::class, 'userList'])->name('user.list');

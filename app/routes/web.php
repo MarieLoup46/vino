@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BouteilleController;
+use App\Http\Controllers\CellierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,7 @@ Route::get('/', function () {
 
 
 Route::get('liste-produits/{page}', [BouteilleController::class, 'getProduits'])->name('listeProduits');
+
+Route::get('/cellier/ajouter', [CellierController::class, 'create'])->name('cellier.create');
+
+Route::post('/cellier', [CellierController::class, 'store'])->name('cellier.store');

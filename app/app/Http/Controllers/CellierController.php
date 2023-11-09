@@ -24,7 +24,7 @@ class CellierController extends Controller
      */
     public function create()
     {
-        //
+        return view('cellier.create');
     }
 
     /**
@@ -35,7 +35,13 @@ class CellierController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nom' => 'required|max:255',
+        ]);
+        $validatedData['user_id'] = 1;
+        //print_r($validatedData);die(); 
+        Cellier::create($validatedData);
+        return redirect()->route('cellier.create')->with('success', 'Cellier créé avec succès!');
     }
 
     /**

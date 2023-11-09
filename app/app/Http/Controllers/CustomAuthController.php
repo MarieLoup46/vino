@@ -132,9 +132,7 @@ class CustomAuthController extends Controller
     }
 
     public function userList(){
-        $users = User::Select();
-
-        var_dump($users);
+        $users = User::all();
 
         // modifier le "auth" selon le nom de dossier que Jacqueline aura donné
         return view('auth.user-list', ['users' => $users]);

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BouteilleController;
+use App\Http\Controllers\CustomAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,9 @@ Route::get('/', function () {
 Route::get('liste-produits/{page}', [BouteilleController::class, 'getProduits'])->name('listeProduits');
 
 Route::get('/user-list', [UserController::class, 'userList'])->name('user.list');
+Route::get('/registration', [CustomAuthController::class, 'create'])->name('user.create');
+Route::post('/registration', [CustomAuthController::class, 'store']);
+Route::get('/login', [CustomAuthController::class, 'index'])->name('login');
+Route::post('/login', [CustomAuthController::class, 'authentication']);
+Route::get('/accueil', [CustomAuthController::class, 'accueil'])->name('accueil');
+Route::get('/logout', [CustomAuthController::class, 'logout'])->name('logout');

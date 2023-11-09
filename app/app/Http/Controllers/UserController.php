@@ -82,13 +82,4 @@ class UserController extends Controller
     {
         //
     }
-
-    public function userList(){
-        $users = User::Select();
-
-        var_dump($users);
-
-        // modifier le "auth" selon le nom de dossier que Jacqueline aura donné
-        return view('auth.user-list', ['users' => $users]);
-    }
 }

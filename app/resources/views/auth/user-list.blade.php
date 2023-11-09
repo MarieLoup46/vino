@@ -19,21 +19,27 @@
                         <th class="auth_user-list_th">Id</th>
                         <th class="auth_user-list_th">Nom</th>
                         <th class="auth_user-list_th">Prénom</th>
-                        <th class="auth_user-list_th">Supprimer</th>
+                        <th class="auth_user-list_th"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- Affiche les utilisateurs -->
-                    @foreach($users as $user)
+                    @forelse($users as $user)
                         <tr>
                             <td class="auth_user-list_td">{{ $user->id }}</td>
                             <td class="auth_user-list_td">{{ $user->nom }}</td>
                             <td class="auth_user-list_td">{{ $user->prenom }}</td>
                             <td class="auth_user-list_td">
-                                supprimer
+                            <form action="{{ route('user.delete', $user->id) }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <input class="auth_user-list_btn" type="submit" value="supprimer">
+                            </form>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <td class="auth_user-list_td" colspan="4">Aucun usagé disponible</td>
+                    @endforelse
                 </tbody>
             </table>
         </div>

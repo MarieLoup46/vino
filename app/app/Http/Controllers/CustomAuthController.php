@@ -96,7 +96,11 @@ class CustomAuthController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        $users = User::all();
+
+        return view('auth.user-list', ['users' => $users]);
     }
 
 

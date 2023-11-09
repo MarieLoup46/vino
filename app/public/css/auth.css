@@ -14,7 +14,7 @@
 .auth__header {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-item: center;
     margin-top: 80px;
 }
 
@@ -37,12 +37,20 @@
 }
 
 .auth_user-list_th {
-    width: 100px;
+    width: 125px;
     font-size: var(--large-font-size);
 }
 
 .auth_user-list_td {
     text-align: center;
+    padding: 15px;
+}
+
+.auth_user-list_btn {
+    width: 75px;
+    padding: 3px 3px;
+    background-color: var(--color-button);
+    color: white;
 }
 
 .auth__row {

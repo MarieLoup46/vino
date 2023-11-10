@@ -19,16 +19,28 @@
             @endif
 
                 <div class="text-center text-italic mb-4">
-                    <h3>Ajouter un Cellier</h3>
+                    <h3>Mes celliers</h3>
                 </div>
 
-            <form action="{{ route('cellier.store') }}" method="POST">
+            <form action="{{ route('cellier.update', $cellier->id) }}" method="POST">
+                @method('PUT')
                 @csrf
                 <div class="form-group mb-3">
                     <label for="nomDuCellier" class="mb-0">Nom du cellier:</label>
-                    <input placeholder="EX: MAISON" type="text" class="form-control mt-1" id="nom" name="nom" required>
+                    <input placeholder="EX: MAISON" type="text" class="form-control mt-1" id="nom" name="nom" value="{{ old('nom', $cellier->nom) }}">
                 </div>
-                <button type="submit" class="btn-submit">Créer un cellier</button>
+
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn-submit">Modifier cellier</button>
+                </div>
+            </form>
+
+                <hr class="mt-3 mb-3">
+
+            <form action="{{ route('cellier.destroy', $cellier->id) }}" method="POST">
+                @method('DELETE')
+                @csrf
+                <button type="submit" class="btn-submit">Supprimer cellier</button>
             </form>
         </div>
     </div>

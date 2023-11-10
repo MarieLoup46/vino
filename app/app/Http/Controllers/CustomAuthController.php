@@ -96,7 +96,11 @@ class CustomAuthController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        $users = User::all();
+
+        return view('auth.user-list', ['users' => $users]);
     }
 
 
@@ -131,4 +135,10 @@ class CustomAuthController extends Controller
         return redirect(route('login'));
     }
 
+    public function userList(){
+        $users = User::all();
+
+        // modifier le "auth" selon le nom de dossier que Jacqueline aura donné
+        return view('auth.user-list', ['users' => $users]);
+    }
 }

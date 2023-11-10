@@ -28,3 +28,6 @@ Route::get('/login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('/login', [CustomAuthController::class, 'authentication']);
 Route::get('/accueil', [CustomAuthController::class, 'accueil'])->name('accueil');
 Route::get('/logout', [CustomAuthController::class, 'logout'])->name('logout');
+Route::get('/user-list', [CustomAuthController::class, 'userList'])->name('user.list');
+Route::delete('/user-list/{user}', [CustomAuthController::class, 'destroy'])->name('user.delete');
+

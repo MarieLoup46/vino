@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bouteille;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 
@@ -13,9 +14,19 @@ class BouteilleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //Fonction qui permet de afficher les bouteilles a partir de la base de donnes 
     public function index()
     {
-        //
+        
+        $bouteilles = Bouteille::orderBy('id','desc')->get();
+        $types = Type::all();
+        foreach($bouteilles as $bouteille){
+            $type_id = $bouteille->type_id;
+            $bouteille->type_id = $types->find($type_id)->type;
+        }
+        return view('bouteille.index',[
+            'bouteilles' => $bouteilles
+        ]);
     }
 
     /**

@@ -1,20 +1,24 @@
  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+}
 
 :root{
 
 /*Colors*/
 
- --color-button:hsl(352, 52, 21);
+ --color-button: hsl(352, 52%, 21%);
 
- --color-footer: hsl(352, 52, 21);
+ --color-footer: hsl(352, 52%, 21%);
 
- --wine-component: hsl(351,82,37);
+ --wine-component: hsl(351,82%,37%);
 
- --wine-name: hsl(351,82,37);
+ --wine-name: hsl(351,82%,37%);
 
- --wine-info: hsl(355,70,37);
+ --wine-info: hsl(355,70%,37%);
 
- --form-field: hsl(228,4,54);
+ --form-field: hsl(228,4%,54%);
 
 
  /* Font and Typography */

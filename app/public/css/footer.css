@@ -1,0 +1,20 @@
+@import url('global.css');
+
+/* Style de pied de page */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8%;
+    background-color: var(--color-footer);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Style d'icône */
+.footer-icon {
+    color: #fff;
+    font-size: 24px;
+}

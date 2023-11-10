@@ -1,0 +1,46 @@
+@import url('global.css');
+
+.accueil__container{
+    background: linear-gradient(to bottom, #000, #fff);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.accueil__header{
+    display: flex;
+    flex: 0.5;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.accueil__header-title{
+    color: white;
+    font-family: var(--font-vino);
+    font-size: var(--h2-font-size);
+    font-weight: var(--weight-600);
+    font-style: italic;
+}
+
+.accueil__header-button{
+    background-color: var(--color-button);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    cursor: pointer;
+}
+
+.accueil__header-button > a{
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-family: var(--font-vino);
+    font-size: var(--small-font-size);
+    font-weight: var(--weight-500);
+    text-transform: uppercase;
+}

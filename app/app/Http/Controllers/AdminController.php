@@ -86,14 +86,17 @@ class AdminController extends Controller
         //
     }
 
+    //ajouter la view
     public function FormAjoutBouteilles(){
         return view('admin.formAjoutBouteilles');
     }
+    //importer les input du formulaire pour l'ajouter comme des paramétres dans getBouteilles
     public function AjoutBouteilles(Request $request){
         self::getBouteilles($request->input("page"),$request->input("nombre"));
-        return redirect(route('FormAjoutBouteilles')); 
+        return redirect(route('FormAjoutBouteilles'))->withSuccess("nouveaux bouteilles sont ajoutées");
     }
 
+    //importer les bouteilles à partir de l'api du SAQ
     public function getBouteilles($nbePages = 10, $bouteilleParPage = 24){
         //une classe prédéfinie dans la librerie GuzzleHttp
         //verify: pour la vérification de la certificat SSL du serveur qui a déja connecté
@@ -110,6 +113,10 @@ class AdminController extends Controller
             $crawler = new Crawler($response);
             $produits = $crawler->filter('li.product-item');
             $produits->each(function(Crawler $produit) {
+                //code
+                $code = $produit->filter('.saq-code span:last-child')->text();
+                $produit_existe = Bouteille::where("code_saq",$code)->exists();
+                if($produit_existe) return;
                 //nom
                 $nom = $produit->filter('.product.name.product-item-name')->text();
                 //code

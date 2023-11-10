@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bouteille;
+use App\Models\Type;
 use Illuminate\Http\Request;
-use GuzzleHttp\Client;
-use Symfony\Component\DomCrawler\Crawler;
 
 
 class BouteilleController extends Controller
@@ -15,9 +14,19 @@ class BouteilleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //Fonction qui permet de afficher les bouteilles a partir de la base de donnes 
     public function index()
     {
-        //
+        
+        $bouteilles = Bouteille::orderBy('id','desc')->get();
+        $types = Type::all();
+        foreach($bouteilles as $bouteille){
+            $type_id = $bouteille->type_id;
+            $bouteille->type_id = $types->find($type_id)->type;
+        }
+        return view('bouteille.index',[
+            'bouteilles' => $bouteilles
+        ]);
     }
 
     /**
@@ -87,28 +96,6 @@ class BouteilleController extends Controller
     }
     
 
-    public function getProduits($page){
-        //une classe prédéfinie dans la librerie GuzzleHttp
-        //verify: pour la vérification de la certificat SSL du serveur qui a déja connecté
-        //lien de la certificat: https://curl.se/docs/caextract.html
-        $client = new Client([
-            'verify' => storage_path('cacert-2023-08-22.pem'),
-        ]);
-        //web scraping: recevoir les données de l'api saq
-        $request = $client->get("https://www.saq.com/fr/produits/vin/vin-rouge?p=".$page."&product_list_limit=24&product_list_order=name_asc");
-        //body de la réponse
-        $response = $request->getBody();
-        //Crawler est une bibliothèque qui facilite l'analyse et la manipulation de documents HTML.
-        $crawler = new Crawler($response);
-        $produits = $crawler->filter('li.product-item');
-        $produits->each(function(Crawler $produit) {
-            echo $produit->html();
-        });
 
-        for ($i = 1; $i <= 30; $i++) {
-            echo "<li><a href='". route("listeProduits", $i) . "'>$i</a></li>";
-        }
-
-    }
     
 }

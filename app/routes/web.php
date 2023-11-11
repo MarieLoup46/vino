@@ -35,7 +35,7 @@ Route::get('/registration', [CustomAuthController::class, 'create'])->name('user
 Route::post('/registration', [CustomAuthController::class, 'store']);
 Route::get('/login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('/login', [CustomAuthController::class, 'authentication']);
-Route::get('/accueil', [CustomAuthController::class, 'accueil'])->name('accueil');
+Route::get('/accueil', [CustomAuthController::class, 'accueil'])->name('accueil')->middleware('auth');
 Route::get('/logout', [CustomAuthController::class, 'logout'])->name('logout');
 
 

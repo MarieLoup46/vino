@@ -1,0 +1,4 @@
+h3 {
+    color: var(--wine-info);
+    font-size: var(--h3-font-size);
+}

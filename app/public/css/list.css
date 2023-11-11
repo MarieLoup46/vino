@@ -1,9 +1,0 @@
-.list {
-
-}
-
-.list .item {background: #d9d9d9;border: 1px solid var(--wine-component);border-radius: 5px;}
-
-.list .item span {display: block;font-size: var(--small-font-size);color: var(--wine-component);margin-bottom: -2px;}
-
-.list .item small {font-size: var(--tiny-font-size);}

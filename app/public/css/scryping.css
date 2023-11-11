@@ -1,0 +1,29 @@
+.auth__form-group > select {
+    background: var(--form-field);
+    color: white;
+    border-radius: 8px;
+    border: none;
+    padding: 20px;
+}
+.scryping__container{
+    background: linear-gradient(to bottom, #000, #fff);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.alert-success {
+    color: green;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    text-align: center;
+    padding: 20px;
+  }
+

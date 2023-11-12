@@ -2,6 +2,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Inter', sans-serif;
 }
 
 :root{
@@ -9,6 +10,8 @@
 /*Colors*/
 
  --color-button: hsl(352, 52%, 21%);
+
+ --color-button-secondary: hsl(0, 0%, 85%);
 
  --color-footer: hsl(352, 52%, 21%);
 
@@ -18,7 +21,13 @@
 
  --wine-info: hsl(355,70%,37%);
 
- --form-field: hsl(228,4%,54%);
+ --form-field: hsla(228,4%,54%,0.4);
+
+ --border-primary: hsl(351, 82%, 37%);
+
+ --border-secondary: hsl(353, 52%, 21%);
+
+ --background-item: hsl(0, 15%, 95%);
 
 
  /* Font and Typography */
@@ -43,10 +52,13 @@
   --weight-600:600;
   --weight-700:700;
   --weight-800:800;
-
 }
 
+ .text-center {
+     text-align: center;
+ }
 
-
-
+ .text-italic {
+     font-style: italic;
+ }
 

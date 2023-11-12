@@ -1,7 +1,7 @@
 @import url('global.css');
 
 .auth__container{
-    background-image: url('/img/vin.jpg');
+    background-image: url('/img/vin.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -9,6 +9,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden;
 }
 
 .auth__header {
@@ -22,6 +23,34 @@
     font-family: var(--font-vino);
     font-size: var(--big-font-size);
     font-weight: var(--weight-700);
+    color: white;
+}
+
+.auth_header_u-list-title {
+    font-family: var(--font-vino);
+    font-size: var(--h1-font-size);
+    font-weight: var(--weight-700);
+    color: var(--wine-component);
+}
+
+.auth_user-list {
+    margin: 50px 100px 50px 100px;
+}
+
+.auth_user-list_th {
+    width: 125px;
+    font-size: var(--large-font-size);
+}
+
+.auth_user-list_td {
+    text-align: center;
+    padding: 15px;
+}
+
+.auth_user-list_btn {
+    width: 75px;
+    padding: 3px 3px;
+    background-color: var(--color-button);
     color: white;
 }
 

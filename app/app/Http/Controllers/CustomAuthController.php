@@ -100,7 +100,7 @@ class CustomAuthController extends Controller
 
         $users = User::all();
 
-        return view('auth.user-list', ['users' => $users]);
+        return view('auth.admin-user-list', ['users' => $users]);
     }
 
 
@@ -136,9 +136,9 @@ class CustomAuthController extends Controller
     }
 
     public function userList(){
-        $users = User::all();
+        $users = User::orderBy('id')->get();
 
         // modifier le "auth" selon le nom de dossier que Jacqueline aura donné
-        return view('auth.user-list', ['users' => $users]);
+        return view('auth.admin-user-list', ['users' => $users]);
     }
 }

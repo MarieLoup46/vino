@@ -52,7 +52,7 @@ Route::get('/logout', [CustomAuthController::class, 'logout'])->name('logout');
 
 Route::get('/recherche', [BouteilleController::class, 'index'])->name('bouteille.index');
 
-Route::get('/user-list', [CustomAuthController::class, 'userList'])->name('user.list');
-Route::delete('/user-list/{user}', [CustomAuthController::class, 'destroy'])->name('user.delete');
+Route::get('/admin-user-list', [CustomAuthController::class, 'userList'])->name('user.list');
+Route::delete('/admin-user-list/{user}', [CustomAuthController::class, 'destroy'])->name('user.delete');
 
 

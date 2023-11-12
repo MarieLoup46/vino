@@ -22,7 +22,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/get-bouteilles', [BouteilleController::class, 'getBouteilles'])->name('getBouteilles');
+Route::get('/get-bouteilles', [AdminController::class, 'getBouteilles'])->name('getBouteilles');
 Route::get('/ajouter-bouteilles', [AdminController::class, 'FormAjoutBouteilles'])->name('FormAjoutBouteilles');
 Route::post('/ajouter-bouteilles', [AdminController::class, 'AjoutBouteilles'])->name('AjoutBouteilles');
 
@@ -30,7 +30,7 @@ Route::post('/ajouter-bouteilles', [AdminController::class, 'AjoutBouteilles'])-
 
 
 
-Route::get('liste-produits/{page}', [BouteilleController::class, 'getProduits'])->name('listeProduits');
+//Route::get('liste-produits/{page}', [BouteilleController::class, 'getProduits'])->name('listeProduits');
 
 Route::get('/celliers', [CellierController::class, 'index'])->name('cellier.index');
 Route::get('/cellier/ajouter', [CellierController::class, 'create'])->name('cellier.create');

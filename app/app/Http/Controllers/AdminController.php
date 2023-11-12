@@ -106,7 +106,7 @@ class AdminController extends Controller
         ]);
         for($page = 1; $page <= $nbePages; $page++){
             //web scraping: recevoir les données de l'api saq
-            $request = $client->get("https://www.saq.com/fr/produits/vin/vin-rouge?p=".$page."&product_list_limit=". $bouteilleParPage ."&product_list_order=name_asc");
+            $request = $client->get("https://www.saq.com/fr/produits/vin?p=".$page."&product_list_limit=". $bouteilleParPage ."&product_list_order=name_asc");
             //body de la réponse
             $response = $request->getBody();
             //Crawler est une bibliothèque qui facilite l'analyse et la manipulation de documents HTML.
@@ -128,6 +128,7 @@ class AdminController extends Controller
                 //type, format, pays
                 $identite = $produit->filter(".product.product-item-identity-format span")->text();
                 $type = explode("|", $identite)[0];
+                $type = trim($type);
                 if($type == "Vin blanc")
                     $type = 1;
                 elseif ($type == "Vin rouge")

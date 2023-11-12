@@ -21,15 +21,13 @@ Route::get('/', function () {
 });
 
 
-Route::get('/get-bouteilles', [BouteilleController::class, 'getBouteilles'])->name('getBouteilles');
+Route::get('/get-bouteilles', [AdminController::class, 'getBouteilles'])->name('getBouteilles');
 Route::get('/ajouter-bouteilles', [AdminController::class, 'FormAjoutBouteilles'])->name('FormAjoutBouteilles');
 Route::post('/ajouter-bouteilles', [AdminController::class, 'AjoutBouteilles'])->name('AjoutBouteilles');
 
 
 
 
-
-Route::get('liste-produits/{page}', [BouteilleController::class, 'getProduits'])->name('listeProduits');
 
 Route::get('/registration', [CustomAuthController::class, 'create'])->name('user.create');
 Route::post('/registration', [CustomAuthController::class, 'store']);

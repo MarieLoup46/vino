@@ -30,7 +30,7 @@ Route::post('/ajouter-bouteilles', [AdminController::class, 'AjoutBouteilles'])-
 
 
 
-Route::get('liste-produits/{page}', [BouteilleController::class, 'getProduits'])->name('listeProduits');
+//Route::get('liste-produits/{page}', [BouteilleController::class, 'getProduits'])->name('listeProduits');
 
 Route::get('/celliers', [CellierController::class, 'index'])->name('cellier.index');
 Route::get('/cellier/ajouter', [CellierController::class, 'create'])->name('cellier.create');

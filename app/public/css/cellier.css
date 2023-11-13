@@ -1,0 +1,166 @@
+@import url("global.css");
+
+/*create.blade.php*/
+.create-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create-title {
+    color: var(--wine-name); 
+    font-size: var(--h3-font-size);
+    font-weight: var(--weight-700);
+    font-style: italic;
+    padding: 53px;
+}
+
+.form-group label {
+    display: block;
+    color: var(--form-field);
+    font-size: var(--tiny-font-size);
+}
+
+.form-group input[type="text"],
+.btn-submit {
+    box-sizing: border-box;
+    font-size: var(--normal-font-size);
+    border: 1px solid var(--wine-name);
+    border-radius: 8px;
+    background-color: hsla(0, 15%, 95%, 1);
+    padding: 16px;
+    margin-bottom: 1rem;
+    margin-top: 0.25rem;
+    cursor: pointer;
+    width: 330px;
+}
+
+.btn-submit {
+    color: rgba(255, 255, 255, 1);
+    background-color: var(--color-button);
+    font-size: var(--tiny-font-size);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    margin-top: 0.25rem;
+    cursor: pointer;
+    padding: 16px;
+}
+
+
+
+
+/* index.blade.php */
+.cellier-row {
+    padding: 10px; 
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cellier-title {
+    font-size: var(--h3-font-size);
+    font-weight: var(--weight-600);
+    color: var(--wine-name);
+    text-align: center; 
+    font-style: italic; 
+    margin: 1rem 0; 
+}
+
+.cellier-add-button {
+    background-color: var(--color-button); 
+    font-size: var(--tiny-font-size);
+    font-weight: var(--weight-300);
+    color: hsla(0, 0%, 100%, 1);
+    border: none;
+    border-radius: 15px;
+    padding: 10px 70px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 2rem; 
+    margin-left: 7rem;
+}
+
+.cellier-list .cellier-item {
+    background-color: hsla(0, 15%, 95%, 1);
+    border: 1px solid var(--wine-info);
+    border-radius: 8px;
+    padding: 10px;
+    width: 450px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative; 
+    margin-bottom: 1rem; 
+}
+
+.cellier-item-image {
+    margin-right: 10px; 
+}
+
+.cellier-item-action {
+    position: absolute;
+    right: 10px; 
+    bottom: 10px;
+}
+
+.cellier-item-info {
+    display: flex; /* Isso define a div para usar o layout de Flexbox */
+    flex-direction: column;
+}
+
+.cellier-item-info span {
+    flex-direction: column;
+    font-weight: var(--weight-600);
+    color: var(--wine-name);
+}
+
+.cellier-item-info small {
+    font-size: var(--small-font-size);
+    color: var(--form-field);
+}
+
+
+
+
+/* Modifier et suprimier cellier */
+.row-edit {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    width: 100%; 
+    height: 100vh; 
+}
+
+.form-group,
+.d-flex,
+form {
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.modifier h3 {
+    color: var(--wine-name); 
+    font-size: var(--h3-font-size);
+    font-weight: var(--weight-700);
+    font-style: italic; 
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.form-group label {
+    font-size: 16px; 
+    margin-bottom: 1rem;
+}
+
+.btn-submit {
+    margin-top: 1rem; 
+    align-self: center;
+    background-color: var(--color-button);
+    font-size: var(--small-font-size);
+}

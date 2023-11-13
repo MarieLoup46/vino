@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="row">
+    <div class="create-container">
         <div class="mx-5 mt-5">
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -18,17 +18,17 @@
                 </div>
             @endif
 
-                <div class="text-center text-italic mb-4">
+                <div class="create-title">
                     <h3>Ajouter un Cellier</h3>
                 </div>
 
             <form action="{{ route('cellier.store') }}" method="POST">
                 @csrf
-                <div class="form-group mb-3">
-                    <label for="nomDuCellier" class="mb-0">Nom du cellier:</label>
+                <div class="form-group">
+                    <label for="nomDuCellier" class="mb-0">NOM DU CELLIER:</label>
                     <input placeholder="EX: MAISON" type="text" class="form-control mt-1" id="nom" name="nom" required>
                 </div>
-                <button type="submit" class="btn-submit">Créer un cellier</button>
+                <button type="submit" class="btn-submit">CRÉER UN CELLIER</button>
             </form>
         </div>
     </div>

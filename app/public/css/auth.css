@@ -1,7 +1,7 @@
 @import url('global.css');
 
 .auth__container{
-    background-image: url('/img/vin.jpg');
+    background-image: url('/img/vin.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -9,6 +9,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden;
 }
 
 .auth__header {
@@ -33,7 +34,10 @@
 }
 
 .auth_user-list {
-    margin: 50px 100px 50px 100px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin: 50px 50px;
 }
 
 .auth_user-list_th {
@@ -47,10 +51,13 @@
 }
 
 .auth_user-list_btn {
-    width: 75px;
-    padding: 3px 3px;
+    width: 100px;
+    padding: 5px 5px;
     background-color: var(--color-button);
     color: white;
+    border-radius: 8px;
+    font-size: var(--smaller-font-size);
+    font-weight: var(--weight-500);
 }
 
 .auth__row {

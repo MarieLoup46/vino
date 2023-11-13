@@ -22,7 +22,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/get-bouteilles', [BouteilleController::class, 'getBouteilles'])->name('getBouteilles');
+Route::get('/get-bouteilles', [AdminController::class, 'getBouteilles'])->name('getBouteilles');
 Route::get('/ajouter-bouteilles', [AdminController::class, 'FormAjoutBouteilles'])->name('FormAjoutBouteilles');
 Route::post('/ajouter-bouteilles', [AdminController::class, 'AjoutBouteilles'])->name('AjoutBouteilles');
 
@@ -30,7 +30,7 @@ Route::post('/ajouter-bouteilles', [AdminController::class, 'AjoutBouteilles'])-
 
 
 
-Route::get('liste-produits/{page}', [BouteilleController::class, 'getProduits'])->name('listeProduits');
+//Route::get('liste-produits/{page}', [BouteilleController::class, 'getProduits'])->name('listeProduits');
 
 Route::get('/celliers', [CellierController::class, 'index'])->name('cellier.index');
 Route::get('/cellier/ajouter', [CellierController::class, 'create'])->name('cellier.create');
@@ -45,14 +45,14 @@ Route::get('/registration', [CustomAuthController::class, 'create'])->name('user
 Route::post('/registration', [CustomAuthController::class, 'store']);
 Route::get('/login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('/login', [CustomAuthController::class, 'authentication']);
-Route::get('/accueil', [CustomAuthController::class, 'accueil'])->name('accueil');
+Route::get('/accueil', [CustomAuthController::class, 'accueil'])->name('accueil')->middleware('auth');
 Route::get('/logout', [CustomAuthController::class, 'logout'])->name('logout');
 
 
 
 Route::get('/recherche', [BouteilleController::class, 'index'])->name('bouteille.index');
 
-Route::get('/user-list', [CustomAuthController::class, 'userList'])->name('user.list');
-Route::delete('/user-list/{user}', [CustomAuthController::class, 'destroy'])->name('user.delete');
+Route::get('/admin-user-list', [CustomAuthController::class, 'userList'])->name('user.list');
+Route::delete('/admin-user-list/{user}', [CustomAuthController::class, 'destroy'])->name('user.delete');
 
 

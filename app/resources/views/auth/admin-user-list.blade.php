@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <title>Liste des usagers</title>
-</head>
-<body>
+@extends('layouts.app')
+@section('title', 'Liste des usagers')
+@section('content')
     <div>
         <div class="auth__header">
             <h1 class="auth_header_u-list-title">Liste des usagers</h1>
@@ -44,13 +38,4 @@
             </table>
         </div>
     </div>   
-</body>
-
-<footer class="footer">
-    <img src="/icons/home.png" class="footer-icon"/>
-    <img src="/icons/moncellier.png" class="footer-icon"/>
-    <img src="/icons/rechercher.png" class="footer-icon"/>
-    <img src="/icons/profil.png" class="footer-icon"/>
-</footer>
-
-</html>
+@endsection

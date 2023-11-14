@@ -83,6 +83,7 @@
 .auth__form-group {
     display: flex;
     flex-direction: column;
+    width: 100%;
     gap: 3px;
 }
 
@@ -90,6 +91,7 @@
     color: white;
     font-family: var(--font-vino);
     font-size: var(--tiny-font-size);
+    width: 100%;
 }
 
 .auth__form-group > input {
@@ -110,6 +112,13 @@
     color: white;
     font-family: var(--font-vino);
     font-size: var(--tiny-font-size);
+}
+
+.auth__form-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .auth__footer-message {

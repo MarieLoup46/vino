@@ -22,9 +22,9 @@ Route::get('/', function () {
 });
 
 
-Route::get('/get-bouteilles', [AdminController::class, 'getBouteilles'])->name('getBouteilles')->middleware('auth');
-Route::get('/ajouter-bouteilles', [AdminController::class, 'FormAjoutBouteilles'])->name('FormAjoutBouteilles')->middleware('auth');
-Route::post('/ajouter-bouteilles', [AdminController::class, 'AjoutBouteilles'])->name('AjoutBouteilles')->middleware('auth');
+//Route::get('/get-bouteilles', [BouteilleController::class, 'getBouteilles'])->name('getBouteilles')->middleware('auth');
+Route::get('/ajouter-bouteilles', [BouteilleController::class, 'AdminAjoutBouteilles'])->name('FormAjoutBouteilles')->middleware('auth');
+Route::post('/ajouter-bouteilles', [BouteilleController::class, 'AjoutBouteilles'])->name('AjoutBouteilles')->middleware('auth');
 
 
 

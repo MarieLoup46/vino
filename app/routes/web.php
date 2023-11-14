@@ -22,9 +22,9 @@ Route::get('/', function () {
 });
 
 
-Route::get('/get-bouteilles', [AdminController::class, 'getBouteilles'])->name('getBouteilles');
-Route::get('/ajouter-bouteilles', [AdminController::class, 'FormAjoutBouteilles'])->name('FormAjoutBouteilles');
-Route::post('/ajouter-bouteilles', [AdminController::class, 'AjoutBouteilles'])->name('AjoutBouteilles');
+Route::get('/get-bouteilles', [AdminController::class, 'getBouteilles'])->name('getBouteilles')->middleware('auth');
+Route::get('/ajouter-bouteilles', [AdminController::class, 'FormAjoutBouteilles'])->name('FormAjoutBouteilles')->middleware('auth');
+Route::post('/ajouter-bouteilles', [AdminController::class, 'AjoutBouteilles'])->name('AjoutBouteilles')->middleware('auth');
 
 
 
@@ -32,14 +32,14 @@ Route::post('/ajouter-bouteilles', [AdminController::class, 'AjoutBouteilles'])-
 
 //Route::get('liste-produits/{page}', [BouteilleController::class, 'getProduits'])->name('listeProduits');
 
-Route::get('/celliers', [CellierController::class, 'index'])->name('cellier.index');
-Route::get('/cellier/ajouter', [CellierController::class, 'create'])->name('cellier.create');
+Route::get('/celliers', [CellierController::class, 'index'])->name('cellier.index')->middleware('auth');
+Route::get('/cellier/ajouter', [CellierController::class, 'create'])->name('cellier.create')->middleware('auth');
 
-Route::post('/cellier', [CellierController::class, 'store'])->name('cellier.store');
+Route::post('/cellier', [CellierController::class, 'store'])->name('cellier.store')->middleware('auth');
 
-Route::get('/cellier/{cellier}', [CellierController::class, 'show'])->name('cellier.show');
-Route::put('/cellier/{cellier}', [CellierController::class, 'update'])->name('cellier.update');
-Route::delete('/cellier/{cellier}', [CellierController::class, 'destroy'])->name('cellier.destroy');
+Route::get('/cellier/{cellier}', [CellierController::class, 'show'])->name('cellier.show')->middleware('auth');
+Route::put('/cellier/{cellier}', [CellierController::class, 'update'])->name('cellier.update')->middleware('auth');
+Route::delete('/cellier/{cellier}', [CellierController::class, 'destroy'])->name('cellier.destroy')->middleware('auth');
 
 Route::get('/registration', [CustomAuthController::class, 'create'])->name('user.create');
 Route::post('/registration', [CustomAuthController::class, 'store']);
@@ -50,9 +50,8 @@ Route::get('/logout', [CustomAuthController::class, 'logout'])->name('logout');
 
 
 
-Route::get('/recherche', [BouteilleController::class, 'index'])->name('bouteille.index');
+Route::get('/recherche', [BouteilleController::class, 'index'])->name('bouteille.index')->middleware('auth');
 
-Route::get('/admin-user-list', [CustomAuthController::class, 'userList'])->name('user.list');
-Route::delete('/admin-user-list/{user}', [CustomAuthController::class, 'destroy'])->name('user.delete');
-
+Route::get('/admin-user-list', [CustomAuthController::class, 'userList'])->name('user.list')->middleware('auth');
+Route::delete('/admin-user-list/{user}', [CustomAuthController::class, 'destroy'])->name('user.delete')->middleware('auth');
 

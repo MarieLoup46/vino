@@ -15,7 +15,7 @@
 .auth__header {
     display: flex;
     justify-content: center;
-    align-item: center;
+    align-items: center;
     margin-top: 80px;
 }
 
@@ -83,6 +83,7 @@
 .auth__form-group {
     display: flex;
     flex-direction: column;
+    width: 100%;
     gap: 3px;
 }
 
@@ -90,6 +91,7 @@
     color: white;
     font-family: var(--font-vino);
     font-size: var(--tiny-font-size);
+    width: 100%;
 }
 
 .auth__form-group > input {
@@ -102,7 +104,7 @@
 
 .auth__form-pwdforgot {
     display: flex;
-    align-item: center;
+    align-items: center;
     justify-content: center;
 }
 
@@ -112,9 +114,16 @@
     font-size: var(--tiny-font-size);
 }
 
+.auth__form-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 .auth__footer-message {
     display: flex;
-    align-item: center;
+    align-items: center;
     justify-content: center;
     gap: 8px;
 }

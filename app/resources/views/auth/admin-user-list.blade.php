@@ -37,5 +37,6 @@
                 </tbody>
             </table>
         </div>
-    </div>   
+    </div>
 @endsection
+@include('layouts.footer')

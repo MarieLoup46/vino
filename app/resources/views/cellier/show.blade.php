@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Gerer cellier')
 @section('content')
     <div class="row">
         <div class="mx-5 mt-5">
@@ -35,7 +36,7 @@
                 </div>
             </form>
 
-               
+
 
             <form action="{{ route('cellier.destroy', $cellier->id) }}" method="POST">
                 @method('DELETE')
@@ -45,3 +46,4 @@
         </div>
     </div>
 @endsection
+@include('layouts.footer')

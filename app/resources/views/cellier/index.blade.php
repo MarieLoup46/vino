@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Celliers')
 @section('content')
     <div class="cellier-row">
         <div class="cellier-main-content">
@@ -32,3 +33,4 @@
         </div>
     </div>
 @endsection
+@include('layouts.footer')

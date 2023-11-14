@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Ajouter cellier')
 @section('content')
     <div class="create-container">
         <div class="mx-5 mt-5">
@@ -33,3 +34,4 @@
         </div>
     </div>
 @endsection
+@include('layouts.footer')

@@ -98,11 +98,8 @@ class CustomAuthController extends Controller
     {
         $user->delete();
 
-        $users = User::all();
-
-        return view('auth.admin-user-list', ['users' => $users]);
+        return redirect(route('user.list'))->withSuccess('L\'usager a été supprimé');
     }
-
 
     public function accueil(User $user)
     {

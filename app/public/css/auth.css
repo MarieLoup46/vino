@@ -26,13 +26,44 @@
     color: white;
 }
 
-.auth_header_u-list-title {
+.auth_header_h1-title {
     font-family: var(--font-vino);
     font-size: var(--h1-font-size);
     font-weight: var(--weight-600);
     color: var(--wine-component);
     font-style: italic;
+    text-align: center;
+    margin-top: 80px;
 }
+
+.auth_header_h2-title {
+    font-family: var(--font-vino);
+    font-size: var(--large-font-size);
+    font-weight: var(--weight-600);
+    text-align: center;
+    margin: 30px 60px;
+}
+
+.auth_form_profil {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth_form_profil > label {
+    font-family: var(--font-vino);
+    font-size: var(--tiny-font-size);
+    width: 100%;
+}
+
+.auth_form_profil > input {
+    background: var(--form-field);
+    color: white;
+    border-radius: 8px;
+    border: none;
+    padding: 20px;
+}
+
 
 .auth_u-list_success_delete {
     text-align: center;

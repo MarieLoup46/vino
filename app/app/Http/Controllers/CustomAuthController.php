@@ -62,7 +62,7 @@ class CustomAuthController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('auth.show', ['user' => $user]);
     }
 
     /**

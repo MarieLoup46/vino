@@ -1,14 +1,14 @@
 @import url("global.css");
 
 /*create.blade.php*/
-.create-container {
+.cellier-container {
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.create-title {
+.cellier-title {
     color: var(--wine-name); 
     font-size: var(--h3-font-size);
     font-weight: var(--weight-700);
@@ -16,14 +16,14 @@
     padding: 53px;
 }
 
-.form-group label {
+.cellier-form-group label {
     display: block;
     color: var(--form-field);
     font-size: var(--tiny-font-size);
 }
 
-.form-group input[type="text"],
-.btn-submit {
+.cellier-form-group input[type="text"],
+.cellier-btn-submit {
     box-sizing: border-box;
     font-size: var(--normal-font-size);
     border: 1px solid var(--wine-name);
@@ -36,7 +36,7 @@
     width: 330px;
 }
 
-.btn-submit {
+.cellier-btn-submit {
     color: rgba(255, 255, 255, 1);
     background-color: var(--color-button);
     font-size: var(--tiny-font-size);

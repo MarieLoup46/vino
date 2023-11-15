@@ -29,8 +29,9 @@
 .auth_header_u-list-title {
     font-family: var(--font-vino);
     font-size: var(--h1-font-size);
-    font-weight: var(--weight-700);
+    font-weight: var(--weight-600);
     color: var(--wine-component);
+    font-style: italic;
 }
 
 .auth_u-list_success_delete {

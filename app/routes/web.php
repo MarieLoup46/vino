@@ -52,6 +52,6 @@ Route::get('/logout', [CustomAuthController::class, 'logout'])->name('logout');
 
 Route::get('/recherche', [BouteilleController::class, 'index'])->name('bouteille.index')->middleware('auth');
 
-Route::get('/admin-user-list', [CustomAuthController::class, 'userList'])->name('user.list')->middleware('auth');
-Route::delete('/admin-user-list/{user}', [CustomAuthController::class, 'destroy'])->name('user.delete')->middleware('auth');
+Route::get('/admin-user-list', [CustomAuthController::class, 'userList'])->name('user.list');
+Route::delete('/admin-user-list/{user}', [CustomAuthController::class, 'deleteUserList'])->name('user.delete');
 

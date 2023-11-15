@@ -101,6 +101,19 @@ class CustomAuthController extends Controller
         return redirect(route('user.list'))->withSuccess('L\'usager a été supprimé');
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function deleteUserList(User $user)
+    {
+        $user->delete();
+
+        return redirect(route('user.list'))->withSuccess('L\'usager a été supprimé');
+    }
+
     public function accueil(User $user)
     {
         return view('auth.accueil');

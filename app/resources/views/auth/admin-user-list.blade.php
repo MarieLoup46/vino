@@ -6,6 +6,12 @@
             <h1 class="auth_header_u-list-title">Liste des usagers</h1>
         </div>
 
+        @if(session('success'))
+            <div class="auth_u-list_success_delete">
+                {{session('success')}}
+            </div>
+        @endif
+
         <div class="auth_user-list">
             <table>
                 <thead>
@@ -27,7 +33,7 @@
                             <form action="{{ route('user.delete', $user->id) }}" method="post">
                                 @csrf
                                 @method('delete')
-                                <input class="auth_user-list_btn" type="submit" value="supprimer">
+                                <input class="auth_user-list_btn" type="submit" value="Supprimer">
                             </form>
                             </td>
                         </tr>

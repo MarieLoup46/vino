@@ -41,6 +41,7 @@
                         <p class="bouteille__color">{{$bouteille->pays}} | {{$bouteille->type_id}} | {{$bouteille->format}}</p>
                         <p class="bouteille__prix">{{$bouteille->prix_saq}} $</p>
                         <p><a class="bouteille__lien" href="{{$bouteille->url_saq}}">voir plus</a></p>
+                        <button class="ajouter__bouteille">Ajouter au ceiller</button>
                     </div>
                 </div>
             @endforeach

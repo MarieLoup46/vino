@@ -1,29 +1,28 @@
 @import url("global.css");
 
 /*create.blade.php*/
-.cellier-container {
+.create-container {
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.cellier-title {
+.create-title {
     color: var(--wine-name); 
     font-size: var(--h3-font-size);
     font-weight: var(--weight-700);
-    font-style: italic;
     padding: 53px;
 }
 
-.cellier-form-group label {
+.form-group label {
     display: block;
-    color: var(--form-field);
+    color: black;
     font-size: var(--tiny-font-size);
 }
 
-.cellier-form-group input[type="text"],
-.cellier-btn-submit {
+.form-group input[type="text"],
+.btn-submit {
     box-sizing: border-box;
     font-size: var(--normal-font-size);
     border: 1px solid var(--wine-name);
@@ -36,7 +35,7 @@
     width: 330px;
 }
 
-.cellier-btn-submit {
+.btn-submit {
     color: rgba(255, 255, 255, 1);
     background-color: var(--color-button);
     font-size: var(--tiny-font-size);
@@ -63,8 +62,7 @@
     font-size: var(--h3-font-size);
     font-weight: var(--weight-600);
     color: var(--wine-name);
-    text-align: center; 
-    font-style: italic; 
+    text-align: center;
     margin: 1rem 0; 
 }
 
@@ -81,6 +79,12 @@
     text-align: center;
     margin-bottom: 2rem; 
     margin-left: 7rem;
+}
+
+.cellier-add-button:hover {
+    background: white;
+    color: var(--color-button);
+    border: 2px solid var(--color-button);
 }
 
 .cellier-list .cellier-item {
@@ -107,7 +111,7 @@
 }
 
 .cellier-item-info {
-    display: flex; /* Isso define a div para usar o layout de Flexbox */
+    display: flex; 
     flex-direction: column;
 }
 
@@ -148,7 +152,6 @@ form {
     color: var(--wine-name); 
     font-size: var(--h3-font-size);
     font-weight: var(--weight-700);
-    font-style: italic; 
     text-align: center;
     margin: 2rem 0;
 }
@@ -165,8 +168,15 @@ form {
     font-size: var(--small-font-size);
 }
 
+.btn-submit:hover {
+    background: white;
+    color: var(--color-button);
+    border: 2px solid var(--color-button);
+}
+
 .full-link {
     width: 100%;
     height: 100%;
     position: absolute;
 }
+

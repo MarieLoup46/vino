@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('title', 'Ajouter cellier')
 @section('content')
-    <div class="cellier-container">
-        <div class="cellier-content">
+    <div class="create-container">
+        <div class="mx-5 mt-5">
             @if ($errors->any())
-                <div class="cellier-alert-danger">
+                <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -14,22 +14,22 @@
             @endif
 
             @if (session('success'))
-                <div class="cellier-alert-success">
+                <div class="alert alert-success">
                     {{ session('success') }}
                 </div>
             @endif
 
-            <div class="cellier-title">
-                <h3>Ajouter un Cellier</h3>
-            </div>
+                <div class="create-title">
+                    <h3>Ajouter un Cellier</h3>
+                </div>
 
             <form action="{{ route('cellier.store') }}" method="POST">
                 @csrf
-                <div class="cellier-form-group">
-                    <label for="nomDuCellier" class="cellier-label">NOM DU CELLIER:</label>
-                    <input placeholder="EX: MAISON" type="text" class="cellier-input" id="nom" name="nom" required>
+                <div class="form-group">
+                    <label for="nomDuCellier" class="mb-0">NOM DU CELLIER:</label>
+                    <input placeholder="EX: MAISON" type="text" class="form-control mt-1" id="nom" name="nom" required>
                 </div>
-                <button type="submit" class="cellier-btn-submit">CRÉER UN CELLIER</button>
+                <button type="submit" class="btn-submit">CRÉER UN CELLIER</button>
             </form>
         </div>
     </div>

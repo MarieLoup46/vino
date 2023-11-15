@@ -13,19 +13,16 @@
             <div class="cellier-list">
                 @foreach($items as $index => $item)
                     <div class="cellier-item">
+                        <a class="full-link" href="{{ route('cellier.show', $item->id) }}"></a>
                         <div class="cellier-item-image">
-                            <a href="{{ route('cellier.show', $item->id) }}">
-                                <img alt="{{ $item->nom }}" src="{{ asset('icons/' . $item->icon) }}" class="cellier-icon" />
-                            </a>
+                            <img alt="{{ $item->nom }}" src="{{ asset('icons/' . $random_icon) }}" class="cellier-icon" />
                         </div>
                         <div class="cellier-item-info">
                             <span class="cellier-name">{{ $item->nom }}</span>
                             <small class="cellier-bottle-count">{{ $index }} Bouteille</small>
                         </div>
                         <div class="cellier-item-action">
-                            <a href="{{ route('cellier.show', $item->id) }}">
-                                <img src="{{ asset('icons/info.png') }}" alt="info" class="cellier-info-icon" />
-                            </a>
+                            <img src="{{ asset('icons/info.png') }}" alt="info" class="cellier-info-icon" />
                         </div>
                     </div>
                 @endforeach

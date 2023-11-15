@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cellier;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CellierController extends Controller
 {
@@ -12,7 +13,7 @@ class CellierController extends Controller
         $list = [
             'cellierbrun.png',
             'cellierjaune.png',
-            'cellierjaunefonc‚.png',
+            'cellierjaunefonce.png',
             'cellierrose.png',
             'cellierrouge.png',
         ];
@@ -27,9 +28,10 @@ class CellierController extends Controller
      */
     public function index()
     {
-        $items = Cellier::all();
+        $items = Cellier::where('user_id', Auth::user()->id)->get();
+        $random_icon = self::randomIcon();
 
-        return view('cellier.index', compact('items'));
+        return view('cellier.index', compact('items', 'random_icon'));
     }
 
     /**
@@ -53,7 +55,7 @@ class CellierController extends Controller
         $validatedData = $request->validate([
             'nom' => 'required|max:255',
         ]);
-        $validatedData['user_id'] = 1;
+        $validatedData['user_id'] = Auth::user()->id;
         $validatedData['icon'] = self::randomIcon();
         //print_r($validatedData);die();
         Cellier::create($validatedData);
@@ -94,7 +96,7 @@ class CellierController extends Controller
         $validatedData = $request->validate([
             'nom' => 'required|max:255',
         ]);
-        $validatedData['user_id'] = 1;
+        $validatedData['user_id'] = Auth::user()->id;
         $cellier->update($validatedData);
         return redirect()->route('cellier.index')->with('success', 'Cellier modifié avec succès!');
     }

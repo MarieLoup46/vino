@@ -99,7 +99,7 @@ class BouteilleController extends Controller
     
     //affichier la page d'admin d'ajout des bouteilles
     public function AdminAjoutBouteilles(){
-        return view('admin.formAjoutBouteilles');
+        return view('bouteille.formAjoutBouteilles');
     }
 
 

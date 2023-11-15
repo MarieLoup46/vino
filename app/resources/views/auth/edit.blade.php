@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Profil')
+@section('title', 'Mise à jour')
 @section('content')
     <div>
         <div>
@@ -7,10 +7,13 @@
         </div>
 
         <div>
-            <h2 class="auth_h2-title">INFORMATIONS</h2>
+            <h2 class="auth_header_h2-title">MISE À JOUR</h2>
         </div>
 
         <form class="auth_form_profil">
+            <!-- La méthode 'put' permet de faire l'update -->
+            @method('put')
+            @csrf
             <label for="nom" id="nom">NOM</label>
             <input type="text" id="nom" name="nom" value="{{ $user->nom }}">
 
@@ -20,14 +23,7 @@
             <label for="email" id="email">COURRIEL</label>
             <input type="text" id="email" name="email" value="{{ $user->email }}">
 
-            <button class="auth_profil_btn">MODIFIER MES INFORMATIONS</button>
-
-
-            <h2 class="auth_h2-title auth_profil_compte">COMPTE</h2>
-
-            <button class="auth_profil_btn">ME DÉCONNECTER</button>
-
-            <button class="auth_profil_btn auth_profil_delete_btn">SUPPRIMER MON COMPTE</button>
+            <button type="submit" class="auth_profil_btn">
         </form>
     </div>
 @endsection

@@ -75,7 +75,7 @@ class CustomAuthController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('auth.edit', ['user' => $user]);
     }
 
     /**
@@ -87,7 +87,7 @@ class CustomAuthController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        return "Ceci fonctionne";
     }
 
     /**

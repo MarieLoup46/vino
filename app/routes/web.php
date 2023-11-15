@@ -55,6 +55,10 @@ Route::get('/recherche', [BouteilleController::class, 'index'])->name('bouteille
 // Route pour afficher un usager dans la page profil
 Route::get('/user/{user_id}', [CustomAuthController::class, 'show'])->name('auth.show')->middleware('auth');
 
+// Route pour éditer un usager pour faire une mise à jour
+Route::put('/user/{user_id}', [CustomAuthController::class, 'update']);
+
+
 // Route pour afficher la page des usagers. Seulement accessible par l'administrateur
 Route::get('/admin-user-list', [CustomAuthController::class, 'userList'])->name('user.list');
 // Supprime un usager de la liste des usagers

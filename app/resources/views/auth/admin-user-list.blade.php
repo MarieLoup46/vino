@@ -34,7 +34,7 @@
                             <form action="{{ route('user.delete', $user->id) }}" method="post">
                                 @csrf
                                 @method('delete')
-                                <input class="auth_user-list_btn" type="submit" value="Supprimer">
+                                <input class="auth_user-list_btn" type="submit" value="SUPPRIMER">
                             </form>
                             </td>
                         </tr>

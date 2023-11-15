@@ -3,9 +3,10 @@
 @section('content')
     <div>
         <div class="auth__header">
-            <h1 class="auth_header_u-list-title">Liste des usagers</h1>
+            <h1 class="auth_header_h1-title">Liste des usagers</h1>
         </div>
 
+        <!-- Message affiché lorsque un utilisateur est supprimé -->
         @if(session('success'))
             <div class="auth_u-list_success_delete">
                 {{session('success')}}
@@ -33,7 +34,7 @@
                             <form action="{{ route('user.delete', $user->id) }}" method="post">
                                 @csrf
                                 @method('delete')
-                                <input class="auth_user-list_btn" type="submit" value="Supprimer">
+                                <input class="auth_user-list_btn" type="submit" value="SUPPRIMER">
                             </form>
                             </td>
                         </tr>

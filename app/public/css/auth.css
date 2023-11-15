@@ -26,11 +26,77 @@
     color: white;
 }
 
-.auth_header_u-list-title {
+.auth_header_h1-title {
     font-family: var(--font-vino);
     font-size: var(--h1-font-size);
-    font-weight: var(--weight-700);
+    font-weight: var(--weight-600);
     color: var(--wine-component);
+    font-style: italic;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.auth_h2-title {
+    font-family: var(--font-vino);
+    font-size: var(--large-font-size);
+    font-weight: var(--weight-600);
+    text-align: center;
+    margin: 30px 60px;
+}
+
+.auth_form_profil {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-bottom: 80px;
+}
+
+.auth_form_profil > label {
+    font-family: var(--font-vino);
+    font-size: var(--normal-font-size);
+}
+
+.auth_form_profil > input {
+    background: var(--background-item);
+    border-radius: 8px;
+    border: 2px solid var(--border-primary);
+    width: 50%;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.auth_profil_compte {
+    margin-top: 60px;
+    padding: 15px;
+}
+
+.auth_profil_btn {
+    color: rgba(255, 255, 255, 1);
+    background-color: var(--color-button);
+    font-size: var(--small-font-size);
+    width: 300px;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 1rem;
+    margin-top: 0.25rem;
+    cursor: pointer;
+    padding: 16px;
+}
+
+.auth_profil_btn:hover {
+    background-color: white;
+    color: var(--color-button);
+    border: 2px solid var(--color-button);
+    cursor: pointer;
+}
+
+.auth_profil_delete_btn {
+    background-color: var(--delete-color);
+}
+
+.auth_profil_delete_btn:hover {
+    color: var(--delete-color);
+    border: 2px solid var(--delete-color);
 }
 
 .auth_u-list_success_delete {

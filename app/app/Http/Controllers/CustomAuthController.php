@@ -60,9 +60,11 @@ class CustomAuthController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show()
     {
-        //
+        $user = Auth::user();
+
+        return view('auth.show', ['user' => $user]);
     }
 
     /**
@@ -73,7 +75,7 @@ class CustomAuthController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('auth.edit', ['user' => $user]);
     }
 
     /**
@@ -85,7 +87,7 @@ class CustomAuthController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        return "Ceci fonctionne";
     }
 
     /**
@@ -95,6 +97,19 @@ class CustomAuthController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)
+    {
+        $user->delete();
+
+        return redirect(route('user.list'))->withSuccess('L\'usager a été supprimé');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function deleteUserList(User $user)
     {
         $user->delete();
 

@@ -10,14 +10,18 @@
             <h2 class="auth_header_h2-title">INFORMATIONS</h2>
         </div>
 
-        <div class="auth_form_profil">
-            <form>
-                <label for="nom" id="nom">{{ $user->nom }}</label>
-                <input type="text" id="nom" name="nom">
+        <form class="auth_form_profil">
+            <label for="nom" id="nom">Nom</label>
+            <input type="text" id="nom" name="nom" value="{{ $user->nom }}">
 
-                <button type="submit" class="btn-submit">CRÉER UN CELLIER</button>
-            </form>
-        </div>
+            <label for="prenom" id="prenom">Prénom</label>
+            <input type="text" id="prenom" name="prenom" value="{{ $user->prenom }}">
+
+            <label for="email" id="email">Courriel</label>
+            <input type="text" id="email" name="email" value="{{ $user->email }}">
+
+            <button type="submit" class="btn-submit">CRÉER UN CELLIER</button>
+        </form>
     </div>
 @endsection
 @include('layouts.footer')

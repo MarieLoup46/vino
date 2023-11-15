@@ -60,8 +60,10 @@ class CustomAuthController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show()
     {
+        $user = Auth::user();
+
         return view('auth.show', ['user' => $user]);
     }
 

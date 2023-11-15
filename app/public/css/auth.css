@@ -47,21 +47,22 @@
 .auth_form_profil {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    align-content: center;
+    margin-bottom: 80px;
 }
 
 .auth_form_profil > label {
     font-family: var(--font-vino);
-    font-size: var(--tiny-font-size);
-    width: 100%;
+    font-size: var(--normal-font-size);
 }
 
 .auth_form_profil > input {
-    background: var(--form-field);
-    color: white;
+    background: var(--background-item);
     border-radius: 8px;
-    border: none;
+    border: 2px solid var(--border-primary);
+    width: 50%;
     padding: 20px;
+    margin-bottom: 15px;
 }
 
 

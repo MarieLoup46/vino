@@ -1,0 +1,51 @@
+.popup{
+    background: #0000004a;
+    padding: 10px;
+    height: 100vh;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+
+}
+
+.popup__container{
+    height:150px;
+    background:  #F4F0F0;
+    border-radius: 10px;
+    border: 1px solid #AC1127;
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.fermer-popup-button{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #F4F0F0;
+  padding: 5px 10px;
+  border: 1px solid #AC1127;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.fermer-popup-button:hover{
+    background-color: #ddd;
+}
+
+.fermer-popup-button:active{
+    background-color: #bbb;
+}
+
+.popup__info .popup-form div{
+    width: 100%;
+}
+.popup-form .ceuiller, .popup-form .nombre-bouteille{
+    display: f;
+}

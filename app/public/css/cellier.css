@@ -140,7 +140,7 @@
 }
 
 .form-group,
-.d-flex,
+.d-flex
 form {
     width: 100%; 
     display: flex;

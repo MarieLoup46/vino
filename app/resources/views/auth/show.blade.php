@@ -22,7 +22,7 @@
             @csrf
             <label for="nom" id="nom">NOM</label>
             <input type="text" id="nom" name="nom" value="{{ $user->nom }}">
-
+        
             <label for="prenom" id="prenom">PRÉNOM</label>
             <input type="text" id="prenom" name="prenom" value="{{ $user->prenom }}">
 

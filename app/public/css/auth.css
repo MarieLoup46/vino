@@ -47,16 +47,13 @@
 .auth__form_profil {
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin-bottom: 80px;
 }
 
 .auth__form_profil > label {
     font-family: var(--font-vino);
     font-size: var(--normal-font-size);
-}
-
-.align_left {
-    text-align: left;
 }
 
 .auth__form_profil > input {

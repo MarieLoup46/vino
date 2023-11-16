@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bouteille;
+use App\Models\Cellier;
+use App\Models\CellierBouteille;
 use App\Models\Type;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Symfony\Component\DomCrawler\Crawler;
+use Illuminate\Support\Facades\Auth;
 
 
 class BouteilleController extends Controller
@@ -175,5 +178,26 @@ class BouteilleController extends Controller
         }
     }
 
-    
+
+    //affichage du formulaire d'ajout du bouteille dans un cellier
+    public function formBouteillesAuCeiller(Request $request){
+        $bouteille_id = $request->input('bouteille_id');
+        $celliers = Cellier::where('user_id',Auth::user()->id)->get();
+        $bouteille = Bouteille::find($bouteille_id);
+        return view('bouteille.ajouterBouteilleAuCellier',[
+            'bouteille' => $bouteille,
+            'celliers' => $celliers
+        ]);
+    }
+
+    //Ajouter bouteilles dans un cellier
+    public function ajouterBouteillesAuxCeiller(Request $request){
+        $cellierBouteille = new CellierBouteille;
+        $cellierBouteille->cellier_id = $request->input('cellier');
+        $cellierBouteille->bouteille_id = $request->input('bouteille');
+        $cellierBouteille->quantite = $request->input('quantite');
+        $cellierBouteille->save();
+        return redirect(route('bouteille.recherche'))->withSuccess("Bouteilles sont ajoutées au cellier");
+
+    }
 }

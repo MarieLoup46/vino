@@ -2,7 +2,7 @@
 @section('title', 'Recherche')
 @section('content')
 
-<div class="popup">
+<!-- <div class="popup">
     <div class="popup__container">
         <button class="fermer-popup-button">X</button>  
         <h3>Confirmation d'ajout</h3>
@@ -22,7 +22,7 @@
             <button>ajouter</button>
         </div>
     </div>
-</div>
+</div> -->
 
 
 <div class="body__container">
@@ -41,7 +41,11 @@
                         <p class="bouteille__color">{{$bouteille->pays}} | {{$bouteille->type_id}} | {{$bouteille->format}}</p>
                         <p class="bouteille__prix">{{$bouteille->prix_saq}} $</p>
                         <p><a class="bouteille__lien" href="{{$bouteille->url_saq}}">voir plus</a></p>
-                        <button class="ajouter__bouteille">Ajouter au ceiller</button>
+                        <form action="{{ route('affichier.bouteille.cellier') }}" method ="POST">
+                            @csrf
+                            <input type="hidden" name="bouteille_id" value="{{$bouteille->id}}">
+                            <p><input type="submit" class="bouteille__lien" value="Ajouter au cellier"></p>
+                        </form>
                     </div>
                 </div>
             @endforeach

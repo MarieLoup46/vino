@@ -100,7 +100,9 @@ class CustomAuthController extends Controller
     {
         $user->delete();
 
-        return redirect(route('user.list'))->withSuccess('L\'usager a été supprimé');
+        Auth::logout();
+
+        return redirect(route('user.login'));
     }
 
     /**

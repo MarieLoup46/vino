@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BouteilleController;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CellierController;
 use App\Http\Controllers\CustomAuthController;
 
@@ -55,9 +54,14 @@ Route::get('/recherche', [BouteilleController::class, 'index'])->name('bouteille
 // Route pour afficher un usager dans la page profil
 Route::get('/user/{user_id}', [CustomAuthController::class, 'show'])->name('auth.show')->middleware('auth');
 
-// Route pour éditer un usager pour faire une mise à jour
-Route::put('/user/{user_id}', [CustomAuthController::class, 'update']);
+// Route pour afficher un usager pour faire une mise à jour
+Route::get('/user-edit/{user_id}', [CustomAuthController::class, 'edit'])->name('auth.edit');
 
+// Route pour mettre à jour un usager
+Route::put('/user-edit/{user_id}', [CustomAuthController::class, 'update']);
+
+// Route pour supprimer un usager
+Route::delete('/user-edit/{user_id}', [CustomAuthController::class, 'destroy'])->name('auth.delete');
 
 // Route pour afficher la page des usagers. Seulement accessible par l'administrateur
 Route::get('/admin-user-list', [CustomAuthController::class, 'userList'])->name('user.list');

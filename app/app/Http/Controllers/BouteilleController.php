@@ -121,7 +121,7 @@ class BouteilleController extends Controller
             'verify' => storage_path('cacert-2023-08-22.pem'),
         ]);
         $nombre_bouteilles = Bouteille::count();
-        $nombre_pages = intval($nombre_bouteilles / $nbePages);
+        $nombre_pages = intval($nombre_bouteilles / $bouteilleParPage);
         for($page = $nombre_pages + 1; $page <= $nombre_pages + $nbePages; $page++){
             //web scraping: recevoir les données de l'api saq
             $request = $client->get("https://www.saq.com/fr/produits/vin?p=".$page."&product_list_limit=". $bouteilleParPage ."&product_list_order=name_asc");

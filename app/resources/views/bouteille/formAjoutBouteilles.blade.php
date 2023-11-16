@@ -20,7 +20,7 @@
                         <label for="nombre">Nombres des bouteilles dans la page:</label>
                         <select class="form-control" name="nombre" id="nombre">
                             <option value="24">24</option>
-                            <option value="24">48</option>
+                            <option value="48">48</option>
                         </select>
                     </div>
                     <div class="auth__form-group">

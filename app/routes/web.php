@@ -20,11 +20,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+//route pour importer les bouteilles de SAQ vers notre base de données
 //Route::get('/get-bouteilles', [BouteilleController::class, 'getBouteilles'])->name('getBouteilles')->middleware('auth');
 Route::get('/ajouter-bouteilles', [BouteilleController::class, 'AdminAjoutBouteilles'])->name('FormAjoutBouteilles')->middleware('auth');
 Route::post('/ajouter-bouteilles', [BouteilleController::class, 'AjoutBouteilles'])->name('AjoutBouteilles')->middleware('auth');
 
+//route pour la pages recherche
+Route::get('/recherche', [BouteilleController::class, 'index'])->name('bouteille.recherche')->middleware('auth');
+
+//Route pour le formulaire d'ajout des bouteilles dans cellier
+Route::post('/affichier-bouteille-au-cellier', [BouteilleController::class, 'formBouteillesAuCeiller'])->name('affichier.bouteille.cellier')->middleware('auth');
+
+//Route pour ajouter bouteilles dans cellier
+Route::post('/ajouter-bouteille-au-cellier', [BouteilleController::class, 'ajouterBouteillesAuxCeiller'])->name('ajout.bouteille.cellier')->middleware('auth');
 
 
 
@@ -49,7 +57,7 @@ Route::get('/logout', [CustomAuthController::class, 'logout'])->name('logout');
 
 
 
-Route::get('/recherche', [BouteilleController::class, 'index'])->name('bouteille.index')->middleware('auth');
+
 
 // Route pour afficher un usager dans la page profil
 Route::get('/user/{user_id}', [CustomAuthController::class, 'show'])->name('auth.show')->middleware('auth');

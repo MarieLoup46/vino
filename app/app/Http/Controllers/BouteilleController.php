@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bouteille;
+use App\Models\Cellier;
+use App\Models\CellierBouteille;
 use App\Models\Type;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Symfony\Component\DomCrawler\Crawler;
+use Illuminate\Support\Facades\Auth;
 
 
 class BouteilleController extends Controller
@@ -110,14 +113,16 @@ class BouteilleController extends Controller
     }
 
     //importer les bouteilles à partir de l'api du SAQ
-    public function getBouteilles($nbePages = 10, $bouteilleParPage = 24){
+    public function getBouteilles($nbePages, $bouteilleParPage){
         //une classe prédéfinie dans la librerie GuzzleHttp
         //verify: pour la vérification de la certificat SSL du serveur qui a déja connecté
         //lien de la certificat: https://curl.se/docs/caextract.html
         $client = new Client([
             'verify' => storage_path('cacert-2023-08-22.pem'),
         ]);
-        for($page = 1; $page <= $nbePages; $page++){
+        $nombre_bouteilles = Bouteille::count();
+        $nombre_pages = intval($nombre_bouteilles / $bouteilleParPage);
+        for($page = $nombre_pages + 1; $page <= $nombre_pages + $nbePages; $page++){
             //web scraping: recevoir les données de l'api saq
             $request = $client->get("https://www.saq.com/fr/produits/vin?p=".$page."&product_list_limit=". $bouteilleParPage ."&product_list_order=name_asc");
             //body de la réponse
@@ -173,5 +178,26 @@ class BouteilleController extends Controller
         }
     }
 
-    
+
+    //affichage du formulaire d'ajout du bouteille dans un cellier
+    public function formBouteillesAuCeiller(Request $request){
+        $bouteille_id = $request->input('bouteille_id');
+        $celliers = Cellier::where('user_id',Auth::user()->id)->get();
+        $bouteille = Bouteille::find($bouteille_id);
+        return view('bouteille.ajouterBouteilleAuCellier',[
+            'bouteille' => $bouteille,
+            'celliers' => $celliers
+        ]);
+    }
+
+    //Ajouter bouteilles dans un cellier
+    public function ajouterBouteillesAuxCeiller(Request $request){
+        $cellierBouteille = new CellierBouteille;
+        $cellierBouteille->cellier_id = $request->input('cellier');
+        $cellierBouteille->bouteille_id = $request->input('bouteille');
+        $cellierBouteille->quantite = $request->input('quantite');
+        $cellierBouteille->save();
+        return redirect(route('bouteille.recherche'))->withSuccess("Bouteilles sont ajoutées au cellier");
+
+    }
 }

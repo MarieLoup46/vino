@@ -28,19 +28,21 @@
 .accueil__header-button{
     background-color: var(--color-button);
     border-radius: 15px;
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 16px;
     cursor: pointer;
-}
-
-.accueil__header-button > a{
-    color: white;
-    text-decoration: none;
-    text-align: center;
+    border: 2px solid transparent;
     font-family: var(--font-vino);
     font-size: var(--small-font-size);
     font-weight: var(--weight-500);
     text-transform: uppercase;
+}
+
+.accueil__header-button:hover{
+    background-color: white;
+    color: var(--color-button);
+    border: 2px solid var(--color-button);
 }

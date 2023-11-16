@@ -6,9 +6,9 @@
             <h1 class="auth__header_h1-title">Liste des usagers</h1>
         </div>
 
-        <!-- Message affiché lorsque un utilisateur est supprimé -->
+        <!-- Message affiché lorsqu'un usager est supprimé -->
         @if(session('success'))
-            <div class="auth__u-list_success_delete">
+            <div class="auth_success auth__success_delete">
                 {{session('success')}}
             </div>
         @endif

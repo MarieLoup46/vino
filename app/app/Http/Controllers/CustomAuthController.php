@@ -60,7 +60,7 @@ class CustomAuthController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(User $user)
     {
         $user = Auth::user();
 
@@ -75,6 +75,8 @@ class CustomAuthController extends Controller
      */
     public function edit(User $user)
     {
+        $user = Auth::user();
+
         return view('auth.edit', ['user' => $user]);
     }
 
@@ -87,7 +89,22 @@ class CustomAuthController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        return "Ceci fonctionne";
+        var_dump("Je suis dans update");
+
+        $request->validate([
+            'nom' => 'required|min:2',
+            'prenom' => 'required|min:2',
+            'email' => 'required|email|unique:users',
+        ]);
+
+        $user->update([
+            'nom' => $request->nom,
+            'prenom' => $request->prenom,
+            'email' => $request->email,
+        ]);
+
+        // Retour sur le dossier ressources - views - show.blade.php
+        return view('auth.show', ['user' => $user]);
     }
 
     /**

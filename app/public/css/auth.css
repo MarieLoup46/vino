@@ -47,13 +47,16 @@
 .auth__form_profil {
     display: flex;
     flex-direction: column;
-    align-content: center;
     margin-bottom: 80px;
 }
 
 .auth__form_profil > label {
     font-family: var(--font-vino);
     font-size: var(--normal-font-size);
+}
+
+.align_left {
+    text-align: left;
 }
 
 .auth__form_profil > input {
@@ -79,6 +82,8 @@
     border: none;
     margin-bottom: 1rem;
     margin-top: 0.25rem;
+    text-decoration: none;
+    text-align: center;
     cursor: pointer;
     padding: 16px;
 }
@@ -99,10 +104,18 @@
     border: 2px solid var(--delete-color);
 }
 
-.auth__u-list_success_delete {
+.auth_success {
     text-align: center;
-    color: var(--delete-color);
+    font-size: var(--normal-font-size);
     margin-top: 30px;
+}
+
+.auth__success_update {
+    color: var(--font-vino);
+}
+
+.auth__success_delete {
+    color: var(--delete-color);
 }
 
 .auth__user-list {

@@ -110,14 +110,16 @@ class BouteilleController extends Controller
     }
 
     //importer les bouteilles à partir de l'api du SAQ
-    public function getBouteilles($nbePages = 10, $bouteilleParPage = 24){
+    public function getBouteilles($nbePages, $bouteilleParPage){
         //une classe prédéfinie dans la librerie GuzzleHttp
         //verify: pour la vérification de la certificat SSL du serveur qui a déja connecté
         //lien de la certificat: https://curl.se/docs/caextract.html
         $client = new Client([
             'verify' => storage_path('cacert-2023-08-22.pem'),
         ]);
-        for($page = 1; $page <= $nbePages; $page++){
+        $nombre_bouteilles = Bouteille::count();
+        $nombre_pages = intval($nombre_bouteilles / $nbePages);
+        for($page = $nombre_pages + 1; $page <= $nombre_pages + $nbePages; $page++){
             //web scraping: recevoir les données de l'api saq
             $request = $client->get("https://www.saq.com/fr/produits/vin?p=".$page."&product_list_limit=". $bouteilleParPage ."&product_list_order=name_asc");
             //body de la réponse

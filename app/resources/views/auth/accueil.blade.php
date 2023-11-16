@@ -6,9 +6,10 @@
     <div class="accueil__header">
         <h1 class="accueil__header-title">Bonjour {{Auth::user() ? Auth::user()->prenom :
             'Guest'}}</h1>
-        <div class="accueil__header-button">
-            <a href="/celliers">Ajouter un Cellier</a>
-        </div>
+        <form action="{{ route('cellier.create') }}" method="GET">
+			@csrf
+			<button type="submit" class="accueil__header-button">Ajouter un Cellier</button>
+		</form>
     </div>
 </div>
 @endsection

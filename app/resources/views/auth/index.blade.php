@@ -3,6 +3,11 @@
 @section('content')
 
 <div class="auth__container">
+    @if(session('success'))
+	<div class="alert alert-success" role="alert">
+		{{session('success')}}
+	</div>
+	@endif
     <div class="auth__header">
         <h1 class="auth__header-title">vino</h1>
     </div>

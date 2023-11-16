@@ -89,8 +89,6 @@ class CustomAuthController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        var_dump("Je suis dans update");
-
         $request->validate([
             'nom' => 'required|min:2',
             'prenom' => 'required|min:2',
@@ -103,8 +101,9 @@ class CustomAuthController extends Controller
             'email' => $request->email,
         ]);
 
+
         // Retour sur le dossier ressources - views - show.blade.php
-        return view('auth.show', ['user' => $user]);
+        return redirect(route('auth.show', $user))->withSuccess('Mise à jour réussi');
     }
 
     /**

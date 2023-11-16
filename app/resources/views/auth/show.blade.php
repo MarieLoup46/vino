@@ -19,6 +19,7 @@
 
 
         <form class="auth__form_profil">
+            @csrf
             <label for="nom" id="nom">NOM</label>
             <input type="text" id="nom" name="nom" value="{{ $user->nom }}">
 

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Profil')
 @section('content')
-    <div>
+    <div class="auth__container_profil">
         <div>
             <h1 class="auth__header_h1-title">Profil</h1>
         </div>
@@ -17,25 +17,34 @@
             </div>
         @endif
 
-
         <form class="auth__form_profil">
             @csrf
-            <label for="nom" id="nom">NOM</label>
-            <input type="text" id="nom" name="nom" value="{{ $user->nom }}">
-        
-            <label for="prenom" id="prenom">PRÉNOM</label>
-            <input type="text" id="prenom" name="prenom" value="{{ $user->prenom }}">
+            <div class="auth__form_profil_group">
+                <label for="nom" id="nom">NOM</label>
+                <input type="text" id="nom" name="nom" value="{{ $user->nom }}">
+            </div>
 
-            <label for="email" id="email">COURRIEL</label>
-            <input type="text" id="email" name="email" value="{{ $user->email }}">
+            <div class="auth__form_profil_group">
+                <label for="prenom" id="prenom">PRÉNOM</label>
+                <input type="text" id="prenom" name="prenom" value="{{ $user->prenom }}">
+            </div>
 
-            <a href="{{ route('auth.edit', $user->id) }}" class="auth__profil_btn">MODIFIER MES INFORMATIONS</a>
+            <div class="auth__form_profil_group">
+                <label for="email" id="email">COURRIEL</label>
+                <input type="text" id="email" name="email" value="{{ $user->email }}">
+            </div>
 
-            <h2 class="auth__h2-title auth__profil_compte">COMPTE</h2>
+            <div class="auth__form_profil_group">
+                <a href="{{ route('auth.edit', $user->id) }}" class="auth__profil_btn">MODIFIER MES INFORMATIONS</a>
+            </div>
 
-            <button class="auth__profil_btn">ME DÉCONNECTER</button>
+            <div>
+                <h2 class="auth__h2-title">COMPTE</h2>
 
-            <button class="auth__profil_btn auth__profil_delete_btn">SUPPRIMER MON COMPTE</button>
+                <button class="auth__profil_btn">ME DÉCONNECTER</button>
+
+                <button class="auth__profil_btn auth__profil_delete_btn">SUPPRIMER MON COMPTE</button>
+            </div>
         </form>
     </div>
 @endsection

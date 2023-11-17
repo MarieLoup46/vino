@@ -32,7 +32,6 @@
     font-weight: var(--weight-600);
     color: var(--wine-component);
     font-style: italic;
-    text-align: center;
     margin-top: 80px;
 }
 
@@ -40,34 +39,48 @@
     font-family: var(--font-vino);
     font-size: var(--large-font-size);
     font-weight: var(--weight-600);
-    text-align: center;
     margin: 30px 60px;
 }
 
-.auth__form_profil {
+.auth__container_profil {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 80px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
-.auth__form_profil > label {
+.auth__form_profil {
+    flex: 1;
+    margin-bottom: 180px;
+}
+
+.auth__form_profil_group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.auth__form_profil_group > label {
     font-family: var(--font-vino);
     font-size: var(--normal-font-size);
+    width: 100%;
 }
 
-.auth__form_profil > input {
+.auth__form_profil_group > input {
     background: var(--background-item);
     border-radius: 8px;
     border: 2px solid var(--border-primary);
-    width: 50%;
     padding: 20px;
     margin-bottom: 15px;
+    width: 100%;
 }
 
 .auth__profil_compte {
-    margin-top: 60px;
-    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
 }
 
 .auth__profil_btn {
@@ -82,7 +95,7 @@
     text-decoration: none;
     text-align: center;
     cursor: pointer;
-    padding: 16px;
+    padding: 15px;
 }
 
 .auth__profil_btn:hover {

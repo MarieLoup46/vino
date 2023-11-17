@@ -57,10 +57,9 @@ class CustomAuthController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show()
     {
         $user = Auth::user();
 
@@ -70,10 +69,9 @@ class CustomAuthController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit()
     {
         $user = Auth::user();
 
@@ -87,7 +85,7 @@ class CustomAuthController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request)
     {
         $request->validate([
             'nom' => 'required|min:2',
@@ -95,15 +93,17 @@ class CustomAuthController extends Controller
             'email' => 'required|email|unique:users',
         ]);
 
-        $user->update([
-            'nom' => $request->nom,
-            'prenom' => $request->prenom,
-            'email' => $request->email,
-        ]);
+        $user = Auth::user();
+
+        $user->nom = $request['nom'];
+        $user->prenom = $request['prenom'];
+        $user->email = $request['email'];
+
+        $user->update([$user->nom, $user->prenom, $user->email]);
 
 
         // Retour sur le dossier ressources - views - show.blade.php
-        return view('auth.show', ['user' => $user]);
+        return redirect(route('auth.show', $user->id))->withSuccess('Donnée mise à jour');
     }
 
     /**

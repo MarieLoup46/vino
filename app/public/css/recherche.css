@@ -33,11 +33,15 @@
     padding-bottom: 5px;
 }
 .bouteille__lien{
-    color:black;
+    background: transparent;
+    border: none;
+    font-weight: 900;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: underline;
+    color: #000;
+    margin-top: 5px;
 }
-
-
-
-.recherche__container form{
-    
-} 
+.bouteille__voir__plus{
+    margin-top: 15px;
+}

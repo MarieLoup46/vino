@@ -121,11 +121,17 @@
 }
 
 .auth__success_update {
-    color: var(--font-vino);
+    color: var(--wine-info);
 }
 
 .auth__success_delete {
     color: var(--delete-color);
+}
+
+.auth__text_error {
+    font-size: var(--smaller-font-size);
+    color: var(--font-vino);
+    margin-bottom: 10px;
 }
 
 .auth__user-list {

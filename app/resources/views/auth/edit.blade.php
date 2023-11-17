@@ -17,16 +17,31 @@
             <div class="auth__form_profil_group">
                 <label for="nom" id="nom">NOM</label>
                 <input type="text" id="nom" name="nom" value="{{ $user->nom }}">
+                @if($errors->has('nom'))
+                    <div class="auth__text_error">
+                        {{$errors->first('nom')}}
+                    </div>
+                @endif
             </div>
 
             <div class="auth__form_profil_group">
                 <label for="prenom" id="prenom">PRÉNOM</label>
                 <input type="text" id="prenom" name="prenom" value="{{ $user->prenom }}">
+                @if($errors->has('prenom'))
+                    <div class="auth__text_error">
+                        {{$errors->first('prenom')}}
+                    </div>
+                @endif
             </div>
 
             <div class="auth__form_profil_group">
                 <label for="email" id="email">COURRIEL</label>
                 <input type="text" id="email" name="email" value="{{ $user->email }}">
+                @if($errors->has('email'))
+                    <div class="auth__text_error">
+                        {{$errors->first('email')}}
+                    </div>
+                @endif
             </div>
 
             <div class="auth__form_profil_group">

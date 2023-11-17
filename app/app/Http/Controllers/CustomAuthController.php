@@ -102,7 +102,7 @@ class CustomAuthController extends Controller
         $user->update();
 
         // Retour sur le dossier ressources - views - show.blade.php
-        return redirect(route('auth.show', $user->id))->withSuccess('Donnée mise à jour');
+        return redirect(route('auth.show', $user->id))->withSuccess('Mise à jour réussie');
     }
 
     /**

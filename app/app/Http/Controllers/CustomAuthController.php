@@ -95,12 +95,11 @@ class CustomAuthController extends Controller
 
         $user = Auth::user();
 
-        $user->nom = $request['nom'];
-        $user->prenom = $request['prenom'];
-        $user->email = $request['email'];
+        $user->nom = $request->input('nom');
+        $user->prenom = $request->input('prenom');
+        $user->email = $request->input('email');
 
-        $user->update([$user->nom, $user->prenom, $user->email]);
-
+        $user->update();
 
         // Retour sur le dossier ressources - views - show.blade.php
         return redirect(route('auth.show', $user->id))->withSuccess('Donnée mise à jour');

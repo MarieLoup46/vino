@@ -1,0 +1,120 @@
+.ajout-bouteille__titre{
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 29px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #AC1127;
+    margin: 70px;
+}
+
+
+
+.ajout-bouteille__nom{
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+.ajout-bouteille__cellier, .ajout-bouteille__boutton, .ajout-bouteille__quantite{
+    display: flex;
+    justify-content: space-between;
+    margin: 50px;
+}
+.ajout-bouteille__cellier label, .ajout-bouteille__quantite label{
+    font-family: Inter;
+    font-weight: 500;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-transform: uppercase;
+    margin-right: 100px;
+    margin-top: 10px;
+}
+
+.ajout-bouteille__cellier select{
+    background-color: #F4F0F0;
+    border: 1px solid #AC1127;
+    border-radius: 10px;
+    padding: 10px 200px 10px 3px;
+
+}
+
+
+.ajout-bouteille__boutton .ajouter{
+    font-family: Inter;
+    font-weight: 300;
+    line-height: 15px;
+    letter-spacing: 0em;
+    text-align: center;
+    color:white; 
+    background-color: #531A21;
+    padding: 15px 33px;
+    border:none;
+    border-radius: 10px;
+    margin-right: 64px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.ajout-bouteille__boutton .annuler{
+    font-family: Inter;
+    font-weight: 300;
+    line-height: 15px;
+    letter-spacing: 0em;
+    text-align: center;
+    color:white; 
+    background-color: #A11C27;
+    padding: 15px 33px;
+    border:none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 10px;
+}
+.ajout-bouteille__quantite .plus, .ajout-bouteille__quantite .moins{
+    text-decoration: none;
+    color: white;
+    background-color: #531A21;
+    font-size: 30px;
+    border-radius: 60px;
+    padding: 4px;
+    width: 35px;
+    text-align: center;
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+.ajout-bouteille__quantite .quantite::-webkit-inner-spin-button,
+.ajout-bouteille__quantite .quantite::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+
+}
+.ajout-bouteille__quantite .quantite{
+    margin:0;
+    padding:0;
+    font-size: 35px;
+    width: 100px;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+}
+
+.ajout-bouteille__quantite .quantite:focus-visible{
+    border:none; 
+}
+
+.ajout-bouteille__form{
+    display: flex;
+    justify-content: center;
+}
+
+.ajout-bouteille__boutton{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 25px;
+}

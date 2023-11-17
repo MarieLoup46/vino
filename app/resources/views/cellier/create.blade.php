@@ -28,7 +28,7 @@
         @csrf
         <div class="create-cellier-form">
             <label for="nomDuCellier" class="create-cellier-nom">NOM DU CELLIER:</label>
-            <input placeholder="EX: MAISON" type="text" class="create-cellier-exemple" id="nom" name="nom" required>
+            <input placeholder="EX: MAISON" type="text" class="create-cellier-input" id="nom" name="nom" required>
         </div>
         <button type="submit" class="create-cellier-btn-creer">CRÉER UN CELLIER</button>
     </form>

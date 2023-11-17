@@ -33,23 +33,7 @@
         @endforeach
     </section>
 
-    <nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
-        <img src="{{ asset('path/to/your/previous-icon.png') }}" alt="Précédent">
-      </a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">
-        <img src="{{ asset('path/to/your/next-icon.png') }}" alt="Suivant">
-      </a>
-    </li>
-  </ul>
-</nav>
+    
 
 
 

@@ -26,6 +26,7 @@
                     </div>
                 </div>
             @endforeach
+            {{ $bouteilles->links() }}
         </div>
     </div>
 </div>

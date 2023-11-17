@@ -1,37 +1,38 @@
 @extends('layouts.app')
+
 @section('title', 'Ajouter cellier')
+
 @section('content')
-    <div class="create-container">
-        <div class="mx-5 mt-5">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+<section class="create-cellier-container">
+    @if ($errors->any())
+    <article class="create-cellier-error">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </article>
+    @endif
 
-            @if (session('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                </div>
-            @endif
+    @if (session('success'))
+    <article class="create-cellier-success">
+        {{ session('success') }}
+    </article>
+    @endif
 
-                <div class="create-title">
-                    <h3>Ajouter un Cellier</h3>
-                </div>
+    <header class="create-cellier-titre">
+        <h3>Ajouter un Cellier</h3>
+    </header>
 
-            <form action="{{ route('cellier.store') }}" method="POST">
-                @csrf
-                <div class="form-group">
-                    <label for="nomDuCellier" class="mb-0">NOM DU CELLIER:</label>
-                    <input placeholder="EX: MAISON" type="text" class="form-control mt-1" id="nom" name="nom" required>
-                </div>
-                <button type="submit" class="btn-submit">CRÉER UN CELLIER</button>
-            </form>
+    <form action="{{ route('cellier.store') }}" method="POST">
+        @csrf
+        <div class="create-cellier-form">
+            <label for="nomDuCellier" class="create-cellier-nom">NOM DU CELLIER:</label>
+            <input placeholder="EX: MAISON" type="text" class="create-cellier-exemple" id="nom" name="nom" required>
         </div>
-    </div>
+        <button type="submit" class="create-cellier-btn-creer">CRÉER UN CELLIER</button>
+    </form>
+</section>
 @endsection
+
 @include('layouts.footer')

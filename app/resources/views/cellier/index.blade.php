@@ -8,19 +8,25 @@
         <h3>Vos celliers</h3>
         <div class="cellier-index-btn">
             <form action="{{ route('cellier.create') }}" method="GET">
-            <button type="submit" class="cellier-index-btn-ajouter">AJOUTER UN CELLIER</button>
+                <button type="submit" class="cellier-index-btn-ajouter">AJOUTER UN CELLIER</button>
         </div>
     </header>
-    <section class="cellier-index-liste">
+    <section class="cellier-index-list">
         @foreach($items as $index => $item)
         <article class="cellier-index-item">
             <a href="{{ route('cellier.show', $item->id) }}" class="cellier-index-select">
-                <img src="{{ asset('icons/' . $random_icon) }}" alt="{{ $item->nom }}" class="cellier-index-img" />
-                <div class="cellier-index-info">
-                    <h2 class="cellier-index-nom">{{ $item->nom }}</h2>
-                    <p class="cellier-index-bouteille-count">{{ $index }} Bouteille</p>
+                <div class="cellier-index-item-content">
+                    <div class="cellier-index-item-image">
+                        <img alt="{{ $item->nom }}" src="{{ asset('icons/' . $random_icon) }}" class="cellier-index-icon" />
+                    </div>
+                    <div class="cellier-index-name">{{ $item->nom }}</div>
                 </div>
             </a>
+            <div class="cellier-index-bottle-count-container">
+                <a href="URL_FOR_OTHER_PAGE" class="cellier-index-bottle-count-link">
+                    <small class="cellier-index-bottle-count">{{ $index }} Bouteille</small>
+                </a>
+            </div>
         </article>
         @endforeach
     </section>

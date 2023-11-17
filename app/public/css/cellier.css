@@ -38,9 +38,6 @@
     margin-bottom: 1rem;
     margin-top: 0.25rem;
     width: 297px;
-    height: 54px;
-    top: 134px;
-    left: 48px;
     cursor: pointer;
 }
 
@@ -57,9 +54,6 @@
     margin-bottom: 1rem;
     margin-top: 0.25rem;
     width: 297px;
-    height: 54px;
-    top: 237px;
-    left: 49px;
     cursor: pointer;
 }
 
@@ -67,4 +61,85 @@
     background-color: var(--wine-component);
     color: var(--background-item);
     border: 1px solid var(--wine-component);
+}
+
+/*index.blade.php*/
+
+.cellier-index-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    align-items: center;
+    font-family: var(--font-vino);
+}
+
+.cellier-index-titre {
+    text-align: center;
+    color: var(--wine-name);
+    font-size: var(--h3-font-size);
+    font-weight: var(--weight-700);
+    font-style: italic;
+    padding-top: 54px;
+}
+
+.cellier-index-btn {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.cellier-index-btn-ajouter {
+    margin-top: 2px;
+    color: white;
+    background-color: var(--color-button);
+    border: 1px solid var(--color-button);
+    border-radius: 15px;
+    padding: 15px;
+    width: 226px;
+    height: 38px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.cellier-index-btn-ajouter:hover {
+    background-color: var(--wine-component);
+    color: var(--background-item);
+    border: 1px solid var(--wine-component);
+}
+
+.cellier-index-list {
+    display: flex; /* Para alinhar os artigos em coluna */
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 15px;
+}
+
+.cellier-index-item {
+    border: 1px solid var(--wine-name);
+    border-radius: 10px;
+    background-color: var(--background-item);
+    width: 450px;
+    
+}
+
+.cellier-index-item:hover {
+
+}
+
+.cellier-index-item-content {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.cellier-index-item-image {
+    margin: 10px;
+}
+ 
+.cellier-index-name {
+font-size: var(--tiny-font-size);
+font-weight: var(--weight-600:);
 }

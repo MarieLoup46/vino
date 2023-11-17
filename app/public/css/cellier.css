@@ -149,7 +149,7 @@
 
 .cellier-index-bottle-count-container{
     padding-left: 40px;
-    top: 20px;
+   
 }
 
 .cellier-index-bottle-count-link {
@@ -158,9 +158,9 @@
     font-weight: var(--weight-400);
     font-style: italic;
     text-decoration: none;
-    top: 20px;
+   
 }
 
 .cellier-index-bottle-count {
-    top: 20px;
+   
 }

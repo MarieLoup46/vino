@@ -60,6 +60,7 @@
     background-color: var(--wine-component);
     color: var(--background-item);
     border: 1px solid var(--wine-component);
+    font-weight: var(--weight-600);
 }
 
 /*index.blade.php*/
@@ -78,7 +79,7 @@
     font-size: var(--h3-font-size);
     font-weight: var(--weight-700);
     font-style: italic;
-    padding-top: 54px;
+    padding-top: 53px;
 }
 
 .cellier-index-btn {
@@ -106,6 +107,7 @@
     background-color: var(--wine-component);
     color: var(--background-item);
     border: 1px solid var(--wine-component);
+    font-weight: var(--weight-600);
 }
 
 .cellier-index-list {
@@ -121,9 +123,14 @@
     background-color: var(--background-item);
     width: 300px;
     height: 52px;
+    cursor: pointer;
 }
 
-.cellier-index-select{
+.cellier-index-item:hover {
+    border-color: black;
+}
+
+.cellier-index-select {
     display: flex;
 }
 
@@ -148,4 +155,87 @@
 .cellier-index-bottle-count {
     padding-top: 14px;
     padding-right: 10px;
+}
+
+/*show.blade.php*/
+
+.cellier-show-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+}
+
+.cellier-show-titre {
+    color: var(--wine-name);
+    font-size: var(--h3-font-size);
+    font-weight: var(--weight-700);
+    font-style: italic;
+    text-align: center;
+}
+
+.cellier-show-nom {
+    flex-direction: column;
+    padding-top: 50px;
+    font-size: var(--tiny-font-size);
+}
+
+.cellier-show-nom label {
+    color: black;
+    display: block;
+}
+
+.cellier-show-input {
+    display: block;
+    border: 1px solid var(--wine-name);
+    border-radius: 8px;
+    background-color: var(--background-item);
+    padding: 16px;
+    margin-bottom: 1rem;
+    margin-top: 0.25rem;
+    width: 297px;
+    cursor: pointer;
+}
+
+.cellier-show-input:hover {
+    border-color: black;
+}
+
+.cellier-show-btn-mod {
+    color: white;
+    background-color: var(--color-button);
+    border: 1px solid var(--color-button);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 1rem;
+    margin-top: 0.25rem;
+    width: 297px;
+    cursor: pointer;
+}
+
+.cellier-show-btn-mod:hover {
+    background-color: var(--form-field);
+    color: var(--color-button);
+    border: 3px solid var(--wine-component);
+    font-weight: var(--weight-600);
+}
+
+.cellier-show-btn-sup {
+    color: white;
+    background-color: var(--delete-color);
+    border: 1px solid var(--delete-color);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 1rem;
+    margin-top: 0.25rem;
+    width: 297px;
+    cursor: pointer;
+}
+
+.cellier-show-btn-sup:hover {
+    background-color: var(--form-field);
+    color: var(--delete-color);
+    border: 3px solid var(--delete-color);
+    font-weight: var(--weight-600);
 }

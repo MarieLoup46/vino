@@ -1,33 +1,41 @@
 @extends('layouts.app')
-@section('title', 'Celliers')
-@section('content')
-    <div class="cellier-row">
-        <div class="cellier-main-content">
-            <div class="cellier-title-section">
-                <h3 class="cellier-title">Mes celliers</h3>
-                <div class="cellier-button-section">
-                    <a href="{{ route('cellier.create') }}" class="cellier-add-button">AJOUTER UN CELLIER</a>
-                </div>
-            </div>
 
-            <div class="cellier-list">
-                @foreach($items as $index => $item)
-                    <div class="cellier-item">
-                        <a class="full-link" href="{{ route('cellier.show', $item->id) }}"></a>
-                        <div class="cellier-item-image">
-                            <img alt="{{ $item->nom }}" src="{{ asset('icons/' . $random_icon) }}" class="cellier-icon" />
-                        </div>
-                        <div class="cellier-item-info">
-                            <span class="cellier-name">{{ $item->nom }}</span>
-                            <small class="cellier-bottle-count">{{ $index }} Bouteille</small>
-                        </div>
-                        <div class="cellier-item-action">
-                            <img src="{{ asset('icons/info.png') }}" alt="info" class="cellier-info-icon" />
-                        </div>
-                    </div>
-                @endforeach
-            </div>
+@section('title', 'Celliers')
+
+@section('content')
+<main class="cellier-index-container">
+    <header class="cellier-index-titre">
+        <h3>Vos celliers</h3>
+        <div class="cellier-index-btn">
+            <form action="{{ route('cellier.create') }}" method="GET">
+                <button type="submit" class="cellier-index-btn-ajouter">AJOUTER UN CELLIER</button>
         </div>
-    </div>
+    </header>
+    <section class="cellier-index-list">
+        @foreach($items as $index => $item)
+        <article class="cellier-index-item">
+            <div onclick="event.stopPropagation(); navigateTo('{{ route('cellier.show', $item->id) }}')" class="cellier-index-select">
+                <img alt="{{ $item->nom }}" src="{{ asset('icons/' . $random_icon) }}" class="cellier-index-icon" />
+                <div class="cellier-index-item-content">
+                    <div class="cellier-index-name">{{ $item->nom }}</div>
+                    <small onclick="event.stopPropagation(); navigateTo('{{ route('bouteille.recherche') }}')" class="cellier-index-bottle-count">
+                        {{ $index }} Bouteille
+                    </small>
+                </div>
+                </a>
+        </article>
+        @endforeach
+    </section>
+
+    <script type="text/javascript">
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
+
+
+
+</main>
 @endsection
+
 @include('layouts.footer')

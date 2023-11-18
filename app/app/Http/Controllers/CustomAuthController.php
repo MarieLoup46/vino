@@ -157,10 +157,9 @@ class CustomAuthController extends Controller
         return redirect()->intended(route('accueil'));
     }
 
-    public function logout()
-    {
-        Session::flush();
+    public function logout() {
         Auth::logout();
+
         return redirect(route('login'));
     }
 

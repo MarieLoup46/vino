@@ -23,7 +23,7 @@ class BouteilleController extends Controller
     public function index()
     {
         
-        $bouteilles = Bouteille::orderBy('id','desc')->get();
+        $bouteilles = Bouteille::orderBy('id','desc')->paginate(24);
         $types = Type::all();
         foreach($bouteilles as $bouteille){
             $type_id = $bouteille->type_id;
@@ -184,6 +184,7 @@ class BouteilleController extends Controller
         $bouteille_id = $request->input('bouteille_id');
         $celliers = Cellier::where('user_id',Auth::user()->id)->get();
         $bouteille = Bouteille::find($bouteille_id);
+        
         return view('bouteille.ajouterBouteilleAuCellier',[
             'bouteille' => $bouteille,
             'celliers' => $celliers

@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('title', 'Gerer cellier')
 @section('content')
-    <div class="row">
-        <div class="mx-5 mt-5">
+    <div class="cellier-show-container">
+        <div class="cellier-show">
             @if ($errors->any())
-                <div class="alert alert-danger">
+                <div class="cellier-show-error">
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -14,34 +14,32 @@
             @endif
 
             @if (session('success'))
-                <div class="alert alert-success">
+                <div class="cellier-show-sucess">
                     {{ session('success') }}
                 </div>
             @endif
 
-                <div class="modifier text-center ">
-                    <h3>Mes Celliers</h3>
-                </div>
+            <div class="cellier-show-titre">
+                <h3>Modifier un Cellier</h3>
+            </div>
 
             <form action="{{ route('cellier.update', $cellier->id) }}" method="POST">
                 @method('PUT')
                 @csrf
-                <div class="form-group mb-3">
-                    <label for="nomDuCellier" class="mb-0">NOM DU CELLIER:</label>
-                    <input placeholder="EX: MAISON" type="text" class="form-control mt-1" id="nom" name="nom" value="{{ old('nom', $cellier->nom) }}">
+                <div class="cellier-show-nom">
+                    <label for="nomDuCellier" class="cellier-show-edit">NOM DU CELLIER:</label>
+                    <input placeholder="EX: MAISON" type="text" class="cellier-show-input" id="nom" name="nom" value="{{ old('nom', $cellier->nom) }}">
                 </div>
 
-                <div class="d-flex justify-content-between">
-                    <button type="submit" class="btn-submit">MODIFIER CELLIER</button>
+                <div class="cellier-show-modifier">
+                    <button type="submit" class="cellier-show-btn-mod">MODIFIER CELLIER</button>
                 </div>
             </form>
-
-
 
             <form action="{{ route('cellier.destroy', $cellier->id) }}" method="POST">
                 @method('DELETE')
                 @csrf
-                <button type="submit" class="btn-submit">SUPPRIMER CELLIER</button>
+                <button type="submit" class="cellier-show-btn-sup">SUPPRIMER CELLIER</button>
             </form>
         </div>
     </div>

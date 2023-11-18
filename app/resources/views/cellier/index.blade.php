@@ -14,26 +14,24 @@
     <section class="cellier-index-list">
         @foreach($items as $index => $item)
         <article class="cellier-index-item">
-            <div>
-                <a href="{{ route('cellier.show', $item->id) }}" class="cellier-index-select">
-                    <div class="cellier-index-item-content">
-                        <div class="cellier-index-item-image">
-                            <img alt="{{ $item->nom }}" src="{{ asset('icons/' . $random_icon) }}" class="cellier-index-icon" />
-                        </div>
-                        <div class="cellier-index-name">{{ $item->nom }}</div>
-                    </div>
+            <div onclick="event.stopPropagation(); navigateTo('{{ route('cellier.show', $item->id) }}')" class="cellier-index-select">
+                <img alt="{{ $item->nom }}" src="{{ asset('icons/' . $random_icon) }}" class="cellier-index-icon" />
+                <div class="cellier-index-item-content">
+                    <div class="cellier-index-name">{{ $item->nom }}</div>
+                    <small onclick="event.stopPropagation(); navigateTo('{{ route('bouteille.recherche') }}')" class="cellier-index-bottle-count">
+                        {{ $index }} Bouteille
+                    </small>
+                </div>
                 </a>
-            </div>
-            <div class="cellier-index-bottle-count-container">
-                <a href="{{ route('bouteille.recherche') }}" class="cellier-index-bottle-count-link">
-                    <small class="cellier-index-bottle-count">{{ $index }} Bouteille</small>
-                </a>
-            </div>
         </article>
         @endforeach
     </section>
 
-    
+    <script type="text/javascript">
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
 
 
 

@@ -111,6 +111,41 @@
 .cellier-index-list {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 35px;
     padding-top: 15px;
+}
+
+.cellier-index-item {
+    border: 1px solid var(--wine-name);
+    border-radius: 10px;
+    background-color: var(--background-item);
+    width: 300px;
+    height: 52px;
+}
+
+.cellier-index-select{
+    display: flex;
+}
+
+.cellier-index-icon {
+    margin: 10px;
+}
+
+.cellier-index-name {
+    color: var(--border-primary);
+    font-size: var(--smaller-font-size);
+    font-weight: var(--weight-600);
+    font-style: italic;
+    padding-top: 14px;
+}
+
+.cellier-index-item-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.cellier-index-bottle-count {
+    padding-top: 14px;
+    padding-right: 10px;
 }

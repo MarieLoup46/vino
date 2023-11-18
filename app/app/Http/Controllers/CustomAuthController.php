@@ -105,6 +105,12 @@ class CustomAuthController extends Controller
         return redirect(route('auth.show', $user->id))->withSuccess('Mise à jour réussie');
     }
 
+    public function logout() {
+        Auth::logout();
+
+        return redirect(route('login'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -155,12 +161,6 @@ class CustomAuthController extends Controller
         Auth::login($user);
 
         return redirect()->intended(route('accueil'));
-    }
-
-    public function logout() {
-        Auth::logout();
-
-        return redirect(route('login'));
     }
 
     public function userList(){

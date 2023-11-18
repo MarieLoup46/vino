@@ -34,16 +34,22 @@
                 <input type="text" id="email" name="email" value="{{ $user->email }}">
             </div>
 
-            <div class="auth__form_profil_group">
-                <a href="{{ route('auth.edit', $user->id) }}" class="auth__profil_btn">MODIFIER MES INFORMATIONS</a>
+            <div class="auth__form_profil_button">
+                <a href="{{ route('auth.edit', $user->id) }}"><button class="auth__profil_btn">MODIFIER MES INFORMATIONS</button></a>
             </div>
 
-            <div>
-                <h2 class="auth__h2-title">COMPTE</h2>
+            <div class="auth__form_profil_compte">
+                <div>
+                    <h2 class="auth__h2-title">COMPTE</h2>
+                </div>
 
-                <button class="auth__profil_btn">ME DÉCONNECTER</button>
+                <div>
+                    <button class="auth__profil_btn">ME DÉCONNECTER</button>
+                </div>
 
-                <button class="auth__profil_btn auth__profil_delete_btn">SUPPRIMER MON COMPTE</button>
+                <div>
+                    <button class="auth__profil_btn auth__profil_delete_btn">SUPPRIMER MON COMPTE</button>
+                </div>
             </div>
         </form>
     </div>

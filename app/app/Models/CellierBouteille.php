@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class CellierBouteille extends Model
 {
     use HasFactory;
+    
 }

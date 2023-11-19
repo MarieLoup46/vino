@@ -1,26 +1,36 @@
+@extends('layouts.app')
+
+@section('title', 'Détails du Cellier')
+
+@section('content')
 <main class="cellier-select-container">
     <header class="cellier-select-titre">
         <div class="cellier-item-action">
             <img src="{{ asset('icons/parametre.png') }}" alt="info" class="cellier-parametre-icon" />
         </div>
-        <h3>NOM DA CELLIER</h3>
+        <h3 class="cellier-select-bouteille">{{ $cellier->nom }}</h3>
         <div class="cellier-select-ajouter">
-            <form action="#" method="GET"> <!-- Substitua o # pelo seu link -->
+            <form action="{{ route('ajout.bouteille.cellier', $cellier->id) }}" method="GET">
                 <button type="submit" class="cellier-select-ajouter-btn">AJOUTE UNE BOUTEILLE</button>
             </form>
         </div>
     </header>
+
     <div class="cellier-select-list">
-        <!-- Aqui você colocará seu loop para listar os itens -->
+        @foreach ($bouteilles as $bouteille)
         <div class="cellier-select-item">
-            <img alt="Nom" src="#" class="cellier-select-icon" /> <!-- Substitua o # pelo seu link -->
-            <div class="cellier-select-bouteille">{{ $item->nome }}</div> <!-- Substitua $item->nome pelo campo desejado do seu objeto -->
+            <img alt="{{ $bouteille->nom }}" src="{{ asset('path/to/bouteille/image/' . $bouteille->image) }}" class="cellier-select-icon" />
             <div class="cellier-select-item-content">
-                <small class="cellier-select-bottle-count">Pays</small>
-                <small class="cellier-select-bottle-count">Type</small>
-                <small class="cellier-select-bottle-count">X ml</small>
+                <h4 class="ajout-bouteille__nom">{{$bouteille->nom}}</h4>
+                <small class="cellier-select-bottle-count">{{ $bouteille->pays }}</small>
+                <small class="cellier-select-bottle-count">{{ $bouteille->type }}</small>
+                <small class="cellier-select-bottle-count">{{ $bouteille->volume }} ml</small>
             </div>
+            <div class="cellier-item-action">
+                    <img src="{{ asset('icons/info.png') }}" alt="info" class="cellier-info-icon" />
+                </div>
         </div>
-        <!-- Fim do loop -->
+        @endforeach
     </div>
 </main>
+@endsection

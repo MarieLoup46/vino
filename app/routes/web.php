@@ -47,6 +47,7 @@ Route::post('/cellier', [CellierController::class, 'store'])->name('cellier.stor
 Route::get('/cellier/{cellier}', [CellierController::class, 'show'])->name('cellier.show')->middleware('auth');
 Route::put('/cellier/{cellier}', [CellierController::class, 'update'])->name('cellier.update')->middleware('auth');
 Route::delete('/cellier/{cellier}', [CellierController::class, 'destroy'])->name('cellier.destroy')->middleware('auth');
+Route::get('/cellier/{cellier}/bouteilles', [CellierController::class, 'listBouteilles'])->name('cellier.bouteilles.list')->middleware('auth');
 
 Route::get('/registration', [CustomAuthController::class, 'create'])->name('user.create');
 Route::post('/registration', [CustomAuthController::class, 'store']);

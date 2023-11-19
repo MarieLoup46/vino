@@ -9,6 +9,7 @@
         <div class="cellier-index-btn">
             <form action="{{ route('cellier.create') }}" method="GET">
                 <button type="submit" class="cellier-index-btn-ajouter">AJOUTER UN CELLIER</button>
+            </form>
         </div>
     </header>
     <section class="cellier-index-list">
@@ -22,20 +23,18 @@
                         {{ $index }} Bouteille
                     </small>
                 </div>
-                </a>
+            </div>
         </article>
         @endforeach
     </section>
-
-    <script type="text/javascript">
-        function navigateTo(url) {
-            window.location.href = url;
-        }
-    </script>
-
-
-
 </main>
+
+<script type="text/javascript">
+    function navigateTo(url) {
+        window.location.href = url;
+    }
+</script>
+
 @endsection
 
 @include('layouts.footer')

@@ -33,24 +33,27 @@
                 <label for="email" id="email">COURRIEL</label>
                 <input type="text" id="email" name="email" value="{{ $user->email }}">
             </div>
+        </form>
+        <form action="{{ route('auth.edit', $user->id) }}" method="get">
+            @csrf
+            <input type="submit" value="MODIFIER MES INFORMATIONS" class="auth__profil_btn">
+        </form>
 
-            <div class="auth__form_profil_button">
-                <a href="{{ route('auth.edit', $user->id) }}" class="auth__profil_btn">MODIFIER MES INFORMATIONS</a>
-            </div>
-
-            <div class="auth__form_profil_compte">
+        <div class="auth__form_profil_compte">
                 <div>
                     <h2 class="auth__h2-title">COMPTE</h2>
                 </div>
+        </div>
 
-                <div class="auth__form_profil_button">
-                    <a href="{{ route('logout') }}" class="auth__profil_btn">ME DÉCONNECTER</a>
-                </div>
+        <form action="{{ route('logout') }}" method="get">
+            @csrf
+            <input type="submit" value="ME DÉCONNECTER" class="auth__profil_btn">
+        </form>
 
-                <div class="auth__form_profil_button">
-                    <a href="{{ route('auth.delete', $user->id) }}" class="auth__profil_btn auth__profil_delete_btn">SUPPRIMER MON COMPTE</a>
-                </div>
-            </div>
+        <form action="{{ route('auth.delete', $user->id) }}" method="post">
+            @csrf
+            @method('delete')
+            <input type="submit" value="SUPPRIMER MON COMPTE" class="auth__profil_btn auth__profil_delete_btn">
         </form>
     </div>
 @endsection

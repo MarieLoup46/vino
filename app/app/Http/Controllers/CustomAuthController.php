@@ -123,7 +123,7 @@ class CustomAuthController extends Controller
 
         Auth::logout();
 
-        return redirect(route('user.login'));
+        return redirect(route('login'))->withSuccess('Votre compte a été supprimé');
     }
 
     /**

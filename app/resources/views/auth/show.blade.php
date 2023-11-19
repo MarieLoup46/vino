@@ -12,7 +12,7 @@
 
         <!-- Message affiché lorsqu'un usager est modifié -->
         @if(session('success'))
-            <div class="auth__success auth__success_update">
+            <div class="alert alert-success" role="alert">
                 {{session('success')}}
             </div>
         @endif
@@ -34,15 +34,14 @@
                 <input type="text" id="email" name="email" value="{{ $user->email }}">
             </div>
         </form>
+
         <form action="{{ route('auth.edit', $user->id) }}" method="get">
             @csrf
             <input type="submit" value="MODIFIER MES INFORMATIONS" class="auth__profil_btn">
         </form>
 
-        <div class="auth__form_profil_compte">
-                <div>
-                    <h2 class="auth__h2-title">COMPTE</h2>
-                </div>
+        <div>
+            <h2 class="auth__h2-title">COMPTE</h2>
         </div>
 
         <form action="{{ route('logout') }}" method="get">
@@ -53,7 +52,7 @@
         <form action="{{ route('auth.delete', $user->id) }}" method="post">
             @csrf
             @method('delete')
-            <input type="submit" value="SUPPRIMER MON COMPTE" class="auth__profil_btn auth__profil_delete_btn">
+            <input type="submit" value="SUPPRIMER MON COMPTE" onclick="return confirm('Êtes-vous sûre de vouloir supprimer votre compte')" class="auth__profil_btn auth__profil_delete_btn">
         </form>
     </div>
 @endsection

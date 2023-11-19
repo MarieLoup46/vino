@@ -32,7 +32,6 @@
     font-weight: var(--weight-600);
     color: var(--wine-component);
     font-style: italic;
-    text-align: center;
     margin-top: 80px;
 }
 
@@ -40,34 +39,43 @@
     font-family: var(--font-vino);
     font-size: var(--large-font-size);
     font-weight: var(--weight-600);
-    text-align: center;
     margin: 30px 60px;
+}
+
+.auth__container_profil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px 30px 180px 30px;
 }
 
 .auth__form_profil {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-bottom: 80px;
+    width: 100%;
 }
 
-.auth__form_profil > label {
+.auth__form_profil_group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.auth__form_profil_group > label {
     font-family: var(--font-vino);
     font-size: var(--normal-font-size);
+    width: 100%;
 }
 
-.auth__form_profil > input {
+.auth__form_profil_group > input {
     background: var(--background-item);
     border-radius: 8px;
     border: 2px solid var(--border-primary);
-    width: 50%;
     padding: 20px;
-    margin-bottom: 15px;
-}
-
-.auth__profil_compte {
-    margin-top: 60px;
-    padding: 15px;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
 .auth__profil_btn {
@@ -79,10 +87,8 @@
     border: none;
     margin-bottom: 1rem;
     margin-top: 0.25rem;
-    text-decoration: none;
     text-align: center;
-    cursor: pointer;
-    padding: 16px;
+    padding: 15px 15px;
 }
 
 .auth__profil_btn:hover {
@@ -101,18 +107,10 @@
     border: 2px solid var(--delete-color);
 }
 
-.auth_success {
-    text-align: center;
-    font-size: var(--normal-font-size);
-    margin-top: 30px;
-}
-
-.auth__success_update {
+.auth__text_error {
+    font-size: var(--smaller-font-size);
     color: var(--font-vino);
-}
-
-.auth__success_delete {
-    color: var(--delete-color);
+    margin-bottom: 10px;
 }
 
 .auth__user-list {

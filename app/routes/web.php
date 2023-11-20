@@ -25,8 +25,14 @@ Route::get('/', function () {
 Route::get('/ajouter-bouteilles', [BouteilleController::class, 'AdminAjoutBouteilles'])->name('FormAjoutBouteilles')->middleware('auth');
 Route::post('/ajouter-bouteilles', [BouteilleController::class, 'AjoutBouteilles'])->name('AjoutBouteilles')->middleware('auth');
 
+//route pour importer les details pour chaque bouteille dans la base de données
+Route::get('/info-bouteilles', [BouteilleController::class, 'addInfoBouteilles'])->name('bouteille.info');
+
 //route pour la pages recherche
 Route::get('/recherche', [BouteilleController::class, 'index'])->name('bouteille.recherche')->middleware('auth');
+
+//route pour afficher le details d'une bouteille
+Route::get('/vin/{bouteille}/show', [BouteilleController::class, 'show'])->name('bouteille.show')->middleware('auth');
 
 //Route pour le formulaire d'ajout des bouteilles dans cellier
 Route::post('/affichier-bouteille-au-cellier', [BouteilleController::class, 'formBouteillesAuCeiller'])->name('affichier.bouteille.cellier')->middleware('auth');

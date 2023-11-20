@@ -1,0 +1,176 @@
+@import url('global.css');
+
+.bouteille__container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    overflow: hidden;
+}
+
+.bouteille__col{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bouteille__header{
+    color: black;
+    font-family: var(--font-vino);
+    font-size: var(--normal-font-size);
+    font-weight: var(--weight-600);
+    padding: 25px;
+}
+
+.bouteille__detail{
+    height: 45vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 25px;
+}
+
+.bouteille__detail-nom {
+    color: var(--wine-name);
+    font-family: var(--font-vino);
+    font-size: var(--h3-font-size);
+    font-weight: var(--weight-600);
+    font-style: italic;
+}
+
+.bouteille__img-cellier{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-button);
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    margin-bottom: 15px;
+}
+
+.bouteille__detail-item {
+    color: var(--wine-info);
+    font-family: var(--font-vino);
+    font-size: var(--tiny-font-size);
+    font-weight: var(--weight-700);
+    overflow: hidden;
+}
+
+.bouteille__detail-item > span{
+    color: black;
+}
+
+.bouteille__detail-img {
+    position: absolute;
+    right: 100px;
+    bottom: 30%;
+    height: 350px;
+    overflow-x: hidden;
+}
+
+.bouteille__detail-img > img {
+    height: 350px;
+    position: relative;
+    right: 0px;
+    overflow-x: hidden;
+}
+
+.bouteille__description {
+    background: var(--wine-component);
+    height: 40vh;
+    padding: 25px;
+}
+
+.bouteille__description-title {
+    color: white;
+    font-family: var(--font-vino);
+    font-size: var(--normal-font-size);
+    font-weight: var(--weight-700);
+
+}
+
+.bouteille__description-detail {
+    color: white;
+    font-family: var(--font-vino);
+    font-size: var(--tiny-font-size);
+    font-weight: var(--weight-600);
+    font-style: italic;
+    margin-top: 15px;
+}
+
+.bouteille__button-ajouter{
+    background: var(--color-button);
+    border: none;
+    cursor: pointer;
+}
+
+.bouteille__img-ajouter{
+    width: 35px;
+    height: 35px;
+}
+
+.bouteille_buttons-action{
+    display: flex;
+    gap: 15px;
+}
+
+.bouteille__bg-saq{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-radius: 50%;
+    border: 1px solid var(--wine-name);
+    width: 70px;
+    height: 70px;
+    margin-bottom: 15px;
+}
+
+.bouteille__button-saq{
+    border: none;
+    cursor: pointer;
+}
+
+.bouteille__img-logosaq {
+    width: 35px;
+    height: 35px;
+}
+
+@media (max-width: 767px) {
+    .bouteille__detail{
+        height: 55vh;
+    }
+    .bouteille__detail-img {
+        right: 0;
+        bottom: 25%;
+        height: 450px;
+    }
+
+    .bouteille__detail-img > img {
+        height: 450px;
+        right: -50px;
+    }
+    .bouteille__description {
+        height: 45vh;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .bouteille__detail{
+        height: 60vh;
+    }
+    .bouteille__detail-img {
+        right: 0;
+        bottom: 23%;
+        height: 600px;
+    }
+
+    .bouteille__detail-img > img {
+        height: 600px;
+        right: 0;
+    }
+    .bouteille__description {
+        height: 40vh;
+    }
+}

@@ -3,14 +3,19 @@
 @section('content')
 
 <div class="body__container">
-    <div class="auth__header">
+    <div class="auth__header recherche">
         <h1>Recherche</h1>
+        <div class="recherche__barre">
+            <input class="recherche__input" type="tel" name="recherche" id="recherche" placeholder="RECHERCHE PAR NOM">
+            <button class="recherche__btn"><img src="/icons/rechercher.png" class="footer-icon" alt="recherche"/></button>
+        </div>
+        
     </div>
     <div>
         <div class="auth__col">
             @foreach($bouteilles as $bouteille)
                 <div class="recherche__container">
-                    <div class="img__container">
+                    <div class="recherche__img">
                         <img src="{{$bouteille->url_img}}" class="recherche__img">
                     </div>
                     <div class="bouteille__info">

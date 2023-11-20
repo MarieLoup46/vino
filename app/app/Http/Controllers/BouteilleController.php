@@ -20,11 +20,23 @@ class BouteilleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
     //Fonction qui permet de afficher les bouteilles a partir de la base de donnes
     public function index()
     {
 
         $bouteilles = Bouteille::orderBy('id','desc')->paginate(24);
+=======
+    //Fonction qui permet de afficher les bouteilles a partir de la base de donnes 
+    public function index(Request $request)
+    {
+        $recherche_text = $request->input("recherche");
+        //Si l'utilisateur clic sur le boutton du recherche
+        $bouteilles = (empty($recherche_text)) ? Bouteille::orderBy('id','desc')->paginate(24) : 
+        /* Si l'utilisateur faire le recherche */
+        Bouteille::where('nom', 'like', '%' . $recherche_text . '%')->orderBy('id','desc')->paginate(24);
+
+>>>>>>> e35267699b53bb4a67eeadc10933fd2a750da1f7
         $types = Type::all();
         foreach($bouteilles as $bouteille){
             $type_id = $bouteille->type_id;

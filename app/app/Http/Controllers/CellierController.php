@@ -26,6 +26,23 @@ class CellierController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function listBouteilles($cellierId)
+    {
+        $cellier = Cellier::find($cellierId);
+
+        if (!$cellier) {
+            // Se o Cellier não for encontrado, redirecionar com uma mensagem de erro
+            return back()->with('error', 'Cellier non trouvé');
+        }
+
+        // Carregue as bouteilles relacionadas ao cellier usando o relacionamento 'bouteilles'
+        $bouteilles = $cellier->bouteilles;
+
+        return view('cellier.select', ['cellier' => $cellier, 'bouteilles' => $bouteilles]);
+    }
+
+
     public function index()
     {
         $items = Cellier::where('user_id', Auth::user()->id)->get();

@@ -20,7 +20,7 @@
         @endif
 
         <div class="cellier-show-titre">
-            <h3>Modifier un Cellier</h3>
+            <h1>Modifier un Cellier</h1>
         </div>
 
         <form action="{{ route('cellier.update', $cellier->id) }}" method="POST">

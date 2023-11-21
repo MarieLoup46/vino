@@ -30,11 +30,11 @@
                             </form>
                         </div>
                     </div>
-					<p class="bouteille__detail-item">Cépage(s): <span>{{$infoBouteille->cepages}}</span></p>
-					<p class="bouteille__detail-item">Particularité: <span>{{$infoBouteille->particularite}}</span></p>
-					<p class="bouteille__detail-item">Degré d'alcool: <span>{{$infoBouteille->degre_alcool}}</span></p>
-					<p class="bouteille__detail-item">Producteur: <span>{{$infoBouteille->producteur}}</span></p>
-					<p class="bouteille__detail-item">Taux de sucre: <span>{{$infoBouteille->taux_sucre}}</span></p>
+					<p class="bouteille__detail-item">Cépage(s):<br><span>{{$infoBouteille->cepages}}</span></p>
+					<p class="bouteille__detail-item">Particularité:<br><span>{{$infoBouteille->particularite}}</span></p>
+					<p class="bouteille__detail-item">Degré d'alcool:<br><span>{{$infoBouteille->degre_alcool}}</span></p>
+					<p class="bouteille__detail-item">Producteur:<br><span>{{$infoBouteille->producteur}}</span></p>
+					<p class="bouteille__detail-item">Taux de sucre:<br><span>{{$infoBouteille->taux_sucre}}</span></p>
 				</div>
 				<div class="bouteille__detail-img">
 					<img src="{{ explode('?', $bouteille->url_img)[0] }}" alt="bouteille">
@@ -48,5 +48,5 @@
 	</div>
 </div>
 
-@endsection
 @include('layouts.footer')
+@endsection

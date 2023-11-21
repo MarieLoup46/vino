@@ -6,6 +6,7 @@
     flex-direction: column;
     justify-content: start;
     overflow: hidden;
+
 }
 
 .bouteille__col{
@@ -44,8 +45,8 @@
     align-items: center;
     background: var(--color-button);
     border-radius: 50%;
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     margin-bottom: 15px;
 }
 
@@ -59,6 +60,9 @@
 
 .bouteille__detail-item > span{
     color: black;
+    max-width: 65%;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .bouteille__detail-img {
@@ -66,19 +70,19 @@
     right: 100px;
     bottom: 30%;
     height: 350px;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .bouteille__detail-img > img {
     height: 350px;
     position: relative;
     right: 0px;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .bouteille__description {
     background: var(--wine-component);
-    height: 40vh;
+    height: 45vh;
     padding: 25px;
 }
 
@@ -87,7 +91,6 @@
     font-family: var(--font-vino);
     font-size: var(--normal-font-size);
     font-weight: var(--weight-700);
-
 }
 
 .bouteille__description-detail {
@@ -97,6 +100,7 @@
     font-weight: var(--weight-600);
     font-style: italic;
     margin-top: 15px;
+    max-width: 65%;
 }
 
 .bouteille__button-ajouter{
@@ -106,8 +110,9 @@
 }
 
 .bouteille__img-ajouter{
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
 }
 
 .bouteille_buttons-action{
@@ -122,19 +127,20 @@
     background: white;
     border-radius: 50%;
     border: 1px solid var(--wine-name);
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     margin-bottom: 15px;
 }
 
 .bouteille__button-saq{
     border: none;
     cursor: pointer;
+    background-color: transparent;
 }
 
 .bouteille__img-logosaq {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
 }
 
 @media (max-width: 767px) {
@@ -143,12 +149,12 @@
     }
     .bouteille__detail-img {
         right: 0;
-        bottom: 25%;
-        height: 450px;
+        bottom: 8%;
+        height: 400px;
     }
 
     .bouteille__detail-img > img {
-        height: 450px;
+        height: 400px;
         right: -50px;
     }
     .bouteille__description {
@@ -162,12 +168,12 @@
     }
     .bouteille__detail-img {
         right: 0;
-        bottom: 23%;
-        height: 600px;
+        bottom: 13%;
+        height: 450px;
     }
 
     .bouteille__detail-img > img {
-        height: 600px;
+        height: 450px;
         right: 0;
     }
     .bouteille__description {

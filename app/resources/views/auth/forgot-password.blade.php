@@ -9,8 +9,13 @@
 	</div>
 	@endif
     <div class="auth__header">
-        <h1 class="auth__header-title">vino</h1>
+        <h1 class="auth__header-title">Vino</h1>
     </div>
+
+    <div>
+        <h2 class="auth__h2-title_forgot-pass">Modifier mot de passe</h2>
+    </div>
+
     <div class="auth__row">
         <div class="auth__col">
             <div class="auth__form-container">
@@ -35,7 +40,7 @@
                         </div>
                         @endif
                         <div class="auth__form-pwdforgot">
-                            <a href="/forgot-password">Mot de passe oublié ?</a>
+                            <a href="#">Mot de passe oublié ?</a>
                         </div>
                     </div>
                     <div class="auth__form-footer">

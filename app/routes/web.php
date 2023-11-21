@@ -98,3 +98,16 @@ Route::get('/admin-user-list', [CustomAuthController::class, 'userList'])->name(
 // Supprime un usager de la liste des usagers
 Route::delete('/admin-user-list/{user}', [CustomAuthController::class, 'deleteUserList'])->name('user.delete');
 
+
+
+// En lien avec la fonction forgotPassword() du controller CustomAuthController.php
+Route::get('/forgot-password', [CustomAuthController::class, 'forgotPassword'])->name('forgot-password');
+
+// En lien avec la fonction tempPassword() du controller CustomAuthController.php
+Route::post('/forgot-password', [CustomAuthController::class, 'tempPassword']);
+
+// En lien avec la fonction newPassword() du controller CustomAuthController.php
+Route::get('/new-password/{user_id}/{tempPassword}', [CustomAuthController::class, 'newPassword'])->name('new.password');
+
+// En lien avec la fonction storeNewPassword() du controller CustomAuthController.php
+Route::post('/new-password/{user_id}/{tempPassword}', [CustomAuthController::class, 'storeNewPassword']);

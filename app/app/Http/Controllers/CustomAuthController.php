@@ -169,4 +169,65 @@ class CustomAuthController extends Controller
         // modifier le "auth" selon le nom de dossier que Jacqueline aura donné
         return view('auth.admin-user-list', ['users' => $users]);
     }
+
+    public function forgotPassword() {
+        return view('auth.forgot-password');
+    }
+
+    public function tempPassword(Request $request) {
+        $request->validate([
+            'email' => 'required|email|exists:users'
+        ]);
+
+        // first est équivalent à la première donnée qui est le email (pas sûre)
+        $user = User::where('email', $request->email)->first();
+
+        $tempPassword = str::random(45);
+
+        // utilisation du champ 'temp_password'
+        $user->temp_password = $tempPassword;
+        $user->save();        
+
+        // Envoyer par courriel une confirmation de changement de mot de passe
+        $to_name = $request->name;
+        $to_email = $request->email;
+        $body = "<a href='".route('new.password', [$user->id, $tempPassword])."'>Cliquer ici pour changer le mot de passe</a>";
+
+        Mail::send('email.mail', [
+            'name' => $to_name, 
+            'body' => $body            
+        ],  function ($message) use ($to_name, $to_email) {
+                $message->to($to_email, $to_name)->subject('Reset password');
+            }
+        );
+        
+        return redirect(route('login'))->withSuccess('Please check your email');
+    }
+
+    public function newPassword(User $user, $tempPassword) {
+        if ($user->temp_password === $tempPassword) {
+            return view('auth.new-password');
+        }
+        return redirect(route('forgot-password'))->withErrors('Access denied');
+    }
+
+    public function storeNewPassword(Request $request, User $user, $tempPassword) {
+        if ($user->temp_password === $tempPassword) {
+            $request->validate([
+                // confirmed = vérifie si les 2 password entrés sont égaux
+                // min:6 fait en sorte que le champ est 'required'
+                'password' => 'min:6|max:20|confirmed'
+            ]);
+
+            // Hash = encryption
+            $user->password = Hash::make($request->password);
+
+            // On doit effacer le mot de passe temporaire donné
+            $user->temp_password = null;
+
+            $user->save();
+            return redirect(route('login'))->withSuccess('Success');
+        }
+        return redirect(route('forgot-password'))->withErrors('Access denied');
+    }
 }

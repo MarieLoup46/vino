@@ -35,9 +35,18 @@
     margin-top: 80px;
 }
 
+.auth__h2-title_forgot-pass {
+    font-family: var(--font-vino);
+    font-size: var(--h2-font-size);
+    font-weight: var(--weight-800);
+    color: white;
+    text-align: center;
+    margin: 30px 60px;
+}
+
 .auth__h2-title {
     font-family: var(--font-vino);
-    font-size: var(--large-font-size);
+    font-size: var(--h2-font-size);
     font-weight: var(--weight-600);
     margin: 30px 60px;
 }

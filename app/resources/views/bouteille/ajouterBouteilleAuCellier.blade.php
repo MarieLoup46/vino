@@ -8,12 +8,22 @@
     @csrf
     <div>
         <input type="hidden" name="bouteille" value="{{$bouteille->id}}">
+        <input type="hidden" name="from_recherche" value="{{empty($cellierId)}}">
         <h3 class="ajout-bouteille__nom">{{$bouteille->nom}}</h3>
         <div class="ajout-bouteille__cellier">
             <label for="cellier">Cellier: </label>
             <select name="cellier" id ="Cellier">
                 @foreach ($celliers as $cellier)
-                    <option value="{{ $cellier->id }}">{{ $cellier->nom }}</option>
+                    @if(!empty($cellierId))
+                        @if($cellierId == $cellier->id)
+                            <option value="{{ $cellier->id }}" selected>{{ $cellier->nom }}</option>
+                        @else
+                            <option value="{{ $cellier->id }}" disabled>{{ $cellier->nom }}</option>
+                        @endif
+                    @else
+                        <option value="{{ $cellier->id }}">{{ $cellier->nom }}</option>
+                    @endif
+
                 @endforeach
             </select>
         </div>

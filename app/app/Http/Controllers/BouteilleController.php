@@ -188,12 +188,14 @@ class BouteilleController extends Controller
     //affichage du formulaire d'ajout du bouteille dans un cellier
     public function formBouteillesAuCeiller(Request $request){
         $bouteille_id = $request->input('bouteille_id');
+        $cellier_id = $request->input('cellier_id');
         $celliers = Cellier::where('user_id',Auth::user()->id)->get();
         $bouteille = Bouteille::find($bouteille_id);
 
         return view('bouteille.ajouterBouteilleAuCellier',[
             'bouteille' => $bouteille,
-            'celliers' => $celliers
+            'celliers' => $celliers,
+            'cellierId' => $cellier_id
         ]);
     }
 
@@ -204,7 +206,10 @@ class BouteilleController extends Controller
         $cellierBouteille->bouteille_id = $request->input('bouteille');
         $cellierBouteille->quantite = $request->input('quantite');
         $cellierBouteille->save();
-        return redirect(route('bouteille.recherche'))->withSuccess("Bouteilles sont ajoutées au cellier");
+        if($request->input('from_recherche'))
+            return redirect(route('bouteille.recherche'))->withSuccess("Bouteilles sont ajoutées au cellier");
+        else 
+            return redirect(route('cellier.index'));
 
     }
 

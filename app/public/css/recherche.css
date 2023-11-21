@@ -84,6 +84,10 @@
     cursor: pointer;
 }
 
+.bouteille__ajout__cellier {
+    margin-left:auto;
+}
+
 
 @media (max-width:600px) {
     .body__container{
@@ -95,3 +99,5 @@
     }
     
 }
+
+

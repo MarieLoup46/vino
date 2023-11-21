@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cellier;
 use App\Models\Bouteille;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -44,8 +45,18 @@ class CellierController extends Controller
     }
 
     
-    public function ajouterBouteilles($cellierId){
-        $bouteilles = Bouteille::orderBy('id','desc')->paginate(24);
+    public function ajouterBouteilles(Request $request, $cellierId){
+        $recherche_text = $request->input("recherche");
+        //Si l'utilisateur clic sur le boutton du recherche
+        $bouteilles = (empty($recherche_text)) ? Bouteille::orderBy('id','desc')->paginate(24) :
+        /* Si l'utilisateur faire le recherche */
+        Bouteille::where('nom', 'like', '%' . $recherche_text . '%')->orderBy('id','desc')->paginate(24);
+
+        $types = Type::all();
+        foreach($bouteilles as $bouteille){
+            $type_id = $bouteille->type_id;
+            $bouteille->type_id = $types->find($type_id)->type;
+        }
         return view('bouteille.index',[
             'bouteilles' => $bouteilles,
             'cellierId' => $cellierId 

@@ -41,3 +41,4 @@
 
 </main>
 @endsection
+@include('layouts.footer')

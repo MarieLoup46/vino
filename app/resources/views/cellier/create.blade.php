@@ -3,12 +3,12 @@
 @section('title', 'Ajouter cellier')
 
 @section('content')
-<section class="create-cellier-container">
+<main class="create-cellier-container">
     @if ($errors->any())
     <article class="create-cellier-error">
         <ul>
             @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
+                <li>{{ $error }}</li>
             @endforeach
         </ul>
     </article>
@@ -21,7 +21,7 @@
     @endif
 
     <header class="create-cellier-titre">
-        <h3>Ajouter un Cellier</h3>
+        <h1>Ajouter un Cellier</h1>
     </header>
 
     <form action="{{ route('cellier.store') }}" method="POST">
@@ -32,7 +32,7 @@
         </div>
         <button type="submit" class="create-cellier-btn">CRÉER UN CELLIER</button>
     </form>
-</section>
+</main>
 @endsection
 
 @include('layouts.footer')

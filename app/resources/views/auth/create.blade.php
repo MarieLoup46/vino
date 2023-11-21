@@ -13,11 +13,11 @@
                     @csrf
                     <div class="auth__form-group">
                         <label for="nom">NOM:</label>
-                        <input type="nom" id="nom" name="nom" class="form-control" value="">
+                        <input type="nom" id="nom" name="nom" class="form-control" value="{{old('nom')}}">
                     </div>
                     <div class="auth__form-group">
                         <label for="prenom">PRENOM:</label>
-                        <input type="prenom" id="prenom" name="prenom" class="form-control" value="">
+                        <input type="prenom" id="prenom" name="prenom" class="form-control" value="{{old('prenom')}}">
                     </div>
                     <div class="auth__form-group">
                         <label for="email">COURRIEL:</label>

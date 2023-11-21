@@ -144,6 +144,8 @@
 
 .cellier-index-select {
     display: flex;
+    width: 100%;
+    height: 100%;
 }
 
 .cellier-index-icon {

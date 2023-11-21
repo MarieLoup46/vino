@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class CustomAuthController extends Controller
 {
@@ -39,8 +40,8 @@ class CustomAuthController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nom' => 'required',
-            'prenom' => 'required',
+            'nom' => 'required|min:2',
+            'prenom' => 'required|min:2',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6|max:20'
         ]);
@@ -175,11 +176,8 @@ class CustomAuthController extends Controller
     }
 
     public function tempPassword(Request $request) {
-        $request->validate([
-            'email' => 'required|email|exists:users'
-        ]);
 
-        // first est équivalent à la première donnée qui est le email (pas sûre)
+        // va chercher l'usager dans la BD
         $user = User::where('email', $request->email)->first();
 
         $tempPassword = str::random(45);
@@ -187,24 +185,13 @@ class CustomAuthController extends Controller
         // utilisation du champ 'temp_password'
         $user->temp_password = $tempPassword;
         $user->save();        
-
-        // Envoyer par courriel une confirmation de changement de mot de passe
-        $to_name = $request->name;
-        $to_email = $request->email;
-        $body = "<a href='".route('new.password', [$user->id, $tempPassword])."'>Cliquer ici pour changer le mot de passe</a>";
-
-        Mail::send('email.mail', [
-            'name' => $to_name, 
-            'body' => $body            
-        ],  function ($message) use ($to_name, $to_email) {
-                $message->to($to_email, $to_name)->subject('Reset password');
-            }
-        );
         
-        return redirect(route('login'))->withSuccess('Please check your email');
+        return redirect(route('new.password', ['user_id' => $user->id, 'tempPassword' => $tempPassword]));
     }
 
     public function newPassword(User $user, $tempPassword) {
+        var_dump("Je suis dans new password");
+
         if ($user->temp_password === $tempPassword) {
             return view('auth.new-password');
         }

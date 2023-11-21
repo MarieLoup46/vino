@@ -3,17 +3,12 @@
 @section('content')
 
 <div class="auth__container">
-    @if(session('success'))
-	<div class="alert alert-success" role="alert">
-		{{session('success')}}
-	</div>
-	@endif
     <div class="auth__header">
         <h1 class="auth__header-title">Vino</h1>
     </div>
 
     <div>
-        <h2 class="auth__h2-title_forgot-pass">Modifier mot de passe</h2>
+        <h2 class="auth__h2-title_forgot-pass">Mot de passe oublié</h2>
     </div>
 
     <div class="auth__row">
@@ -24,31 +19,15 @@
 
                     <div class="auth__form-group">
                         <label for="email">COURRIEL:</label>
-                        <input type="email" id="email" name="email" class="form-control" value="{{old('email')}}">
+                        <input type="email" id="email" name="email" class="form-control" value="{{old ('email')}}">
                         @if($errors->has('email'))
-                        <div class="text-danger mt-2">
+                        <div class="auth__login_text_error">
                             {{$errors->first('email')}}
                         </div>
                         @endif
                     </div>
-                    <div class="auth__form-group">
-                        <label for="password">MOT DE PASSE:</label>
-                        <input type="password" id="password" name="password" class="form-control">
-                        @if($errors->has('password'))
-                        <div class="text-danger mt-2">
-                            {{$errors->first('password')}}
-                        </div>
-                        @endif
-                        <div class="auth__form-pwdforgot">
-                            <a href="#">Mot de passe oublié ?</a>
-                        </div>
-                    </div>
                     <div class="auth__form-footer">
                         <input type="submit" class="auth__btn-login" value="CONNECTER">
-                    </div>
-                    <div class="auth__footer-message">
-                        <small>Vous n'avez pas de compte ?</small>
-                        <a href="/registration">S'incrire</a>
                     </div>
                 </form>
             </div>

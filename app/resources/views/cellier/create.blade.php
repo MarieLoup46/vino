@@ -21,7 +21,7 @@
     @endif
 
     <header class="create-cellier-titre">
-        <h3>Ajouter un Cellier</h3>
+        <h1>Ajouter un Cellier</h1>
     </header>
 
     <form action="{{ route('cellier.store') }}" method="POST">

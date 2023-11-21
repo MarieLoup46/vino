@@ -39,15 +39,30 @@ Route::post('/ajouter-bouteille-au-cellier', [BouteilleController::class, 'ajout
 
 //Route::get('liste-produits/{page}', [BouteilleController::class, 'getProduits'])->name('listeProduits');
 
+//Route pour afficher la liste de tous les celliers.
 Route::get('/celliers', [CellierController::class, 'index'])->name('cellier.index')->middleware('auth');
+
+//Route pour afficher le formulaire de création d'un nouveau cellier.
 Route::get('/cellier/ajouter', [CellierController::class, 'create'])->name('cellier.create')->middleware('auth');
 
+//Route pour traiter le formulaire de création d'un nouveau cellier et stocker les données dans la base de données.
 Route::post('/cellier', [CellierController::class, 'store'])->name('cellier.store')->middleware('auth');
 
+// Route pour afficher les détails d'un cellier spécifique.
 Route::get('/cellier/{cellier}', [CellierController::class, 'show'])->name('cellier.show')->middleware('auth');
+
+//Route pour mettre à jour les informations d'un cellier spécifique.
 Route::put('/cellier/{cellier}', [CellierController::class, 'update'])->name('cellier.update')->middleware('auth');
+
+//Route pour supprimer un cellier spécifique.
 Route::delete('/cellier/{cellier}', [CellierController::class, 'destroy'])->name('cellier.destroy')->middleware('auth');
-Route::get('/cellier/{cellier}/bouteilles', [CellierController::class, 'listBouteilles'])->name('cellier.bouteilles.list')->middleware('auth');
+
+//Route  pour lister les bouteilles à l'intérieur d'un cellier spécifique.(POST)
+Route::post('/cellier/{cellierId}/bouteilles', [CellierController::class, 'listBouteilles'])->name('cellier.bouteilles.list')->middleware('auth');
+
+//Route  pour lister les bouteilles à l'intérieur d'un cellier spécifique.(GET)
+Route::get('/cellier/{cellierId}/bouteilles', [CellierController::class, 'listBouteilles'])->name('cellier.bouteilles.list')->middleware('auth');
+
 
 Route::get('/registration', [CustomAuthController::class, 'create'])->name('user.create');
 Route::post('/registration', [CustomAuthController::class, 'store']);

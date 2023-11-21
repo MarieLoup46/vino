@@ -8,7 +8,7 @@
 
         <!-- Message affiché lorsqu'un usager est supprimé -->
         @if(session('success'))
-            <div class="auth_success auth__success_delete">
+            <div class="alert alert-success" role="alert">
                 {{session('success')}}
             </div>
         @endif
@@ -46,4 +46,3 @@
         </div>
     </div>
 @endsection
-@include('layouts.footer')

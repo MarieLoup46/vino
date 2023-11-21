@@ -4,7 +4,6 @@
 
 <div class="body__container">
     <div class="auth__header recherche">
-        <h1>Recherche</h1>
         <form class="recherche__barre" action="{{ route('bouteille.recherche') }}" method="GET">
             <input class="recherche__input" type="tel" name="recherche" id="recherche" placeholder="RECHERCHE PAR NOM">
             <button  class="recherche__btn"><img src="/icons/rechercher.png" class="footer-icon" alt="recherche"/></button>

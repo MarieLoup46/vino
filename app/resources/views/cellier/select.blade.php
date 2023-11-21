@@ -11,7 +11,7 @@
     </div>
     <h1 class="cellier-select-nom">{{ $cellier->nom }}</h1>
     <div class="cellier-select-btn">
-        <form action="{{ route('cellier.create') }}" method="GET">
+        <form action="{{ route('cellier.bouteilles.ajouter', $cellier->id) }}" method="GET">
             <button type="submit" class="cellier-select-ajouter-btn">AJOUTER UNE BOUTEILLE</button>
     </div>
     <div class="cellier-select-list">

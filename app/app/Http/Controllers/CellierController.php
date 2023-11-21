@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cellier;
+use App\Models\Bouteille;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -40,6 +41,15 @@ class CellierController extends Controller
         $bouteilles = $cellier->bouteilles;
 
         return view('cellier.select', ['cellier' => $cellier, 'bouteilles' => $bouteilles]);
+    }
+
+    
+    public function ajouterBouteilles($cellierId){
+        $bouteilles = Bouteille::orderBy('id','desc')->paginate(24);
+        return view('bouteille.index',[
+            'bouteilles' => $bouteilles,
+            'cellierId' => $cellierId 
+        ]);
     }
 
 

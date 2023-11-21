@@ -13,9 +13,22 @@
     align-items: center;
 }
 
+.footer_nav {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+}
+
+.footer_nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
 /* Style d'icône */
 .footer-icon {
     color: #fff;
     max-width: 30px;
     max-height: 30px;
 }
+

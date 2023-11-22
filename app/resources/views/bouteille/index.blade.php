@@ -11,7 +11,7 @@
     </div>
     <div>
         <div class="recherche__col">
-            @foreach($bouteilles as $bouteille)
+            @forelse($bouteilles as $bouteille)
                 <div class="recherche__container">
                     <div class="recherche__img">
                         <img src="{{$bouteille->url_img}}" class="recherche__img">
@@ -38,7 +38,10 @@
                         </div>
                     @endif
                 </div>
-            @endforeach
+            @empty
+            <p class="recherche__container recherche__vide">Votre bouteille n'existe pas</p>
+            @endforelse
+                    
             {{ $bouteilles->links() }}
         </div>
     </div>

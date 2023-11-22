@@ -15,6 +15,7 @@
     cursor: pointer;
 }
 
+
 .recherche__container:hover{
     border: 2px solid var(--border-primary);
     box-shadow: 5px 5px 10px hsla(353, 52%, 21%, 0.3);
@@ -103,6 +104,12 @@
     margin-left:auto;
     margin-top: auto;
     margin-bottom: auto !important;
+}
+
+.recherche__vide{
+    justify-content: center;
+    height: 30vh;
+    align-items: center;
 }
 
 

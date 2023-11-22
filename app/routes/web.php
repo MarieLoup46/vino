@@ -72,7 +72,6 @@ Route::get('/cellier/{cellierId}/bouteilles', [CellierController::class, 'listBo
 //rouute pour ajouter les bouteilles à l'intérieur d'un cellier spécifique.
 Route::get('/cellier/{cellierId}/ajouter-bouteille', [CellierController::class, 'ajouterBouteilles'])->name('cellier.bouteilles.ajouter')->middleware('auth');
 
-
 Route::get('/registration', [CustomAuthController::class, 'create'])->name('user.create');
 Route::post('/registration', [CustomAuthController::class, 'store']);
 Route::get('/login', [CustomAuthController::class, 'index'])->name('login');
@@ -80,8 +79,11 @@ Route::post('/login', [CustomAuthController::class, 'authentication']);
 Route::get('/accueil', [CustomAuthController::class, 'accueil'])->name('accueil')->middleware('auth');
 Route::get('/logout', [CustomAuthController::class, 'logout'])->name('logout');
 
+// En lien avec la fonction forgotPassword() du controller CustomAuthController.php
+Route::get('/forgot-password', [CustomAuthController::class, 'forgotPassword'])->name('forgot-password');
 
-
+// En lien avec la fonction storeNewPassword() du controller CustomAuthController.php
+Route::post('/forgot-password', [CustomAuthController::class, 'storeNewPassword']);
 
 
 // Route pour afficher un usager dans la page profil
@@ -100,4 +102,3 @@ Route::delete('/user-edit/{user_id}', [CustomAuthController::class, 'destroy'])-
 Route::get('/admin-user-list', [CustomAuthController::class, 'userList'])->name('user.list');
 // Supprime un usager de la liste des usagers
 Route::delete('/admin-user-list/{user}', [CustomAuthController::class, 'deleteUserList'])->name('user.delete');
-

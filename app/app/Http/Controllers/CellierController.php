@@ -44,13 +44,13 @@ class CellierController extends Controller
         return view('cellier.select', ['cellier' => $cellier, 'bouteilles' => $bouteilles]);
     }
 
-    
+
     public function ajouterBouteilles(Request $request, $cellierId){
         $recherche_text = $request->input("recherche");
         //Si l'utilisateur clic sur le boutton du recherche
-        $bouteilles = (empty($recherche_text)) ? Bouteille::orderBy('id','desc')->paginate(24) :
+        $bouteilles = (empty($recherche_text)) ? Bouteille::orderBy('id','asc')->paginate(24) :
         /* Si l'utilisateur faire le recherche */
-        Bouteille::where('nom', 'like', '%' . $recherche_text . '%')->orderBy('id','desc')->paginate(24);
+        Bouteille::where('nom', 'like', '%' . $recherche_text . '%')->orderBy('id','asc')->paginate(24);
 
         $types = Type::all();
         foreach($bouteilles as $bouteille){
@@ -59,7 +59,7 @@ class CellierController extends Controller
         }
         return view('bouteille.index',[
             'bouteilles' => $bouteilles,
-            'cellierId' => $cellierId 
+            'cellierId' => $cellierId
         ]);
     }
 
@@ -67,18 +67,18 @@ class CellierController extends Controller
      /*public function listBouteilles($cellierId)
      {
          $cellier = Cellier::find($cellierId);
-     
+
          if (!$cellier) {
              // Se o Cellier não for encontrado, redirecionar com uma mensagem de erro
              return back()->with('error', 'Cellier non trouvé');
          }
-     
+
          // Modifique esta linha para usar uma query em vez de uma coleção
          $bouteilles = $cellier->bouteilles()->orderBy('id', 'desc')->paginate(3);
-     
+
          return view('cellier.select', ['cellier' => $cellier, 'bouteilles' => $bouteilles]);
      }*/
-     
+
 
     public function index()
     {

@@ -12,7 +12,14 @@
     margin: 20px 0;
     padding: 10px;
     display: flex;
+    cursor: pointer;
 }
+
+.recherche__container:hover{
+    border: 2px solid var(--border-primary);
+    box-shadow: 5px 5px 10px hsla(353, 52%, 21%, 0.3);
+}
+
 .recherche__col{
     padding: 35px 15px;
     display: flex;
@@ -61,13 +68,15 @@
 .recherche__barre{
    display: flex;
    width: calc( 100% - 30px );
-   padding: 35px 15px 0;
+   margin: 35px 15px 0;
+   border: 1px solid var(--border-primary);
+   border-radius: 10px;
 }
 
 
 .recherche__barre .recherche__input{
     padding: 23px;
-    background-color: #531A21;
+    background-color: var(--background-item);
     border: none;
     border-radius: 15px 0 0 15px;
     width: 100%;
@@ -80,11 +89,10 @@
     font-weight: 500;
     line-height: 15px;
     letter-spacing: 0em;
-    color: white;
 }
 
 .recherche__barre .recherche__btn{
-    background-color: #531A21;
+    background-color: var(--background-item);
     border: none;
     border-radius: 0 15px 15px 0;
     padding: 20px;

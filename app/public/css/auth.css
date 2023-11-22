@@ -115,7 +115,7 @@
 .auth__text_error {
     font-size: var(--smaller-font-size);
     color: var(--font-vino);
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .auth__user-list {

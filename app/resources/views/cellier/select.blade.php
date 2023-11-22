@@ -24,19 +24,22 @@
             @endif
             <div class="cellier-select-item-content">
                 <h4 class="cellier-select-bouteille-nom">{{ $bouteille->bouteille->nom }}</h4>
-                <div class="cellier-select-bouteille-small">
-                <small class="cellier-select-bouteille-pays">{{ $bouteille->bouteille->pays }} |</small>
-                <small class="cellier-select-bouteille-type">{{ $bouteille->bouteille->type_id}} |</small>
-                <small class="cellier-select-bouteille-format">{{ $bouteille->bouteille->format }}ml</small>
+                <div class="cellier-select-bouteille-infos">
+                    <small class="cellier-select-bouteille-info">{{ $bouteille->bouteille->pays }} |</small>
+                    <small class="cellier-select-bouteille-info">{{ $bouteille->bouteille->type_id}} |</small>
+                    <small class="cellier-select-bouteille-info">{{ $bouteille->bouteille->format }}</small>
                 </div>
                 <div class="cellier-item-action">
-                    <img src="{{ asset('icons/info.png') }}" alt="info" class="cellier-info-icon" />
+                    <a href="{{ route('bouteille.show', ['bouteille' => $bouteille->bouteille]) }}">
+                        <img src="{{ asset('icons/info.png') }}" alt="info" class="cellier-info-icon" />
+                    </a>
                 </div>
             </div>
         </div>
         @empty
         <p>Aucune bouteille trouvée dans ce cellier.</p>
         @endforelse
+        {{ $bouteilles->links() }}
     </div>
 
 </main>

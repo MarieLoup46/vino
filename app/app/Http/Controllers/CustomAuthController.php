@@ -176,6 +176,9 @@ class CustomAuthController extends Controller
     }
 
     public function tempPassword(Request $request) {
+        $request->validate([
+            'email' => 'required|email|exists:users'
+        ]);
 
         // va chercher l'usager dans la BD
         $user = User::where('email', $request->email)->first();
@@ -184,26 +187,23 @@ class CustomAuthController extends Controller
 
         // utilisation du champ 'temp_password'
         $user->temp_password = $tempPassword;
-        $user->save();        
+        $user->save();
         
         return redirect(route('new.password', [$user->id, $tempPassword]));
     }
 
     public function newPassword(User $user, $tempPassword) {
 
-        var_dump("Je suis dans new password");
-
         if ($user->temp_password === $tempPassword) {
             return view('auth.new-password');
         }
+        
         return redirect(route('forgot-password'))->withErrors('Access denied');
     }
 
     public function storeNewPassword(Request $request, User $user, $tempPassword) {
         if ($user->temp_password === $tempPassword) {
             $request->validate([
-                // confirmed = vérifie si les 2 password entrés sont égaux
-                // min:6 fait en sorte que le champ est 'required'
                 'password' => 'min:6|max:20|confirmed'
             ]);
 

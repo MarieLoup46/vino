@@ -23,7 +23,7 @@
                     @csrf
 
                     <div class="auth__form-group">
-                        <label for="password">MOT DE PASSE:</label>
+                        <label for="password">MOT DE PASSE :</label>
                         <input type="password" id="password" name="password" class="form-control">
                         @if($errors->has('password'))
                             <div class="auth__login_text_error">
@@ -36,7 +36,7 @@
                         <input type="password" id="password" name="password" class="form-control">
                     </div>
                     <div class="auth__form-footer">
-                        <input type="submit" class="auth__btn-login" value="CONNECTER">
+                        <input type="submit" class="auth__btn-login" value="SAUVEGARDER">
                     </div>
                 </form>
             </div>

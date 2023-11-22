@@ -86,6 +86,8 @@
 
 .bouteille__ajout__cellier {
     margin-left:auto;
+    margin-top: auto;
+    margin-bottom: auto !important;
 }
 
 

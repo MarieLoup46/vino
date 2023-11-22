@@ -81,6 +81,11 @@
     border: none;
     border-radius: 0 15px 15px 0;
     padding: 20px;
+    cursor: pointer;
+}
+
+.bouteille__ajout__cellier {
+    margin-left:auto;
 }
 
 
@@ -94,3 +99,5 @@
     }
     
 }
+
+

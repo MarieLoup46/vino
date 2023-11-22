@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class CustomAuthController extends Controller
 {
@@ -39,8 +40,8 @@ class CustomAuthController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nom' => 'required',
-            'prenom' => 'required',
+            'nom' => 'required|min:2',
+            'prenom' => 'required|min:2',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6|max:20'
         ]);
@@ -168,5 +169,25 @@ class CustomAuthController extends Controller
 
         // modifier le "auth" selon le nom de dossier que Jacqueline aura donné
         return view('auth.admin-user-list', ['users' => $users]);
+    }
+
+    public function forgotPassword() {
+        return view('auth.forgot-password');
+    }
+
+    public function storeNewPassword(Request $request) {
+        $request->validate([
+            'email' => 'required|email|exists:users',
+            'password' => 'required|confirmed|min:6|max:20'
+        ]);
+
+        // va chercher l'usager dans la BD
+        $user = User::where('email', $request->email)->first();
+
+        // Hash = encryption
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return redirect(route('login'))->withSuccess('Mot de passe modifié');
     }
 }

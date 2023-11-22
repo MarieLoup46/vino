@@ -25,9 +25,9 @@ class BouteilleController extends Controller
     {
         $recherche_text = $request->input("recherche");
         //Si l'utilisateur clic sur le boutton du recherche
-        $bouteilles = (empty($recherche_text)) ? Bouteille::orderBy('id','desc')->paginate(24) :
+        $bouteilles = (empty($recherche_text)) ? Bouteille::orderBy('id','asc')->paginate(24) :
         /* Si l'utilisateur faire le recherche */
-        Bouteille::where('nom', 'like', '%' . $recherche_text . '%')->orderBy('id','desc')->paginate(24);
+        Bouteille::where('nom', 'like', '%' . $recherche_text . '%')->orderBy('id','asc')->paginate(24);
 
         $types = Type::all();
         foreach($bouteilles as $bouteille){

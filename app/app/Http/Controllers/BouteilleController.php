@@ -209,7 +209,7 @@ class BouteilleController extends Controller
         if($request->input('from_recherche'))
             return redirect(route('bouteille.recherche'))->withSuccess("Bouteilles sont ajoutées au cellier");
         else 
-            return redirect(route('cellier.index'));
+            return redirect(route('cellier.bouteilles.list' , $request->input('cellier')));
 
     }
 

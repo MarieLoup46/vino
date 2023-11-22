@@ -175,47 +175,19 @@ class CustomAuthController extends Controller
         return view('auth.forgot-password');
     }
 
-    public function tempPassword(Request $request) {
+    public function storeNewPassword(Request $request) {
         $request->validate([
-            'email' => 'required|email|exists:users'
+            'email' => 'required|email|exists:users',
+            'password' => 'required|confirmed|min:6|max:20'
         ]);
 
         // va chercher l'usager dans la BD
         $user = User::where('email', $request->email)->first();
 
-        $tempPassword = str::random(45);
-
-        // utilisation du champ 'temp_password'
-        $user->temp_password = $tempPassword;
+        // Hash = encryption
+        $user->password = Hash::make($request->password);
         $user->save();
-        
-        return redirect(route('new.password', [$user->id, $tempPassword]));
-    }
 
-    public function newPassword(User $user, $tempPassword) {
-
-        if ($user->temp_password === $tempPassword) {
-            return view('auth.new-password');
-        }
-        
-        return redirect(route('forgot-password'))->withErrors('Access denied');
-    }
-
-    public function storeNewPassword(Request $request, User $user, $tempPassword) {
-        if ($user->temp_password === $tempPassword) {
-            $request->validate([
-                'password' => 'min:6|max:20|confirmed'
-            ]);
-
-            // Hash = encryption
-            $user->password = Hash::make($request->password);
-
-            // On doit effacer le mot de passe temporaire donné
-            $user->temp_password = null;
-
-            $user->save();
-            return redirect(route('login'))->withSuccess('Success');
-        }
-        return redirect(route('forgot-password'))->withErrors('Access denied');
+        return redirect(route('login'))->withSuccess('Mot de passe modifié');
     }
 }

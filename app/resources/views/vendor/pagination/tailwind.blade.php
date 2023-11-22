@@ -3,15 +3,15 @@
         <div>
             <div class="info-page">
                 <p>
-                    <span>montrer</span>
+                    <span>de</span>
                     @if ($paginator->firstItem())
                         <span>{{ $paginator->firstItem() }}</span>
-                        <span>vers</span>
+                        <span>à</span>
                         <span>{{ $paginator->lastItem() }}</span>
                     @else
                         {{ $paginator->count() }}
                     @endif
-                    <span>du</span>
+                    <span>sur</span>
                     <span>{{ $paginator->total() }}</span>
                     <span>résultats</span>
                 </p>

@@ -41,10 +41,24 @@
     text-align: left;
     padding-bottom: 5px;
 }
+.bouteille__nom{
+    color: var(--wine-name);
+}
+
+
 .bouteille__color{
     font-size: 20px;
     padding-bottom: 5px;
 }
+.bouteille__info{
+    display: flex;
+    flex-direction: column;
+}
+
+.bouteille__info > * {
+    margin: 5px 0;
+}
+
 .bouteille__lien{
     background: transparent;
     border: none;

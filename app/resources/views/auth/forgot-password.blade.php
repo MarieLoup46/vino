@@ -7,10 +7,6 @@
         <h1 class="auth__header-title">Vino</h1>
     </div>
 
-    <div>
-        <h2 class="auth__h2-title_forgot-pass">Nouveau mot de passe</h2>
-    </div>
-
     <div class="auth__row">
         <div class="auth__col">
             <div class="auth__form-container">

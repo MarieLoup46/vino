@@ -10,7 +10,7 @@
         </form>
     </div>
     <div>
-        <div class="auth__col">
+        <div class="recherche__col">
             @foreach($bouteilles as $bouteille)
                 <div class="recherche__container">
                     <div class="recherche__img">

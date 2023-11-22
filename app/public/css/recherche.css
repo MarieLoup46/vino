@@ -6,12 +6,18 @@
 }
 
 .recherche__container{
-    background:  #F4F0F0;
+    background: var(--background-item);
     border-radius: 10px;
-    border: 1px solid #AC1127;
-    margin: 20px;
+    border: 1px solid var(--wine-name);
+    margin: 20px 0;
     padding: 10px;
     display: flex;
+}
+.recherche__col{
+    padding: 35px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 .recherche__img{
     width: 111px;
@@ -49,12 +55,13 @@
 
 .auth__header.recherche{
     flex-direction: column;
+    display: block;
 }
 
 .recherche__barre{
    display: flex;
-   width: calc( 100% - 110px );
-   padding: 35px 35px 0;
+   width: calc( 100% - 30px );
+   padding: 35px 15px 0;
 }
 
 

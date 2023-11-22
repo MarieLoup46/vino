@@ -6,12 +6,26 @@
 }
 
 .recherche__container{
-    background:  #F4F0F0;
+    background: var(--background-item);
     border-radius: 10px;
-    border: 1px solid #AC1127;
-    margin: 20px;
+    border: 1px solid var(--wine-name);
+    margin: 20px 0;
     padding: 10px;
     display: flex;
+    cursor: pointer;
+}
+
+
+.recherche__container:hover{
+    border: 2px solid var(--border-primary);
+    box-shadow: 5px 5px 10px hsla(353, 52%, 21%, 0.3);
+}
+
+.recherche__col{
+    padding: 35px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 .recherche__img{
     width: 111px;
@@ -49,21 +63,29 @@
 
 .auth__header.recherche{
     flex-direction: column;
+    display: block;
 }
 
 .recherche__barre{
    display: flex;
-   width: calc( 100% - 110px );
-   padding: 35px 35px 0;
+   width: calc( 100% - 30px );
+   margin: 35px 15px 0;
+   border-radius: 10px;
 }
 
 
 .recherche__barre .recherche__input{
     padding: 23px;
-    background-color: #531A21;
+    background-color: var(--color-footer);
     border: none;
     border-radius: 15px 0 0 15px;
     width: 100%;
+}
+
+.recherche__barre .recherche__input.cellier{
+    background-color: var(--background-item);
+    border: 1px solid var(--border-primary);
+    border-radius: 10px 0 0 10px;
 }
 
 
@@ -73,11 +95,16 @@
     font-weight: 500;
     line-height: 15px;
     letter-spacing: 0em;
-    color: white;
+    color:white;
+}
+
+
+.recherche__barre .recherche__input.cellier::placeholder, .recherche__barre .recherche__input.cellier{
+    color:gray;
 }
 
 .recherche__barre .recherche__btn{
-    background-color: #531A21;
+    background-color: var(--color-footer);
     border: none;
     border-radius: 0 15px 15px 0;
     padding: 20px;
@@ -86,6 +113,14 @@
 
 .bouteille__ajout__cellier {
     margin-left:auto;
+    margin-top: auto;
+    margin-bottom: auto !important;
+}
+
+.recherche__vide{
+    justify-content: center;
+    height: 30vh;
+    align-items: center;
 }
 
 

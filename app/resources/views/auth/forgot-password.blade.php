@@ -36,7 +36,7 @@
                         <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" value="{{old ('password_confirmation')}}">
                     </div>
                     <div class="auth__form-footer">
-                        <input type="submit" class="auth__btn-login" value="CONNECTER">
+                        <input type="submit" class="auth__btn-login" value="SAUVEGARDER">
                     </div>
                 </form>
             </div>

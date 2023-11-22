@@ -4,8 +4,7 @@
 
 <div class="body__container">
     <div class="auth__header recherche">
-        <h1>Recherche</h1>
-        <form class="recherche__barre" action="{{ route('bouteille.recherche') }}" method="GET">
+        <form class="recherche__barre" action="{{ empty($cellierId) ? route('bouteille.recherche') : route('cellier.bouteilles.ajouter', $cellierId) }}" method="GET">
             <input class="recherche__input" type="tel" name="recherche" id="recherche" placeholder="RECHERCHE PAR NOM">
             <button  class="recherche__btn"><img src="/icons/rechercher.png" class="footer-icon" alt="recherche"/></button>
         </form>
@@ -24,6 +23,18 @@
                         <p><a class="bouteille__lien" href="{{route('bouteille.show', ['bouteille' => $bouteille])}}">VOIR LES
 							DÉTAILS</a></p>
                     </div>
+                    @if (!empty($cellierId))
+                        <div class="bouteille__ajout__cellier">
+                            <form action="{{ route('affichier.bouteille.cellier') }}" method ="POST">
+                                @csrf
+                                <input type="hidden" name="bouteille_id" value="{{$bouteille->id}}">
+                                <input type="hidden" name="cellier_id" value="{{$cellierId}}">
+                                <button type="submit" class="bouteille__lien">
+                                    <img src="/icons/mettreaucellier.png" class="footer-icon" alt="mettre au cellier"/>
+                                </button>
+                            </form>
+                        </div>
+                    @endif
                 </div>
             @endforeach
             {{ $bouteilles->links() }}

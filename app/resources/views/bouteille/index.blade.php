@@ -20,8 +20,10 @@
                         <p class="bouteille__nom">{{$bouteille->nom}}</p>
                         <p class="bouteille__color">{{$bouteille->pays}} | {{$bouteille->type_id}} | {{$bouteille->format}}</p>
                         <p class="bouteille__prix">{{$bouteille->prix_saq}} $</p>
+                        @if(empty($cellierId))
                         <p><a class="bouteille__lien" href="{{route('bouteille.show', ['bouteille' => $bouteille])}}">VOIR LES
 							DÉTAILS</a></p>
+                        @endif
                     </div>
                     @if (!empty($cellierId))
                         <div class="bouteille__ajout__cellier">

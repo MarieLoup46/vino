@@ -26,12 +26,12 @@
                         @endif
                     </div>
                     @if (!empty($cellierId))
-                        <div class="bouteille__ajout__cellier">
+                        <div class="bouteille__ajout__cellier bouteille__img-cellier">
                             <form action="{{ route('affichier.bouteille.cellier') }}" method ="POST">
                                 @csrf
                                 <input type="hidden" name="bouteille_id" value="{{$bouteille->id}}">
                                 <input type="hidden" name="cellier_id" value="{{$cellierId}}">
-                                <button type="submit" class="bouteille__lien">
+                                <button type="submit" class="bouteille__button-ajouter">
                                     <img src="/icons/mettreaucellier.png" class="footer-icon" alt="mettre au cellier"/>
                                 </button>
                             </form>

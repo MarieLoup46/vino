@@ -18,13 +18,14 @@
                 <img alt="{{ $item->nom }}" src="{{ asset('icons/' . $random_icon) }}" class="cellier-index-icon" />
                 <div class="cellier-index-item-content">
                     <div class="cellier-index-name">{{ $item->nom }}</div>
-                    <small onclick="event.stopPropagation(); navigateTo('{{ route('bouteille.recherche') }}')" class="cellier-index-bottle-count">
+                    <small class="cellier-index-bottle-count">
                         {{ count($item->bouteilles) }} Bouteille
                     </small>
                 </div>
                 </a>
         </article>
         @endforeach
+        {{ $items->links() }}
     </section>
 
     <script type="text/javascript">

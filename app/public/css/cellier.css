@@ -10,9 +10,10 @@
 }
 
 .create-cellier-titre {
-    color: var(--wine-name);
     font-size: var(--h4-font-size);
-    font-weight: var(--weight-600);
+    font-weight: var(--weight-500);
+    color: var(--wine-component);
+    font-family: var(--font-vino);
     font-style: italic;
     padding-top: 53px;
 }
@@ -20,7 +21,7 @@
 .create-cellier-form {
     flex-direction: column;
     padding-top: 117px;
-    font-size: var(--tiny-font-size);
+    font-size: var(--small-font-size);
 }
 
 .create-cellier-form label {
@@ -31,9 +32,10 @@
 .create-cellier-input {
     display: flex;
     border: 1px solid var(--wine-name);
+    font-size: var(--small-font-size);
     border-radius: 8px;
     background-color: var(--background-item);
-    padding: 16px;
+    padding: 30px 80px 27px 16px;
     margin-bottom: 2rem;
     margin-top: 0.25rem;
     width: 100%;
@@ -47,15 +49,15 @@
 
 .create-cellier-btn {
     color: white;
+    font-size: var(--normal-font-size);
     background-color: var(--color-button);
     border: 1px solid var(--color-button);
     border-radius: 8px;
-    padding: 16px;
+    padding: 25px 16px;
     margin-bottom: 1rem;
     margin-top: 0.25rem;
-    width: 100%; 
+    width: 100%;
     cursor: pointer;
-
 }
 
 .create-cellier-btn:hover {
@@ -64,8 +66,6 @@
     border: 2px solid var(--border-secondary);
     font-weight: var(--weight-600);
 }
-
-
 
 /*index.blade.php*/
 
@@ -76,12 +76,15 @@
 }
 
 .cellier-index-titre {
+    font-size: var(--h4-font-size);
+    font-weight: var(--weight-300);
+    color: var(--wine-component);
+    font-family: var(--font-vino);
+    font-style: italic;
+    padding-top: 53px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: var(--wine-name);
-    font-size: var(--h3-font-size);
-    font-weight: var(--weight-700);
     font-style: italic;
     padding-top: 15px;
 }
@@ -99,12 +102,13 @@
     display: flex;
     flex-direction: column;
     color: white;
+    font-size: var(--small-font-size);
     background-color: var(--color-button);
     border: 1px solid var(--color-button);
     border-radius: 15px;
     width: 100%;
-    height: 38px;
-    padding: 0 15px; 
+    height: 60px;
+    padding: 0 15px;
     cursor: pointer;
     justify-content: center;
     align-items: center;
@@ -154,7 +158,7 @@
 
 .cellier-index-name {
     color: var(--border-primary);
-    font-size: var(--smaller-font-size);
+    font-size: var(--large-font-size);
     font-weight: var(--weight-600);
     font-style: italic;
     padding-top: 14px;
@@ -167,11 +171,10 @@
 }
 
 .cellier-index-bottle-count {
+    font-size: var(--small-font-size);
     padding-top: 14px;
     padding-right: 10px;
 }
-
-
 
 /*show.blade.php*/
 
@@ -184,9 +187,10 @@
 }
 
 .cellier-show-titre {
-    color: var(--wine-name);
-    font-size: var(--h2-font-size);
+    font-size: var(--h4-font-size);
     font-weight: var(--weight-600);
+    color: var(--wine-component);
+    font-family: var(--font-vino);
     font-style: italic;
     text-align: center;
 }
@@ -194,7 +198,7 @@
 .cellier-show-nom {
     flex-direction: column;
     padding-top: 50px;
-    font-size: var(--tiny-font-size);
+    font-size: var(--normal-font-size);
 }
 
 .cellier-show-nom label {
@@ -205,9 +209,10 @@
 .cellier-show-input {
     display: block;
     border: 1px solid var(--wine-name);
+    font-size: var(--normal-font-size-font-size);
     border-radius: 8px;
     background-color: var(--background-item);
-    padding: 16px;
+    padding: 30px 80px 27px 16px;
     margin-bottom: 1rem;
     margin-top: 0.25rem;
     width: 100%;
@@ -222,9 +227,10 @@
 .cellier-show-btn-mod {
     color: white;
     background-color: var(--color-button);
+    font-size: var(--normal-font-size);
     border: 1px solid var(--color-button);
     border-radius: 8px;
-    padding: 16px;
+    padding: 25px 16px;
     margin-bottom: 1rem;
     margin-top: 0.25rem;
     width: 100%;
@@ -242,11 +248,12 @@
     color: white;
     background-color: var(--delete-color);
     border: 1px solid var(--delete-color);
+    font-size: var(--normal-font-size);
     border-radius: 8px;
-    padding: 16px;
+    padding: 25px 16px;
     margin-bottom: 1rem;
     margin-top: 0.25rem;
-    width: 100%; 
+    width: 100%;
     cursor: pointer;
 }
 
@@ -256,8 +263,6 @@
     border: 2px solid var(--delete-color);
     font-weight: var(--weight-600);
 }
-
-
 
 /*select.blade.php*/
 
@@ -271,16 +276,17 @@
     display: flex;
     flex-direction: row-reverse;
     padding: 15px 20px 0 0;
-
 }
 
 .cellier-select-nom {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: var(--wine-name);
-    font-size: var(--h1-font-size);
+    font-size: var(--h2-font-size);
     font-weight: var(--weight-700);
+    color: var(--wine-component);
+    font-family: var(--font-vino);
+    padding-top: 53px;
     font-style: italic;
     padding-top: 15px;
 }
@@ -298,12 +304,13 @@
     display: flex;
     flex-direction: column;
     color: white;
+    font-size: var(--small-font-size);
     background-color: var(--color-button);
     border: 1px solid var(--color-button);
     border-radius: 15px;
     width: 100%;
-    height: 38px;
-    padding: 0 15px; 
+    height: 60px;
+    padding: 0 15px;
     cursor: pointer;
     justify-content: center;
     align-items: center;
@@ -350,15 +357,22 @@
 
 .cellier-select-bouteille-nom {
     color: var(--border-primary);
-    font-size: var(--smaller-font-size);
+    font-size: var(--large-font-size);
     font-weight: var(--weight-600);
     font-style: italic;
     padding-top: 14px;
+    padding-left: 2px;
 }
 
+.cellier-select-bouteille-info {
+    font-size: var(--normal-font-size);
+}
+.cellier-select-item-content {
+    width: 100%;
+}
 .cellier-item-action {
-    display: flex;
-    position: absolute;
+    margin-top: 40px;
+    margin-left: 95%;
 }
 
 .cellier-info-icon {

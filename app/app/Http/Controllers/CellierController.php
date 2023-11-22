@@ -64,9 +64,25 @@ class CellierController extends Controller
     }
 
 
+     /*public function listBouteilles($cellierId)
+     {
+         $cellier = Cellier::find($cellierId);
+     
+         if (!$cellier) {
+             // Se o Cellier não for encontrado, redirecionar com uma mensagem de erro
+             return back()->with('error', 'Cellier non trouvé');
+         }
+     
+         // Modifique esta linha para usar uma query em vez de uma coleção
+         $bouteilles = $cellier->bouteilles()->orderBy('id', 'desc')->paginate(3);
+     
+         return view('cellier.select', ['cellier' => $cellier, 'bouteilles' => $bouteilles]);
+     }*/
+     
+
     public function index()
     {
-        $items = Cellier::where('user_id', Auth::user()->id)->get();
+        $items = Cellier::where('user_id', Auth::user()->id)->orderBy('id','desc')->paginate(5);
         $random_icon = self::randomIcon();
 
         return view('cellier.index', compact('items', 'random_icon'));
@@ -136,7 +152,8 @@ class CellierController extends Controller
         ]);
         $validatedData['user_id'] = Auth::user()->id;
         $cellier->update($validatedData);
-        return redirect()->route('cellier.index')->with('success', 'Cellier modifié avec succès!');
+        return redirect()->route('cellier.bouteilles.list', ['cellierId' => $cellier->id]);
+
     }
 
     /**
@@ -146,8 +163,14 @@ class CellierController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Cellier $cellier)
-    {
-        $cellier->delete();
-        return redirect()->route('cellier.index')->with('success', 'Cellier supprimé avec succès!');
-    }
+{
+    // Remova os registros associados na tabela cellier_bouteilles
+    $cellier->bouteilles()->delete();
+
+    // Agora você pode excluir o registro na tabela celliers
+    $cellier->delete();
+
+    return redirect()->route('cellier.index')->with('success', 'Cellier supprimé avec succès!');
+}
+
 }

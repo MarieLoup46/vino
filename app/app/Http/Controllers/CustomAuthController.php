@@ -186,10 +186,11 @@ class CustomAuthController extends Controller
         $user->temp_password = $tempPassword;
         $user->save();        
         
-        return redirect(route('new.password', ['user_id' => $user->id, 'tempPassword' => $tempPassword]));
+        return redirect(route('new.password', [$user->id, $tempPassword]));
     }
 
     public function newPassword(User $user, $tempPassword) {
+
         var_dump("Je suis dans new password");
 
         if ($user->temp_password === $tempPassword) {

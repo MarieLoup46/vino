@@ -77,7 +77,7 @@ class CellierController extends Controller
         }
 
         // Modifique esta linha para usar uma query em vez de uma coleção
-        $bouteilles = $cellier->bouteilles()->orderBy('id', 'desc')->paginate(3);
+        $bouteilles = $cellier->bouteilles()->orderBy('id', 'desc')->paginate(10);
 
         return view('cellier.select', ['cellier' => $cellier, 'bouteilles' => $bouteilles]);
     }*/

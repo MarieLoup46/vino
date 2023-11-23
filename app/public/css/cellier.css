@@ -277,6 +277,7 @@ padding-top: 20px;
 .cellier-select-container {
     height: 100vh;
     display: flex;
+    overflow: auto;
     flex-direction: column;
 }
 
@@ -404,7 +405,7 @@ a {
     justify-content: space-between;
     align-items: center;
     margin-top: 35px;
-    width: 120px;
+    width: 160px;
 }
 
 .cellier-select-bouteille-quantite .plus,

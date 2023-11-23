@@ -17,9 +17,9 @@
                         <img src="{{$bouteille->url_img}}" class="recherche__img">
                     </div>
                     <div class="bouteille__info">
-                        <p class="bouteille__nom">{{$bouteille->nom}}</p>
+                        <p class="bouteille__nom text-italic">{{$bouteille->nom}}</p>
                         <p class="bouteille__color">{{$bouteille->pays}} | {{$bouteille->type_id}} | {{$bouteille->format}}</p>
-                        <p class="bouteille__prix">{{$bouteille->prix_saq}} $</p>
+                        <p class="bouteille__prix text-italic">{{$bouteille->prix_saq}} $</p>
                         @if(empty($cellierId))
                         <p><a class="bouteille__lien" href="{{route('bouteille.show', ['bouteille' => $bouteille])}}">VOIR LES
 							DÉTAILS</a></p>

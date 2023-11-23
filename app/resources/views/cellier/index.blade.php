@@ -37,6 +37,6 @@
 
 
 </main>
+@include('layouts.footer')
 @endsection
 
-@include('layouts.footer')

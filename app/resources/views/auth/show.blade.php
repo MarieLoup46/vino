@@ -55,5 +55,5 @@
             <input type="submit" value="SUPPRIMER MON COMPTE" onclick="return confirm('Êtes-vous sûre de vouloir supprimer votre compte')" class="auth__profil_btn auth__profil_delete_btn">
         </form>
     </div>
+    @include('layouts.footer')
 @endsection
-@include('layouts.footer')

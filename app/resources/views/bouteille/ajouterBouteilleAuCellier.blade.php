@@ -48,5 +48,5 @@
     </div>
 </div>
 <script src="{{ asset('js/ajouter-bouteilles.js') }}"></script>
-@endsection
 @include('layouts.footer')
+@endsection

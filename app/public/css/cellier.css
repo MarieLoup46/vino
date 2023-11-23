@@ -26,6 +26,7 @@
 
 .create-cellier-form label {
     display: flex;
+    padding-right: 10px;
     color: black;
 }
 
@@ -35,7 +36,7 @@
     font-size: var(--small-font-size);
     border-radius: 8px;
     background-color: var(--background-item);
-    padding: 18px 80px 18px 16px;
+    padding: 18px 14px;
     margin-bottom: 2rem;
     margin-top: 0.25rem;
     width: 100%;
@@ -53,7 +54,7 @@
     background-color: var(--color-button);
     border: 1px solid var(--color-button);
     border-radius: 8px;
-    padding: 18px 16px;
+    padding: 18px 18px;
     margin-bottom: 1rem;
     margin-top: 0.25rem;
     width: 100%;
@@ -66,8 +67,6 @@
     border: 2px solid var(--border-secondary);
     font-weight: var(--weight-600);
 }
-
-
 
 /*index.blade.php*/
 
@@ -204,6 +203,9 @@
 }
 
 .cellier-show-nom label {
+    
+    margin-bottom: 5px;
+    padding-bottom: 20px;
     color: black;
     display: block;
 }
@@ -214,7 +216,7 @@
     font-size: var(--normal-font-size-font-size);
     border-radius: 8px;
     background-color: var(--background-item);
-    padding: 18px 80px 18px 16px;
+    padding-top: 34px;
     margin-bottom: 1rem;
     margin-top: 0.25rem;
     width: 100%;
@@ -360,7 +362,6 @@ a {
     max-width: 125%;
     padding-top: 10px;
     height: 180px;
- 
 }
 
 .cellier-select-bouteille-nom {
@@ -373,9 +374,9 @@ a {
 }
 
 .cellier-select-bouteille-info {
-    color:black;
+    color: black;
     font-size: var(--normal-font-size);
-    text-decoration:none;
+    text-decoration: none;
 }
 
 .cellier-select-item-content {
@@ -390,7 +391,7 @@ a {
     display: flex;
     justify-content: end;
     width: 25px; /* Ajuste para o tamanho desejado */
-    height: 25px; 
+    height: 25px;
 }
 
 .cellier-select-bouteille-quantite {
@@ -401,7 +402,8 @@ a {
     width: 120px;
 }
 
-.cellier-select-bouteille-quantite .plus, .cellier-select-bouteille-quantite .moins{
+.cellier-select-bouteille-quantite .plus,
+.cellier-select-bouteille-quantite .moins {
     text-decoration: none;
     color: white;
     background-color: var(--color-button);
@@ -417,19 +419,19 @@ a {
     cursor: pointer;
 }
 
-.cellier-select-bouteille-quantite .quantite:focus-visible{
-    border:none;
+.cellier-select-bouteille-quantite .quantite:focus-visible {
+    border: none;
 }
 
-.cellier-select-bouteille-quantite label{
+.cellier-select-bouteille-quantite label {
     margin-right: 25px;
 }
 
-.cellier-select-bouteille-quantite .quantite-bouteille{
+.cellier-select-bouteille-quantite .quantite-bouteille {
     text-align: center;
-    color:#000;
+    color: #000;
     background-color: white;
-    padding: 15px ;
+    padding: 15px;
     border: 2px solid var(--color-button);
     border-radius: 10px;
     cursor: pointer;

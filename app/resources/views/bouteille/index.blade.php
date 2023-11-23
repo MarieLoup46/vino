@@ -41,11 +41,11 @@
             @empty
             <p class="recherche__container recherche__vide">Votre bouteille n'existe pas</p>
             @endforelse
-                    
+
             {{ $bouteilles->links() }}
         </div>
     </div>
 </div>
 
-@endsection
 @include('layouts.footer')
+@endsection

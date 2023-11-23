@@ -64,5 +64,5 @@
     }
 </script>
 
-@endsection
 @include('layouts.footer')
+@endsection

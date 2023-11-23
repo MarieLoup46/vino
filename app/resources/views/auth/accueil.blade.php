@@ -17,5 +17,5 @@
 		</form>
     </div>
 </div>
-@endsection
 @include('layouts.footer')
+@endsection

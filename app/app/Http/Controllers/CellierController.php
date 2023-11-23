@@ -41,60 +41,63 @@ class CellierController extends Controller
         // Carregue as bouteilles relacionadas ao cellier usando o relacionamento 'bouteilles'
         $bouteilles = $cellier->bouteilles;
 
-        return view('cellier.select', ['cellier' => $cellier, 'bouteilles' => $bouteilles]);
+        $groupedBouteilles = $bouteilles->groupBy('bouteille_id');
+
+        return view('cellier.select', ['cellier' => $cellier, 'groupedBouteilles' => $groupedBouteilles]);
     }
 
 
-    public function ajouterBouteilles(Request $request, $cellierId){
+    public function ajouterBouteilles(Request $request, $cellierId)
+    {
         $recherche_text = $request->input("recherche");
         //Si l'utilisateur clic sur le boutton du recherche
-        $bouteilles = (empty($recherche_text)) ? Bouteille::orderBy('id','asc')->paginate(24) :
-        /* Si l'utilisateur faire le recherche */
-        Bouteille::where('nom', 'like', '%' . $recherche_text . '%')->orderBy('id','asc')->paginate(24);
+        $bouteilles = (empty($recherche_text)) ? Bouteille::orderBy('id', 'asc')->paginate(24) :
+            /* Si l'utilisateur faire le recherche */
+            Bouteille::where('nom', 'like', '%' . $recherche_text . '%')->orderBy('id', 'asc')->paginate(24);
 
         $types = Type::all();
-        foreach($bouteilles as $bouteille){
+        foreach ($bouteilles as $bouteille) {
             $type_id = $bouteille->type_id;
             $bouteille->type_id = $types->find($type_id)->type;
         }
-        return view('bouteille.index',[
+        return view('bouteille.index', [
             'bouteilles' => $bouteilles,
             'cellierId' => $cellierId
         ]);
     }
 
 
-     /*public function listBouteilles($cellierId)
-     {
-         $cellier = Cellier::find($cellierId);
+    /*public function listBouteilles($cellierId)
+    {
+        $cellier = Cellier::find($cellierId);
 
-         if (!$cellier) {
-             // Se o Cellier não for encontrado, redirecionar com uma mensagem de erro
-             return back()->with('error', 'Cellier non trouvé');
-         }
+        if (!$cellier) {
+            // Se o Cellier não for encontrado, redirecionar com uma mensagem de erro
+            return back()->with('error', 'Cellier non trouvé');
+        }
 
-         // Modifique esta linha para usar uma query em vez de uma coleção
-         $bouteilles = $cellier->bouteilles()->orderBy('id', 'desc')->paginate(3);
+        // Modifique esta linha para usar uma query em vez de uma coleção
+        $bouteilles = $cellier->bouteilles()->orderBy('id', 'desc')->paginate(3);
 
-         return view('cellier.select', ['cellier' => $cellier, 'bouteilles' => $bouteilles]);
-     }*/
+        return view('cellier.select', ['cellier' => $cellier, 'bouteilles' => $bouteilles]);
+    }*/
 
 
-     public function index()
-{
-    // Recupera os items com a lógica existente
-    $items = Cellier::where('user_id', Auth::user()->id)->orderBy('id','desc')->paginate(5);
+    public function index()
+    {
+        // Recupera os items com a lógica existente
+        $items = Cellier::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(5);
 
-    // Adiciona um ícone aleatório a cada item
-    foreach ($items as $item) {
-        $item->random_icon = self::randomIcon();
+        // Adiciona um ícone aleatório a cada item
+        foreach ($items as $item) {
+            $item->random_icon = self::randomIcon();
+        }
+
+        // Retorna a view com os dados necessários (mantendo a lógica anterior)
+        return view('cellier.index', compact('items'));
     }
 
-    // Retorna a view com os dados necessários (mantendo a lógica anterior)
-    return view('cellier.index', compact('items'));
-}
 
-     
 
     /**
      * Show the form for creating a new resource.
@@ -171,14 +174,14 @@ class CellierController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Cellier $cellier)
-{
-    // Remova os registros associados na tabela cellier_bouteilles
-    $cellier->bouteilles()->delete();
+    {
+        // Remova os registros associados na tabela cellier_bouteilles
+        $cellier->bouteilles()->delete();
 
-    // Agora você pode excluir o registro na tabela celliers
-    $cellier->delete();
+        // Agora você pode excluir o registro na tabela celliers
+        $cellier->delete();
 
-    return redirect()->route('cellier.index')->with('success', 'Cellier supprimé avec succès!');
-}
+        return redirect()->route('cellier.index')->with('success', 'Cellier supprimé avec succès!');
+    }
 
 }

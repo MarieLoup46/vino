@@ -32,10 +32,9 @@
     height:160px;
 }
 .bouteille__nom,.bouteille__prix{
-    font-family: Inter;
+    font-family: var(--font-vino);
     font-size: 20px;
-    font-style: italic;
-    font-weight: 600;
+    font-weight: var(--weight-600);;
     line-height: 17px;
     letter-spacing: 0em;
     text-align: left;
@@ -105,16 +104,16 @@
 
 
 .recherche__barre .recherche__input::placeholder, .recherche__barre .recherche__input{
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 15px;
+    font-size: var(--small-font-size);
+    font-weight: var(--weight-500);;
+    line-height: var(--small-font-size);
     letter-spacing: 0em;
     color:white;
 }
 
 
 .recherche__barre .recherche__input.cellier::placeholder, .recherche__barre .recherche__input.cellier{
-    color:gray;
+    color: var(--form-field);
 }
 
 .recherche__barre .recherche__btn{
@@ -146,7 +145,16 @@
     .pagination .liste-pages {
         flex-wrap: wrap;
     }
-    
+    .bouteille__nom, .bouteille__color, .bouteille__prix{
+        font-size: var( --normal-font-size);
+    }
+    .recherche__img {
+        width: 90px;
+        height: 129px;
+    }
+    .bouteille__info {
+        width: 50%;
+    }
 }
 
 

@@ -41,7 +41,7 @@ class CellierController extends Controller
         // Charger les bouteilles liées au cellier incluant la quantité du tableau croisé dynamique
         $bouteilles = $cellier->bouteilles()->withPivot('quantite')->get();
 
-        $bouteilles = $cellier->bouteilles()->orderBy('id', 'desc')->paginate(10);
+        $bouteilles = $cellier->bouteilles()->orderBy('id', 'desc')->paginate(5);
 
         return view('cellier.select', ['cellier' => $cellier, 'bouteilles' => $bouteilles]);
     }

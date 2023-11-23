@@ -42,6 +42,7 @@
                     </a>
                 </div>
             @endforeach
+            {{ $bouteilles->links() }}
 
             @if ($bouteilles->isEmpty())
                 <p>Aucune bouteille trouvée dans ce cellier.</p>

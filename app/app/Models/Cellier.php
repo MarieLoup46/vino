@@ -15,5 +15,14 @@ class Cellier extends Model
                     ->withPivot('quantite');
     }
     
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($cellier) {
+            // Delete related records in the `bouteille_cellier` table
+            $cellier->bouteilles()->detach();
+        });
+    }
 
 }

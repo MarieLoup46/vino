@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         btnMoins.addEventListener('click', (e) => {
             e.stopPropagation();
-            if(nombreBouteille.value > 1) {
+            if(nombreBouteille.value >= 1) { // Change this condition to >= 1
                 nombreBouteille.value--;
                 updateQuantite(cellierId, bouteilleId, nombreBouteille.value);
             }

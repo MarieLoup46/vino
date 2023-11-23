@@ -41,6 +41,8 @@ class CellierController extends Controller
         // Charger les bouteilles liées au cellier incluant la quantité du tableau croisé dynamique
         $bouteilles = $cellier->bouteilles()->withPivot('quantite')->get();
 
+        $bouteilles = $cellier->bouteilles()->orderBy('id', 'desc')->paginate(10);
+
         return view('cellier.select', ['cellier' => $cellier, 'bouteilles' => $bouteilles]);
     }
 
@@ -172,15 +174,12 @@ class CellierController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Cellier $cellier)
-    {
-        // Supprimer les enregistrements associés dans la table cellier bouteilles
-        $cellier->bouteilles()->delete();
+{
+    // Delete the Cellier, and related `bouteille_cellier` records will be cascaded deleted
+    $cellier->delete();
 
-        // Pouvez maintenant supprimer l'enregistrement dans la table des celliers
-        $cellier->delete();
-
-        return redirect()->route('cellier.index')->with('success', 'Cellier supprimé avec succès!');
-    }
+    return redirect()->route('cellier.index')->with('success', 'Cellier supprimé avec succès!');
+}
     public function actualiserQuantite(Request $request)
     {
         $cellierId = $request->cellier_id; // ID du Cellier

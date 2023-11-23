@@ -33,6 +33,6 @@
         <button type="submit" class="create-cellier-btn">CRÉER UN CELLIER</button>
     </form>
 </main>
+@include('layouts.footer')
 @endsection
 
-@include('layouts.footer')

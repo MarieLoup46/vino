@@ -27,16 +27,18 @@
 
                     {{-- Pagination Elements --}}
                     @foreach ($elements as $element)
-                        {{-- "Three Dots" Separator --}}
-                        @if (is_string($element))
-                            <span aria-disabled="true">
-                                <span>{{ $element }}</span>
-                            </span>
-                        @endif
-
                         {{-- Array Of Links --}}
-                        @if (is_array($element))
-                            @foreach ($element as $page => $url)
+                        @if (is_array($element) && $element == $elements[0])
+                            {{-- elements du pagination --}}
+                            <?php
+
+                                $pageActuelle = $paginator->currentPage();
+                                $debutPage = max(1, $pageActuelle - 2); // Ensure startPage is at least 1
+                                $finPage = min($paginator->lastPage(), $pageActuelle + 2); // Ensure endPage is at most lastPage
+                                if($finPage - $debutPage < 5) $finPage = $debutPage + 4;
+                                if($debutPage - $finPage < 5) $debutPage = $finPage - 4;
+                            ?>
+                            @foreach ($paginator->getUrlRange($debutPage, $finPage) as $page => $url)
                                 @if ($page == $paginator->currentPage())
                                     <span class="current-page-container" aria-current="page">
                                         <span class="current-page">{{ $page }}</span>

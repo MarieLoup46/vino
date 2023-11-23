@@ -13,4 +13,9 @@ class Bouteille extends Model
     {
         return $this->hasMany(CellierBouteille::class, 'bouteille_id');
     }
+    
+    public function type()
+    {
+        return $this->belongsTo(Type::class, 'type_id');
+    }
 }

@@ -39,7 +39,7 @@
     padding: 18px 14px;
     margin-bottom: 2rem;
     margin-top: 0.25rem;
-    width: 100%;
+    width: 280px;
     cursor: pointer;
 }
 
@@ -203,9 +203,7 @@
 }
 
 .cellier-show-nom label {
-    
-    margin-bottom: 5px;
-    padding-bottom: 20px;
+    padding-bottom: 2px;
     color: black;
     display: block;
 }
@@ -216,10 +214,12 @@
     font-size: var(--normal-font-size-font-size);
     border-radius: 8px;
     background-color: var(--background-item);
-    padding-top: 34px;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    padding-left: 10px;
     margin-bottom: 1rem;
     margin-top: 0.25rem;
-    width: 100%;
+    width: 280px;
     cursor: pointer;
 }
 
@@ -390,7 +390,7 @@ a {
 .cellier-info-icon {
     display: flex;
     justify-content: end;
-    width: 25px; /* Ajuste para o tamanho desejado */
+    width: 25px;
     height: 25px;
 }
 

@@ -30,19 +30,19 @@ class CellierController extends Controller
      */
 
     public function listBouteilles($cellierId)
-{
-    $cellier = Cellier::find($cellierId);
+    {
+        $cellier = Cellier::find($cellierId);
 
-    if (!$cellier) {
-        // Se o Cellier não for encontrado, redirecionar com uma mensagem de erro
-        return back()->with('error', 'Cellier non trouvé');
+        if (!$cellier) {
+            // Si Cellier n'est pas trouvé, redirigez avec un message d'erreur
+            return back()->with('error', 'Cellier non trouvé');
+        }
+
+        // Charger les bouteilles liées au cellier incluant la quantité du tableau croisé dynamique
+        $bouteilles = $cellier->bouteilles()->withPivot('quantite')->get();
+
+        return view('cellier.select', ['cellier' => $cellier, 'bouteilles' => $bouteilles]);
     }
-
-    // Carregue as bouteilles relacionadas ao cellier incluindo a quantidade da tabela pivot
-    $bouteilles = $cellier->bouteilles()->withPivot('quantite')->get();
-
-    return view('cellier.select', ['cellier' => $cellier, 'bouteilles' => $bouteilles]);
-}
 
 
     public function ajouterBouteilles(Request $request, $cellierId)
@@ -83,15 +83,15 @@ class CellierController extends Controller
 
     public function index()
     {
-        // Recupera os items com a lógica existente
+        // Récupérer des éléments avec la logique existante
         $items = Cellier::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(5);
 
-        // Adiciona um ícone aleatório a cada item
+        // Ajoute une icône aléatoire à chaque élément
         foreach ($items as $item) {
             $item->random_icon = self::randomIcon();
         }
 
-        // Retorna a view com os dados necessários (mantendo a lógica anterior)
+        // Renvoie la vue avec les données nécessaires (en conservant la logique précédente)
         return view('cellier.index', compact('items'));
     }
 
@@ -173,10 +173,10 @@ class CellierController extends Controller
      */
     public function destroy(Cellier $cellier)
     {
-        // Remova os registros associados na tabela cellier_bouteilles
+        // Supprimer les enregistrements associés dans la table cellier bouteilles
         $cellier->bouteilles()->delete();
 
-        // Agora você pode excluir o registro na tabela celliers
+        // Pouvez maintenant supprimer l'enregistrement dans la table des celliers
         $cellier->delete();
 
         return redirect()->route('cellier.index')->with('success', 'Cellier supprimé avec succès!');
@@ -187,7 +187,7 @@ class CellierController extends Controller
         $bouteilleId = $request->bouteille_id; // ID de la Bouteille
         $nouvelleQuantite = $request->quantite; // Nouvelle quantité
 
-        // Verifique se Cellier e Bouteille existem
+        // Vérifier si Cellier et Bouteille existent
         $cellier = Cellier::find($cellierId);
         $bouteille = Bouteille::find($bouteilleId);
 
@@ -195,7 +195,7 @@ class CellierController extends Controller
             return response()->json(['message' => 'Cellier ou Bouteille non trouvé'], 404);
         }
 
-        // Atualize a quantidade na tabela intermediária
+        // Mettre à jour la quantité dans le tableau intermédiaire
         $cellier->bouteilles()->updateExistingPivot($bouteilleId, ['quantite' => $nouvelleQuantite]);
 
         return response()->json(['message' => 'Quantité mise à jour avec succès !']);

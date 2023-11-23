@@ -29,20 +29,20 @@ class CellierController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     public function listBouteilles($cellierId)
-     {
-         $cellier = Cellier::find($cellierId);
-     
-         if (!$cellier) {
-             // Se o Cellier não for encontrado, redirecionar com uma mensagem de erro
-             return back()->with('error', 'Cellier non trouvé');
-         }
-     
-         // Carregue as bouteilles relacionadas ao cellier incluindo a quantidade da tabela pivot
-         $bouteilles = $cellier->bouteilles()->withPivot('quantite')->get();
-     
-         return view('cellier.select', ['cellier' => $cellier, 'bouteilles' => $bouteilles]);
-     }
+    public function listBouteilles($cellierId)
+{
+    $cellier = Cellier::find($cellierId);
+
+    if (!$cellier) {
+        // Se o Cellier não for encontrado, redirecionar com uma mensagem de erro
+        return back()->with('error', 'Cellier non trouvé');
+    }
+
+    // Carregue as bouteilles relacionadas ao cellier incluindo a quantidade da tabela pivot
+    $bouteilles = $cellier->bouteilles()->withPivot('quantite')->get();
+
+    return view('cellier.select', ['cellier' => $cellier, 'bouteilles' => $bouteilles]);
+}
 
 
     public function ajouterBouteilles(Request $request, $cellierId)
@@ -75,7 +75,7 @@ class CellierController extends Controller
         }
 
         // Modifique esta linha para usar uma query em vez de uma coleção
-        $bouteilles = $cellier->bouteilles()->orderBy('id', 'desc')->paginate(5);
+        $bouteilles = $cellier->bouteilles()->orderBy('id', 'desc')->paginate(10);
 
         return view('cellier.select', ['cellier' => $cellier, 'bouteilles' => $bouteilles]);
     }*/

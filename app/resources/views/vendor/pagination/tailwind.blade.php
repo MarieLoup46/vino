@@ -1,5 +1,5 @@
 @if ($paginator->hasPages())
-    <nav role="navigation" aria-label="{{ __('Pagination Navigation') }}" class="pagination">
+    <nav role="navigation" aria-label="{{ __('Pagination Navigation') }}" class="pagination text-center">
         <div>
             <div class="info-page">
                 <p>
@@ -20,7 +20,7 @@
             <div class="liste-pages">
                     {{-- Previous Page Link --}}
                     @if (!$paginator->onFirstPage())
-                        <a href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="{{ __('pagination.previous') }}">
+                        <a class="text-center" href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="{{ __('pagination.previous') }}">
                             <span class="avant-btn"><-</span>
                         </a>
                     @endif
@@ -42,7 +42,7 @@
                                         <span class="current-page">{{ $page }}</span>
                                     </span>
                                 @else
-                                    <a class="page" href="{{ $url }}"  aria-label="{{ __('Go to page :page', ['page' => $page]) }}">
+                                    <a class="page text-center" href="{{ $url }}"  aria-label="{{ __('Go to page :page', ['page' => $page]) }}">
                                         <span>{{ $page }}</span>
                                     </a>
                                 @endif
@@ -52,7 +52,7 @@
 
                     {{-- Next Page Link --}}
                     @if ($paginator->hasMorePages())
-                        <a href="{{ $paginator->nextPageUrl() }}" rel="next"  aria-label="{{ __('pagination.next') }}">
+                        <a class="text-center" href="{{ $paginator->nextPageUrl() }}" rel="next"  aria-label="{{ __('pagination.next') }}">
                             <span class="apres-btn">-></span>
                         </a>
                     @endif

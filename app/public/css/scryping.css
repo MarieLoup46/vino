@@ -16,8 +16,8 @@
 
 .alert-success {
     color: green;
-    background-color: #dff0d8;
-    border-color: #d6e9c6;
+    background-color: hsl(103, 44%, 89%);
+    border-color: hsl(93, 44%, 85%);
     position: fixed;
     top: 0;
     left: 0;

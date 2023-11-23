@@ -383,8 +383,7 @@ a {
 }
 
 .cellier-item-action {
-    margin-top: 30px;
-    margin-left: 120px;
+    margin-top: 150px;
 }
 
 .cellier-info-icon {
@@ -392,4 +391,51 @@ a {
     justify-content: end;
     width: 25px; /* Ajuste para o tamanho desejado */
     height: 25px; 
+}
+
+.cellier-select-bouteille-quantite {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+    width: 120px;
+}
+
+.cellier-select-bouteille-quantite .plus, .cellier-select-bouteille-quantite .moins{
+    text-decoration: none;
+    color: white;
+    background-color: var(--color-button);
+    font-size: 30px;
+    border-radius: 50%;
+    padding: 4px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.cellier-select-bouteille-quantite .quantite:focus-visible{
+    border:none;
+}
+
+.cellier-select-bouteille-quantite label{
+    margin-right: 25px;
+}
+
+.cellier-select-bouteille-quantite .quantite-bouteille{
+    text-align: center;
+    color:#000;
+    background-color: white;
+    padding: 15px ;
+    border: 2px solid var(--color-button);
+    border-radius: 10px;
+    cursor: pointer;
+    width: 50px;
+    margin: 0 2px;
+    border: none;
+    font-size: 30px;
+    background-color: transparent;
 }

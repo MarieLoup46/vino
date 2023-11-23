@@ -29,22 +29,20 @@ class CellierController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function listBouteilles($cellierId)
-    {
-        $cellier = Cellier::find($cellierId);
-
-        if (!$cellier) {
-            // Se o Cellier não for encontrado, redirecionar com uma mensagem de erro
-            return back()->with('error', 'Cellier non trouvé');
-        }
-
-        // Carregue as bouteilles relacionadas ao cellier usando o relacionamento 'bouteilles'
-        $bouteilles = $cellier->bouteilles;
-
-        $groupedBouteilles = $bouteilles->groupBy('bouteille_id');
-
-        return view('cellier.select', ['cellier' => $cellier, 'groupedBouteilles' => $groupedBouteilles]);
-    }
+     public function listBouteilles($cellierId)
+     {
+         $cellier = Cellier::find($cellierId);
+     
+         if (!$cellier) {
+             // Se o Cellier não for encontrado, redirecionar com uma mensagem de erro
+             return back()->with('error', 'Cellier non trouvé');
+         }
+     
+         // Carregue as bouteilles relacionadas ao cellier incluindo a quantidade da tabela pivot
+         $bouteilles = $cellier->bouteilles()->withPivot('quantite')->get();
+     
+         return view('cellier.select', ['cellier' => $cellier, 'bouteilles' => $bouteilles]);
+     }
 
 
     public function ajouterBouteilles(Request $request, $cellierId)
@@ -182,6 +180,25 @@ class CellierController extends Controller
         $cellier->delete();
 
         return redirect()->route('cellier.index')->with('success', 'Cellier supprimé avec succès!');
+    }
+    public function actualiserQuantite(Request $request)
+    {
+        $cellierId = $request->cellier_id; // ID du Cellier
+        $bouteilleId = $request->bouteille_id; // ID de la Bouteille
+        $nouvelleQuantite = $request->quantite; // Nouvelle quantité
+
+        // Verifique se Cellier e Bouteille existem
+        $cellier = Cellier::find($cellierId);
+        $bouteille = Bouteille::find($bouteilleId);
+
+        if (!$cellier || !$bouteille) {
+            return response()->json(['message' => 'Cellier ou Bouteille non trouvé'], 404);
+        }
+
+        // Atualize a quantidade na tabela intermediária
+        $cellier->bouteilles()->updateExistingPivot($bouteilleId, ['quantite' => $nouvelleQuantite]);
+
+        return response()->json(['message' => 'Quantité mise à jour avec succès !']);
     }
 
 }

@@ -28,7 +28,7 @@
                 <div class="cellier-select-bouteille-infos">
                     <small class="cellier-select-bouteille-info">{{ $bouteillesGroup->first()->bouteille->pays }} |</small>
                     <small class="cellier-select-bouteille-info">{{ $bouteillesGroup->first()->bouteille->type->type}} |</small>
-                    <small class="cellier-select-bouteille-info">{{ $bouteillesGroup->first()->bouteille->format }} |</small>
+                    <small class="cellier-select-bouteille-info">{{ $bouteillesGroup->first()->bouteille->format }} </small>
                     <small class="cellier-select-bouteille-info">Quantité: {{ $bouteillesGroup->count() }}</small>
                 </div>
                 <div class="cellier-item-action">

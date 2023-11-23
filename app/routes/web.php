@@ -69,6 +69,7 @@ Route::post('/cellier/{cellierId}/bouteilles', [CellierController::class, 'listB
 //Route  pour lister les bouteilles à l'intérieur d'un cellier spécifique.(GET)
 Route::get('/cellier/{cellierId}/bouteilles', [CellierController::class, 'listBouteilles'])->name('cellier.bouteilles.list')->middleware('auth');
 
+//Route  pour actualiser la quantite de bouteilles à l'intérieur d'un cellier
 Route::post('/cellier/actualiserQuantite', [CellierController::class,'actualiserQuantite'])->middleware('auth');
 
 

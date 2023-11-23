@@ -50,6 +50,6 @@
     </main>
     <script src="{{ asset('js/ajouter-cellier-bouteille.js') }}"></script>
 
+    @include('layouts.footer')
 @endsection
 
-@include('layouts.footer')

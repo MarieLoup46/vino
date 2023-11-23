@@ -80,13 +80,21 @@ class CellierController extends Controller
      }*/
 
 
-    public function index()
-    {
-        $items = Cellier::where('user_id', Auth::user()->id)->orderBy('id','desc')->paginate(5);
-        $random_icon = self::randomIcon();
+     public function index()
+{
+    // Recupera os items com a lógica existente
+    $items = Cellier::where('user_id', Auth::user()->id)->orderBy('id','desc')->paginate(5);
 
-        return view('cellier.index', compact('items', 'random_icon'));
+    // Adiciona um ícone aleatório a cada item
+    foreach ($items as $item) {
+        $item->random_icon = self::randomIcon();
     }
+
+    // Retorna a view com os dados necessários (mantendo a lógica anterior)
+    return view('cellier.index', compact('items'));
+}
+
+     
 
     /**
      * Show the form for creating a new resource.

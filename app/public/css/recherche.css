@@ -145,7 +145,16 @@
     .pagination .liste-pages {
         flex-wrap: wrap;
     }
-    
+    .bouteille__nom, .bouteille__color, .bouteille__prix{
+        font-size: var( --normal-font-size);
+    }
+    .recherche__img {
+        width: 90px;
+        height: 129px;
+    }
+    .bouteille__info {
+        width: 50%;
+    }
 }
 
 

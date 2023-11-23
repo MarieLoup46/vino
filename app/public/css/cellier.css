@@ -277,7 +277,6 @@ padding-top: 20px;
 .cellier-select-container {
     height: 100vh;
     display: flex;
-    overflow: auto;
     flex-direction: column;
 }
 
@@ -295,9 +294,7 @@ padding-top: 20px;
     font-weight: var(--weight-700);
     color: var(--wine-component);
     font-family: var(--font-vino);
-    padding-top: 53px;
     font-style: italic;
-    padding-top: 15px;
 }
 
 .cellier-select-btn {
@@ -335,11 +332,10 @@ padding-top: 20px;
 
 .cellier-select-list {
     display: flex;
-    height: 100%;
     flex-direction: column;
     align-items: center;
     gap: 35px;
-    padding: 15px 15px 0 15px;
+    padding: 10px 15px 0 15px;
 }
 
 a {
@@ -353,7 +349,6 @@ a {
     border-radius: 10px;
     background-color: var(--background-item);
     width: 100%;
-    height: 100%;
     cursor: pointer;
     padding-right: 5px;
 }
